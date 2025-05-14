@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore our gallery of stunning images from Morocco, featuring breathtaking landscapes, vibrant cities, and unforgettable experiences.">
+    <title>Gallery | Merrakechy Tour</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/gallery.css">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lightbox CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+</head>
+<body>
+    <!-- Menu Overlay (for mobile) -->
+    <div class="menu-overlay"></div>
+    
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Header Section -->
+    <header class="site-header">
+        <div class="container">
+            <div class="header-wrapper">
+                <div class="logo">
+                    <a href="../index.html">
+                        <h1>merrakechy <span>Tours </span></h1>
+                    </a>
+                </div>
+                
+                <nav class="main-nav">
+                    <ul class="nav-links">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="gallery.html" class="active">Gallery</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="header-right">
+                    
+                    
+                    <a href="contact.html" class="btn btn-primary">Book Now</a>
+                    
+                    <button class="mobile-menu-toggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Hero Section -->
+    <section class="page-hero" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../assets/images/hero/gallery-hero.jpg');">
+        <div class="container">
+            <div class="page-hero-content">
+                <h1>Gallery</h1>
+                <p>Discover the beauty and diversity of Morocco through our lens</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Filter Section -->
+    <section class="gallery-filter section-padding">
+        <div class="container">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="destinations">Destinations</button>
+                <button class="filter-btn" data-filter="activities">Activities</button>
+                <button class="filter-btn" data-filter="culture">Culture & People</button>
+                <button class="filter-btn" data-filter="accommodations">Accommodations</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="gallery-grid">
+                <!-- Destinations -->
+                <div class="gallery-item" data-category="destinations">
+                    <a href="../assets/images/gallery/large/marrakech-1.jpg" data-lightbox="morocco-gallery" data-title="Jemaa el-Fnaa Square, Marrakech">
+                        <img src="../assets/images/gallery/thumbnails/marrakech-1.jpg" alt="Jemaa el-Fnaa Square, Marrakech">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Jemaa el-Fnaa</h3>
+                                <p>Marrakech</p>
+                                <span class="view-icon"><i class="fas fa-search-plus"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="gallery-item" data-category="destinations">
+                    <a href="../assets/images/gallery/large/chefchaouen-1.jpg" data-lightbox="morocco-gallery" data-title="The Blue City of Chefchaouen">
+                        <img src="../assets/images/gallery/thumbnails/chefchaouen-1.jpg" alt="The Blue City of Chefchaouen">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Blue City</h3>
+                                <p>Chefchaouen</p>
+                                <span class="view-icon"><i class="fas fa-search-plus"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="gallery-item" data-category="destinations">
+                    <a href="../assets/images/gallery/large/sahara-1.jpg" data-lightbox="morocco-gallery" data-title="Sahara Desert Dunes at Sunset">
+                        <img src="../assets/images/gallery/thumbnails/sahara-1.jpg" alt="Sahara Desert Dunes at Sunset">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Desert Dunes</h3>
+                                <p>Sahara</p>
+                                <span class="view-icon"><i class="fas fa-search-plus"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="gallery-item" data-category="destinations">
+                    <a href="../assets/images/gallery/large/fes-1.jpg" data-lightbox="morocco-gallery" data-title="Ancient Medina of Fes">
+                        <img src="../assets/images/gallery/thumbnails/fes-1.jpg" alt="Ancient Medina of Fes">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Ancient Medina</h3>
+                                <p>Fes</p>
+                                <span class="view-icon"><i class="fas fa-search-plus"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="gallery-item" data-category="destinations">
+                    <a href="../assets/images/gallery/large/essaouira-1.jpg" data-lightbox="morocco-gallery" data-title="Coastal Town of Essaouira">
+                        <img src="../assets/images/gallery/thumbnails/essaouira-1.jpg" alt="Coastal Town of Essaouira">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Coastal Town</h3>
+                                <p>Essaouira</p>
+                                <span class="view-icon"><i class="fas fa-search-plus"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="gallery-item" data-category="destinations">
+                    <a href="../assets/images/gallery/large/atlas-1.jpg" data-lightbox="morocco-gallery" data-title="Atlas Mountains Landscape">
+                        <img src="../assets/images/gallery/thumbnails/atlas-1.jpg" alt="Atlas Mountains Landscape">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Mountain Landscape</h3>
+                                <p>Atlas Mountains</p>
+                                <span class="view-icon"><i class="fas fa-search-plus"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Activities -->
+                <div class="gallery-item" data-category="activities">
+                    <a href="../assets/images/gallery/large/camel-trek-1.jpg" data-lightbox="morocco-gallery" data-title="Camel Trek in the Sahara Desert">
+                        <img src="../assets/images/gallery/thumbnails/camel-trek-1.jpg" alt="Camel Trek in the Sahara Desert">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Camel Trek</h3>
+                                <p>Sahara Desert</p>
+                                <span class="view-icon"><i class="fas fa-search-plus"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="gallery-item" data-category="activities">
+                    <a href="../assets/images/gallery/large/hot-air-balloon-1.jpg" data-lightbox="morocco-gallery" data-title="Hot Air Balloon Ride over Atlas Mountains">
+                        <img src="../assets/images/gallery/thumbnails/hot-air-balloon-1.jpg" alt="Hot Air Balloon Ride over Atlas Mountains">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Hot Air Balloon</h3>
+                                <p>Atlas Mountains</p>
+                                <span class="view-icon"><i class="fas fa-search-plus"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="gallery-item" data-category="activities">
+                    <a href="../assets/images/gallery/large/quad-biking-1.jpg" data-lightbox="morocco-gallery" data-title="Quad Biking Adventure in Agafay Desert">
+                        <img src="../assets/images/gallery/thumbnails/quad-biking-1.jpg" alt="Quad Biking Adventure in Agafay Desert">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Quad Biking</h3>
+                                <p>Agafay Desert</p>
+                                <span class="view-icon"><i class="fas fa-search-plus"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="gallery-item" data-category="activities">
+                    <a href="../assets/images/gallery/large/cooking-class-1.jpg" data-lightbox="morocco-gallery" data-title="Traditional Moroccan Cooking Class">
+                        <img src="../assets/images/gallery/thumbnails/cooking-class-1.jpg" alt="Traditional Moroccan Cooking Class">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Cooking Class</h3>
+                                <p>Traditional Cuisine</p>
+                                <span class="view-icon"><i class="fas fa-search-plus"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="gallery-item" data-category="activities">
+                    <a href="../assets/images/gallery/large/hiking-1.jpg" data-lightbox="morocco-gallery" data-title="Hiking in the Atlas Mountains">
+                        <img src="../assets/images/gallery/thumbnails/hiking-1.jpg" alt="Hiking in the Atlas Mountains">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Mountain Hiking</h3>
+                                <p>Atlas Mountains</p>
+                                <span class="view-icon"><i class="fas fa-search-plus"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="gallery-item" data-category="activities">
+                    <a href="../assets/images/gallery/large/hammam-1.jpg" data-lightbox="morocco-gallery" data-title="Traditional Moroccan Hammam Experience">
+                        <img src="../assets/images/gallery/thumbnails/hammam-1.jpg" alt="Traditional Moroccan Hammam Experience">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Traditional Hammam</h3>
+                                <p>Wellness Experience</p>
+                                <span class="view-icon"><i class="fas fa-search-plus"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Culture & People -->
+                <div class="gallery-item" data-category="culture">
+                    <a href="../assets/images/gallery/large/tea-ceremony-1.jpg" data-lightbox="morocco-gallery" data-title="Traditional Moroccan Tea Ceremony">
+                        <img src="../assets/images/gallery/thumbnails/tea-ceremony-1.jpg" alt="Traditional Moroccan Tea Ceremony">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Tea Ceremony</h3>
+                                <p>Moroccan Tradition</p>
+                                <span class="view-icon"><i class="fas fa-search-plus"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="gallery-item" data-category="culture">
+                    <a href="../assets/images/gallery/large/artisans-1.jpg" data-lightbox="morocco-gallery" data-title="Local Artisans at Work in the Medina">
+                        <img src="../assets/images/gallery/thumbnails/artisans-1.jpg" alt="Local Artisans at Work in the Medina">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Local Artisans</h3>
+                                <p>Traditional Crafts</p>
+                                <span class="view-icon"><i class="fas fa-search-plus"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="gallery-item" data-category="culture">
+                    <a href="../assets/images/gallery/large/berber-village-1.jpg" data-lightbox="morocco-gallery" data-title="Traditional Berber Village in the Atlas Mountains">
+                        <img src="../assets/images/gallery/thumbnails/berber-village-1.jpg" alt="Traditional Berber Village in the Atlas Mountains">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Berber Village</h3>
+                                <p>Atlas Mountains</p>
+                                <span class="view-icon"><i class="fas fa-search-plus"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="gallery-item" data-category="culture">
+                    <a href="../assets/images/gallery/large/spices-1.jpg" data-lightbox="morocco-gallery" data-title="Colorful Spices in Moroccan Market">
+                        <img src="../assets/images/gallery/thumbnails/spices-1.jpg" alt="Colorful Spices in Moroccan Market">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Colorful Spices</h3>
+                                <p>Traditional Market</p>
+                                <span class="view-icon"><i class="fas fa-search-plus"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="gallery-item" data-category="culture">
+                    <a href="../assets/images/gallery/large/music-1.jpg" data-lightbox="morocco-gallery" data-title="Traditional Moroccan Music Performance">
+                        <img src="../assets/images/gallery/thumbnails/music-1.jpg" alt="Traditional Moroccan Music Performance">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Traditional Music</h3>
+                                <p>Cultural Performance</p>
+                                <span class="view-icon"><i class="fas fa-search-plus"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Accommodations -->
+                <div class="gallery-item" data-category="accommodations">
+                    <a href="../assets/images/gallery/large/riad-1.jpg" data-lightbox="morocco-gallery" data-title="Luxury Riad in Marrakech">
+                        <img src="../assets/images/gallery/thumbnails/riad-1.jpg" alt="Luxury Riad in Marrakech">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Luxury Riad</h3>
+                                <p>Marrakech</p>
+                                <span class="view-icon"><i class="fas fa-search-plus"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="gallery-item" data-category="accommodations">
+                    <a href="../assets/images/gallery/large/desert-camp-1.jpg" data-lightbox="morocco-gallery" data-title="Luxury Desert Camp in the Sahara">
+                        <img src="../assets/images/gallery/thumbnails/desert-camp-1.jpg" alt="Luxury Desert Camp in the Sahara">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Desert Camp</h3>
+                                <p>Sahara</p>
+                                <span class="view-icon"><i class="fas fa-search-plus"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="gallery-item" data-category="accommodations">
+                    <a href="../assets/images/gallery/large/kasbah-1.jpg" data-lightbox="morocco-gallery" data-title="Historic Kasbah Hotel">
+                        <img src="../assets/images/gallery/thumbnails/kasbah-1.jpg" alt="Historic Kasbah Hotel">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Historic Kasbah</h3>
+                                <p>Luxury Accommodation</p>
+                                <span class="view-icon"><i class="fas fa-search-plus"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="gallery-item" data-category="accommodations">
+                    <a href="../assets/images/gallery/large/mountain-resort-1.jpg" data-lightbox="morocco-gallery" data-title="Mountain Resort in the Atlas Mountains">
+                        <img src="../assets/images/gallery/thumbnails/mountain-resort-1.jpg" alt="Mountain Resort in the Atlas Mountains">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Mountain Resort</h3>
+                                <p>Atlas Mountains</p>
+                                <span class="view-icon"><i class="fas fa-search-plus"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="gallery-load-more">
+                <button id="load-more-btn" class="btn btn-secondary">Load More</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Gallery Section -->
+    <section class="video-gallery section-padding bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>Video Highlights</h2>
+                <p>Experience the sights and sounds of Morocco through our video collection</p>
+            </div>
+            
+            <div class="video-grid">
+                <div class="video-item">
+                    <div class="video-thumbnail" data-video-id="YOUR_YOUTUBE_VIDEO_ID_1">
+                        <img src="../assets/images/gallery/video-thumbnails/marrakech-video.jpg" alt="Marrakech Tour Video">
+                        <div class="video-play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Marrakech City Tour</h3>
+                        <p>Explore the vibrant medina and iconic landmarks</p>
+                    </div>
+                </div>
+                
+                <div class="video-item">
+                    <div class="video-thumbnail" data-video-id="YOUR_YOUTUBE_VIDEO_ID_2">
+                        <img src="../assets/images/gallery/video-thumbnails/sahara-video.jpg" alt="Sahara Desert Video">
+                        <div class="video-play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Sahara Desert Adventure</h3>
+                        <p>Journey through the golden dunes and starry nights</p>
+                    </div>
+                </div>
+                
+                <div class="video-item">
+                    <div class="video-thumbnail" data-video-id="YOUR_YOUTUBE_VIDEO_ID_3">
+                        <img src="../assets/images/gallery/video-thumbnails/activities-video.jpg" alt="Morocco Activities Video">
+                        <div class="video-play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Thrilling Activities</h3>
+                        <p>Experience our most exciting adventures</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Feed Section -->
+    <section class="instagram-section section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2>Follow Our Adventures</h2>
+                <p>Stay updated with our latest travels on Instagram</p>
+            </div>
+            
+            <div class="instagram-feed">
+                <a href="https://www.instagram.com/" class="instagram-item" target="_blank">
+                    <img src="../assets/images/gallery/instagram/insta-1.jpg" alt="Instagram Photo">
+                    <div class="instagram-overlay">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </a>
+                
+                <a href="https://www.instagram.com/" class="instagram-item" target="_blank">
+                    <img src="../assets/images/gallery/instagram/insta-2.jpg" alt="Instagram Photo">
+                    <div class="instagram-overlay">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </a>
+                
+                <a href="https://www.instagram.com/" class="instagram-item" target="_blank">
+                    <img src="../assets/images/gallery/instagram/insta-3.jpg" alt="Instagram Photo">
+                    <div class="instagram-overlay">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </a>
+                
+                <a href="https://www.instagram.com/" class="instagram-item" target="_blank">
+                    <img src="../assets/images/gallery/instagram/insta-4.jpg" alt="Instagram Photo">
+                    <div class="instagram-overlay">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </a>
+                
+                <a href="https://www.instagram.com/" class="instagram-item" target="_blank">
+                    <img src="../assets/images/gallery/instagram/insta-5.jpg" alt="Instagram Photo">
+                    <div class="instagram-overlay">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </a>
+                
+                <a href="https://www.instagram.com/" class="instagram-item" target="_blank">
+                    <img src="../assets/images/gallery/instagram/insta-6.jpg" alt="Instagram Photo">
+                    <div class="instagram-overlay">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="instagram-follow">
+                <a href="https://www.instagram.com/" class="btn btn-outline" target="_blank">
+                    <i class="fab fa-instagram"></i> Follow Us @moroccoAdventures
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta section-padding">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Explore Morocco?</h2>
+                <p>Start planning your adventure today</p>
+                <div class="cta-buttons">
+                    <a href="services.html" class="btn btn-light">Browse Tours</a>
+                    <a href="contact.html" class="btn btn-secondary">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="logo">
+                        <a href="../index.html">
+                            <h2>merrakechy<span>Tours</span></h2>
+                        </a>
+                    </div>
+                    <p>We provide authentic travel experiences in Morocco, focusing on activities, tours, and transportation services that showcase the best of our beautiful country.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-tripadvisor"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Jemaa el-Fnaa, Marrakech, Morocco</li>
+                        <li><i class="fas fa-phone"></i> +212 600 000 000</li>
+                        <li><i class="fas fa-envelope"></i> aitaliyassir55@gmail.com</li>
+                        <li><i class="fas fa-clock"></i> Open Daily: 8AM - 8PM</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-newsletter">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to receive updates on new tours and special offers.</p>
+                    <form class="footer-newsletter-form">
+                        <input type="email" placeholder="Your Email Address" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2023 Merrakechy Tour. All rights reserved.</p>
+                </div>
+                <div class="footer-bottom-links">
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">FAQ</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <!-- Video Modal -->
+    <div class="video-modal">
+        <div class="video-modal-content">
+            <span class="video-close">&times;</span>
+            <div class="video-container">
+                <iframe id="youtube-player" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="../assets/js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <script src="/assets/js/translate.js"></script>
+
+</body>
+</html>

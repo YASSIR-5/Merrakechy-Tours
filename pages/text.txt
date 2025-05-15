@@ -1,0 +1,198 @@
+Based on the tours you've listed, it appears all of them should be included in the details page. However, I need to check if we've included all of them in our `toursData` object.
+
+Let's go through and check what we have already implemented:
+
+1. Already implemented in detail:
+   - Ourika Valley Day Trip
+   - Imlil Atlas Mountains Tour
+   - Zagora 2-Day Desert Tour
+   - Merzouga 3-Day Desert Tour
+
+2. Implemented in our additional tours:
+   - Ouzoud Waterfalls Day Trip
+   - Essaouira Day Trip
+   - Agafay Desert Day Trip
+   - 3-Day Tour from Marrakech to Fez
+   - 7-Day Tour from Casablanca
+   - 8-Day Tour from Casablanca
+   - 9-Day Tour from Casablanca
+   - 10-Day Tour from Casablanca
+   - 12-Day Tour from Casablanca
+
+3. Still need to implement:
+   - 4-Day Desert Tour to Merzouga
+   - 5-Day Desert Tour to Merzouga
+
+Let me provide the data for the two missing tours:
+
+```javascript
+"merzouga-4-days": {
+    title: "4-Day Desert Tour to Merzouga",
+    subtitle: "Extended desert adventure with more time to explore each destination",
+    heroImage: "../assets/images/tours/zagora-desert-hero.jpg", // Using existing image as placeholder
+    mainImage: "../assets/images/tours/zagora-desert.jpg", // Using existing image as placeholder
+    price: 450,
+    duration: "4 days / 3 nights",
+    location: "Multiple Locations",
+    groupSize: "2-12 people",
+    rating: 4.9,
+    reviews: 84,
+    description: `
+        <h3>Tour Overview</h3>
+        <p>This extended 4-day desert tour offers a more relaxed and immersive experience compared to the shorter options. With an additional day and night, you'll have more time to explore each destination in depth, take in the breathtaking landscapes at a comfortable pace, and truly connect with the places and people you encounter along the way.</p>
+        
+        <p>Your journey begins by crossing the spectacular High Atlas Mountains via the Tizi n'Tichka pass, visiting the UNESCO World Heritage site of Aït Benhaddou and exploring the film studios of Ouarzazate. Continue through the Valley of Roses and the Dadès Valley, with an overnight stay allowing you to fully appreciate the "Valley of a Thousand Kasbahs."</p>
+        
+        <p>On the second day, visit the dramatic Todra Gorge, with time for a light hike between its towering 300-meter cliffs. Continue to the desert town of Merzouga where you'll embark on a sunset camel trek into the stunning Erg Chebbi dunes for an unforgettable night at a traditional desert camp under the stars.</p>
+        
+        <p>The third day offers the unique opportunity to explore the desert region more deeply, visiting nomadic families, hidden oases, abandoned mines, and the village of Khamlia to experience Gnawa music. After a second night in the desert or at a comfortable hotel, your return journey takes you through different landscapes and the Middle Atlas Mountains, with an overnight in a charming town before arriving back in Marrakech.</p>
+    `,
+    itinerary: [
+        {
+            time: "Day 1",
+            title: "Marrakech - Atlas Mountains - Aït Benhaddou - Ouarzazate - Dades Valley",
+            description: "Morning departure from Marrakech. Cross the High Atlas Mountains via the spectacular Tizi n'Tichka pass (2,260m) with stops for panoramic views. Visit the UNESCO World Heritage site of Aït Benhaddou with guided tour of this ancient ksar. Continue to Ouarzazate to visit the film studios and Taourirt Kasbah. Drive through the Valley of Roses to the Dades Valley. Dinner and overnight at a hotel in the Dades Valley."
+        },
+        {
+            time: "Day 2",
+            title: "Dades Valley - Todra Gorge - Merzouga (Sahara Desert)",
+            description: "After breakfast, explore the Dades Valley with its unique rock formations known as 'monkey fingers.' Drive to Tinghir to visit the impressive Todra Gorge with time for a light hike between the towering 300m cliffs. Continue to Erfoud, known for its fossils, with optional visit to a fossil workshop. Arrive in Merzouga in the afternoon. Meet your camel caravan for a sunset trek into the Erg Chebbi dunes. Reach a traditional desert camp for dinner, Berber music around the campfire, and overnight in a nomadic tent under the stars."
+        },
+        {
+            time: "Day 3",
+            title: "Merzouga Desert Exploration",
+            description: "Wake early to witness the spectacular desert sunrise. After breakfast at the camp, enjoy a full day exploring the desert region by 4x4 vehicle. Visit a nomadic family to learn about their lifestyle, the village of Khamlia to meet the Gnawa people and hear their music, abandoned mines, and hidden oases. Lunch in a desert oasis. In the late afternoon, return to the desert camp for a second night or option to stay at a comfortable hotel with pool (please specify preference at booking). Dinner and overnight."
+        },
+        {
+            time: "Day 4",
+            title: "Merzouga - Ziz Valley - Middle Atlas - Marrakech",
+            description: "After breakfast, begin the return journey to Marrakech taking a different route. Drive through the beautiful Ziz Valley with its palm oases. Continue to the Middle Atlas Mountains with a stop in Midelt, known for its minerals and apples, for lunch. Cross the Middle Atlas through Azrou, Ifrane (known as 'Little Switzerland' for its Alpine-style architecture), and cedar forests where you might spot Barbary macaques. Continue via Beni Mellal with stops for photos and refreshments. Arrive in Marrakech in the evening."
+        }
+    ],
+    includes: [
+        "Transportation in comfortable air-conditioned vehicle",
+        "English-speaking driver/guide throughout",
+        "3 nights accommodation (1 night hotel in Dades Valley, 2 nights in desert camp or 1 night camp + 1 night hotel)",
+        "Half-board (daily breakfast and dinner)",
+        "Camel trekking in Merzouga",
+        "4x4 desert exploration",
+        "Guided tours of Aït Benhaddou and Todra Gorge",
+        "Bottled water daily",
+        "All taxes and fees"
+    ],
+    bring: [
+        "Comfortable clothing and walking shoes",
+        "Warm jacket for cool desert nights",
+        "Sun protection (hat, sunglasses, sunscreen)",
+        "Personal toiletries and medications",
+        "Camera",
+        "Flashlight/headlamp for desert camp",
+        "Cash for lunches, drinks, souvenirs, and tips"
+    ],
+    availability: "Departures every Monday, Wednesday, and Saturday",
+    additionalInfo: {
+        "Difficulty": "Easy to moderate - some walking required",
+        "Minimum Age": "None - suitable for all ages",
+        "Accommodation": "Mid-range hotels and traditional desert camp",
+        "Languages": "English, French, Arabic, Spanish (request at booking)",
+        "Confirmation": "Immediate confirmation",
+        "Cancellation": "Free cancellation up to 7 days before",
+        "Not Included": "Lunches, beverages, entrance fees to monuments (approximately 50-100 MAD per site), gratuities"
+    },
+    relatedPrograms: ["zagora-2-days", "merzouga-3-days", "merzouga-5-days"]
+},
+
+"merzouga-5-days": {
+    title: "5-Day Desert Tour to Merzouga",
+    subtitle: "Comprehensive desert journey with time to deeply explore Morocco's southern regions",
+    heroImage: "../assets/images/tours/zagora-desert-hero.jpg", // Using existing image as placeholder
+    mainImage: "../assets/images/tours/zagora-desert.jpg", // Using existing image as placeholder
+    price: 525,
+    duration: "5 days / 4 nights",
+    location: "Multiple Locations",
+    groupSize: "2-12 people",
+    rating: 4.9,
+    reviews: 76,
+    description: `
+        <h3>Tour Overview</h3>
+        <p>Our 5-day desert expedition is the ultimate Sahara experience, offering the most comprehensive exploration of Morocco's southern regions. This extended journey allows you to travel at a relaxed pace, with time to truly immerse yourself in each destination and discover hidden gems that shorter tours must bypass.</p>
+        
+        <p>Beginning with a leisurely crossing of the High Atlas Mountains, you'll have ample time to appreciate the spectacular Tizi n'Tichka pass with multiple photo stops. Explore the UNESCO World Heritage site of Aït Benhaddou in depth, with time to wander its ancient streets beyond the main tourist areas. In Ouarzazate, enjoy a comprehensive tour of the film studios where many Hollywood blockbusters were filmed.</p>
+        
+        <p>The journey continues to the lush Dades Valley for a full day of exploration, including the dramatic road of a thousand kasbahs, the Valley of Roses, and the impressive Dades Gorge with time for hiking. Another highlight is a thorough visit to Todra Gorge, one of Morocco's most spectacular natural wonders, with opportunities for rock climbing or extended hiking for adventure seekers.</p>
+        
+        <p>Upon reaching the Sahara, you'll experience not just one but two nights in the desert - one at a traditional camp deep in the dunes, and another at a luxury desert camp with premium amenities. In between, enjoy a full day of desert exploration by 4x4, visiting nomadic families, hidden oases, and authentic cultural experiences off the tourist track.</p>
+        
+        <p>The return journey takes you through different landscapes and the cedar forests of the Middle Atlas Mountains, with a comfortable overnight stay that breaks up the long drive back to Marrakech. Throughout the tour, you'll stay in carefully selected accommodations that highlight authentic Moroccan hospitality.</p>
+    `,
+    itinerary: [
+        {
+            time: "Day 1",
+            title: "Marrakech - Atlas Mountains - Aït Benhaddou - Ouarzazate",
+            description: "Morning departure from Marrakech. Leisurely drive across the High Atlas Mountains via the Tizi n'Tichka pass (2,260m) with multiple stops for photos and short walks to viewpoints. Extended visit to the UNESCO World Heritage site of Aït Benhaddou with time to explore beyond the main tourist areas. Late afternoon arrival in Ouarzazate with tour of the film studios and Taourirt Kasbah. Dinner and overnight at a comfortable riad in Ouarzazate."
+        },
+        {
+            time: "Day 2",
+            title: "Ouarzazate - Valley of Roses - Dades Valley - Dades Gorge",
+            description: "After breakfast, full day exploring the Dades region. Drive through the Valley of Roses, famous for its annual rose festival (May) and rose products. Visit a rose cooperative to learn about rose water and oil production. Continue to the dramatic Dades Valley with its unique rock formations known as 'monkey fingers.' Afternoon hike in the Dades Gorge with a local guide. Dinner and overnight at a panoramic hotel overlooking the Dades Valley."
+        },
+        {
+            time: "Day 3",
+            title: "Dades Valley - Todra Gorge - Erfoud - Merzouga (Sahara Desert)",
+            description: "Morning departure to the impressive Todra Gorge with its 300m high cliffs. Extended visit with options for rock climbing with professional guides (additional cost) or a longer hike through the gorge. Continue to Erfoud, known as the fossil capital of Morocco, with visit to a fossil workshop to see how local artisans transform ancient fossils into decorative items. Late afternoon arrival in Merzouga. Meet your camel caravan for a sunset trek deep into the Erg Chebbi dunes. Reach a traditional Berber camp for dinner, music around the campfire, and overnight in a nomadic tent under the stars."
+        },
+        {
+            time: "Day 4",
+            title: "Merzouga Desert Exploration",
+            description: "Wake early to witness the spectacular desert sunrise. After breakfast at the camp, full day exploring the desert region by 4x4 vehicle. Visit a nomadic family to learn about their lifestyle, the village of Khamlia to experience Gnawa music, abandoned mines, and hidden oases. Picnic lunch in a palm grove oasis. Visit a desert lake (seasonal) that attracts flamingos and other birds. Late afternoon, either return to the traditional camp or transfer to a luxury desert camp with premium facilities including private bathrooms, proper beds, and gourmet dinner. Evening entertainment with traditional music and stargazing."
+        },
+        {
+            time: "Day 5",
+            title: "Merzouga - Ziz Valley - Middle Atlas - Marrakech",
+            description: "Optional sunrise camel trek or desert meditation session. After breakfast, begin the return journey to Marrakech. Drive through the stunning Ziz Valley with its endless palm groves and ancient ksour (fortified villages). Stop in Midelt for lunch. Continue through the Middle Atlas Mountains with stops in Azrou cedar forest to see wild Barbary macaques, the Alpine-style town of Ifrane (known as 'Little Switzerland'), and Beni Mellal. Arrive in Marrakech in the evening."
+        }
+    ],
+    includes: [
+        "Transportation in comfortable air-conditioned vehicle",
+        "English-speaking driver/guide throughout",
+        "4 nights accommodation (1 night riad in Ouarzazate, 1 night hotel in Dades Valley, 1 night traditional desert camp, 1 night luxury desert camp)",
+        "Half-board (daily breakfast and dinner)",
+        "Camel trekking in Merzouga",
+        "Full-day 4x4 desert exploration",
+        "Local guides in Aït Benhaddou, Dades Gorge, and Todra Gorge",
+        "Bottled water daily",
+        "All taxes and fees"
+    ],
+    bring: [
+        "Comfortable clothing and walking shoes",
+        "Warm jacket for cool desert nights",
+        "Sun protection (hat, sunglasses, sunscreen)",
+        "Personal toiletries and medications",
+        "Camera",
+        "Flashlight/headlamp for desert camp",
+        "Cash for lunches, drinks, souvenirs, and tips",
+        "Swimwear (some hotels have pools)"
+    ],
+    availability: "Departures every Sunday and Thursday",
+    additionalInfo: {
+        "Difficulty": "Easy to moderate - some hiking optional",
+        "Minimum Age": "None - suitable for all ages",
+        "Accommodation": "Mid-range to premium riads/hotels and desert camps",
+        "Languages": "English, French, Arabic, Spanish (request at booking)",
+        "Confirmation": "Immediate confirmation",
+        "Cancellation": "Free cancellation up to 14 days before",
+        "Not Included": "Lunches, beverages, entrance fees to monuments (approximately 50-100 MAD per site), optional activities like rock climbing, gratuities"
+    },
+    relatedPrograms: ["merzouga-3-days", "merzouga-4-days", "fez-3-days"]
+}
+```
+
+With these two additional tours, you will have data for all the tours listed in your summary. All of these tours will be accessible through the details page when a user clicks on them from the services page.
+
+To ensure everything works correctly, make sure:
+
+1. All these tours are added to your `toursData` object in the tours.js file
+2. The details.js file is properly loading this data
+3. Links to each tour from the services page are using the correct format: `details.html?category=tour&id=tour-id` (where tour-id matches the key in the toursData object)
+
+All tours should now be included and accessible on the details page when clicked from the services page.

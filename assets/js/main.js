@@ -215,10 +215,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const guests = this.querySelector('#guests');
 
             // Basic validation
-            if (!activityType || !activityType.value) {
-                alert('Please select an activity type.');
-                return;
-            }
+            
 
             if (!destination || !destination.value) {
                 alert('Please select a destination.');
@@ -2528,4 +2525,24 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
+});
+// logo adjustment 
+document.addEventListener('DOMContentLoaded', function() {
+    // Header scroll effect
+    const header = document.querySelector('.site-header');
+    const scrollThreshold = 50; // How far to scroll before changing header
+    
+    function handleScroll() {
+        if (window.scrollY > scrollThreshold) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    }
+    
+    // Check initial scroll position
+    handleScroll();
+    
+    // Add scroll event listener
+    window.addEventListener('scroll', handleScroll);
 });

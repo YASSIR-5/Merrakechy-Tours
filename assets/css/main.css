@@ -6609,3 +6609,491 @@ Booking confirmation page
     background-color: #128C7E;
     transform: translateY(-10px);
 }
+/* Services Page Specific Styles */
+
+/* Service Cards */
+.service-card {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.service-image {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+}
+
+.service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.service-card:hover .service-image img {
+    transform: scale(1.1);
+}
+
+.service-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: var(--primary-color);
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 20px;
+    z-index: 1;
+}
+
+.service-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background-color: #f9f9f9;
+}
+
+.service-icon i {
+    font-size: 3rem;
+    color: var(--primary-color);
+}
+
+.service-icon h3 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    color: white;
+    margin: 0;
+    padding: 15px;
+    text-align: center;
+}
+
+.service-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.service-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.service-title h3 {
+    margin: 0;
+    font-size: 1.3rem;
+    color: #333;
+    flex: 1;
+}
+
+.service-price {
+    white-space: nowrap;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.service-price span {
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+.service-price small {
+    font-size: 0.8rem;
+    color: #999;
+}
+
+.service-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.service-meta span {
+    display: flex;
+    align-items: center;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.service-meta i {
+    margin-right: 5px;
+    color: var(--primary-color);
+}
+
+.service-info p {
+    margin-bottom: 15px;
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    flex: 1;
+}
+
+.service-rating {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.stars {
+    display: flex;
+    color: #FFD700;
+}
+
+.service-rating span {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.service-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.service-actions .btn {
+    flex: 1;
+}
+
+/* Services Filter Styles */
+.services-filter-section {
+    background-color: #f9f9f9;
+    padding: 20px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.services-filter {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.filter-btn {
+    background: none;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #666;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.filter-btn:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.filter-btn.active {
+    color: var(--primary-color);
+}
+
+.filter-btn.active:after {
+    width: 80%;
+}
+
+.filter-btn:hover {
+    color: var(--primary-color);
+}
+
+.filter-btn:hover:after {
+    width: 80%;
+}
+
+/* Content Filter Styles */
+.content-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.content-filter-btn {
+    background: none;
+    border: 2px solid #eee;
+    border-radius: 30px;
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.content-filter-btn.active {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+.content-filter-btn:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.content-filter-btn.active:hover {
+    color: white;
+}
+
+/* Content Section Styles */
+.content-section {
+    display: none;
+}
+
+.content-section.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.section-header h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.section-header p {
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Destinations Styles */
+.destinations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.destination-card {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 300px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.destination-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.destination-card:hover img {
+    transform: scale(1.1);
+}
+
+.destination-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.destination-card:hover .destination-content {
+    transform: translateY(-10px);
+}
+
+.destination-content h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.destination-content p {
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 992px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .services-filter {
+        flex-wrap: wrap;
+    }
+    
+    .filter-btn {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+    
+    .destination-card {
+        height: 250px;
+    }
+}
+
+@media (max-width: 576px) {
+    .service-title {
+        flex-direction: column;
+    }
+    
+    .service-price {
+        margin-top: 5px;
+    }
+    
+    .service-actions {
+        flex-direction: column;
+    }
+    
+    .service-actions .btn {
+        width: 100%;
+    }
+    
+    .destinations-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Replace or update this section in your CSS */
+.filter-btn {
+    background: none;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #666;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.filter-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.filter-btn.active {
+    color: var(--primary-color);
+    background-color: transparent; /* Ensure no background color when active */
+}
+
+.filter-btn.active::after {
+    width: 80%;
+}
+
+.filter-btn:hover {
+    color: var(--primary-color);
+    background-color: transparent; /* Ensure no background color on hover */
+}
+
+.filter-btn:hover::after {
+    width: 80%;
+}
+
+/* Content filter buttons (the subcategory filters) */
+.content-filter-btn {
+    background: none;
+    border: 2px solid #eee;
+    border-radius: 30px;
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.content-filter-btn.active {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+.content-filter-btn:hover:not(.active) {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    background-color: transparent;
+}
+/* Direct logo styling */
+.site-header .logo a img {
+    width: 200px !important; /* Force width instead of height */
+    height: auto !important;
+    object-fit: contain;
+    max-width: none !important;
+    display: block;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .site-header .logo a img {
+        width: 150px !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .site-header .logo a img {
+        width: 120px !important;
+    }
+}
+
+/* Ensure the header has enough height */
+.site-header {
+    padding: 15px 0;
+}
+
+.header-wrapper {
+    display: flex;
+    align-items: center;
+}

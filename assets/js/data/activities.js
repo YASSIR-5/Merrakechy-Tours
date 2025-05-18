@@ -62,7 +62,6 @@ const activitiesData = {
             <p>This activity is suitable for all ages and provides excellent photo opportunities of Morocco's iconic landscapes. After your trek, relax with traditional mint tea in a Berber tent while enjoying the serene surroundings.</p>
         `,
         includes: [
-            'Professional local guide',
             'Camel ride',
             'Traditional Moroccan refreshments',
             'Mint tea break in Berber tent',

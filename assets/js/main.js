@@ -2547,22 +2547,22 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', handleScroll);
 });
 
-// Add this to your main.js file
 document.addEventListener('DOMContentLoaded', function() {
-    // Optional: Toggle button functionality
     const contactToggle = document.querySelector('.contact-options-toggle');
     const contactMenu = document.querySelector('.contact-options-menu');
     
     if (contactToggle && contactMenu) {
-        // Mobile-friendly toggle (for touch devices)
+        // Toggle menu on click
         contactToggle.addEventListener('click', function(e) {
             contactMenu.classList.toggle('active');
             e.stopPropagation();
         });
         
-        // Close when clicking elsewhere on mobile
-        document.addEventListener('click', function() {
-            if (contactMenu.classList.contains('active')) {
+        // Close when clicking elsewhere on the page
+        document.addEventListener('click', function(e) {
+            if (contactMenu.classList.contains('active') && 
+                !contactMenu.contains(e.target) && 
+                !contactToggle.contains(e.target)) {
                 contactMenu.classList.remove('active');
             }
         });

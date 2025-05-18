@@ -111,8 +111,8 @@ const toursData = {
             'Round-trip transportation from your Marrakech accommodation',
             'English/French/Arabic speaking guide',
             'Visit to a traditional Berber home with tea ceremony',
-            'Local guide for the waterfall hike',
-            'Bottled water'
+
+            'Bottled water',
         ],
         bring: [
             'Comfortable walking shoes',

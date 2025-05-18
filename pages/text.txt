@@ -1,198 +1,344 @@
-Based on the tours you've listed, it appears all of them should be included in the details page. However, I need to check if we've included all of them in our `toursData` object.
 
-Let's go through and check what we have already implemented:
+merrakechy-tours/
+├── README.md
+├── assets/
+│   ├── css/
+│   │   ├── main.css
+│   │   └── responsive.css
+│   ├── images/
+│   │   ├── 404.png
+│   │   ├── Logos/
+│   │   │   └── logo.png
+│   │   ├── activities/
+│   │   │   ├── camel-ride-hero.jpg
+│   │   │   ├── camel-ride-large.jpg
+│   │   │   ├── camel-ride.jpg
+│   │   │   ├── cooking-class-hero.jpg
+│   │   │   ├── cooking-class-large.jpg
+│   │   │   ├── cooking-class.jpg
+│   │   │   ├── hot-air-balloon-hero.jpg
+│   │   │   ├── hot-air-balloon-large.jpg
+│   │   │   ├── hot-air-balloon.jpg
+│   │   │   ├── quad-biking-hero.jpg
+│   │   │   ├── quad-biking-large.jpg
+│   │   │   └── quad-biking.jpg
+│   │   ├── destinations/
+│   │   │   ├── atlas-mountains.jpg
+│   │   │   ├── marrakech.jpg
+│   │   │   └── sarah-desert.jpg
+│   │   ├── gallery/
+│   │   │   ├── gallery-1.jpg
+│   │   │   ├── gallery-10.jpg
+│   │   │   ├── gallery-11.jpg
+│   │   │   ├── gallery-12.jpg
+│   │   │   ├── gallery-2.jpg
+│   │   │   ├── gallery-3.jpg
+│   │   │   ├── gallery-4.jpg
+│   │   │   ├── gallery-5.jpg
+│   │   │   ├── gallery-6.jpg
+│   │   │   ├── gallery-7.jpg
+│   │   │   ├── gallery-8.jpg
+│   │   │   └── gallery-9.jpg
+│   │   ├── hero/
+│   │   │   ├── checkout-hero.jpg
+│   │   │   ├── confirmation-hero.jpg
+│   │   │   ├── slide1.jpg
+│   │   │   ├── slide2.jpg
+│   │   │   └── slide3.avif
+│   │   ├── icons/
+│   │   │   └── google-icon.png
+│   │   ├── testimonials/
+│   │   │   ├── testimonial1.jpg
+│   │   │   ├── testimonial2.jpg
+│   │   │   ├── testimonial3.jpg
+│   │   │   └── testimonial4.jpg
+│   │   └── tours/
+│   │       ├── imlil-atlas-hero.jpg
+│   │       ├── imlil-atlas.jpg
+│   │       ├── ourika-valley-hero.jpg
+│   │       ├── ourika-valley.jpg
+│   │       ├── zagora-desert-hero.jpg
+│   │       └── zagora-desert.jpg
+│   └── js/
+│       ├── data/
+│       │   └── activities.js
+│       ├── index.js
+│       └── main.js
+├── index.html
+└── pages/
+    ├── 404.html
+    ├── about.html
+    ├── contact.html
+    ├── gallery.html
+    └── thank-you.html
+```
+I'll design a creative contact option button that expands to show multiple contact methods. Here's a custom solution that gives users choices without copying the existing design:
 
-1. Already implemented in detail:
-   - Ourika Valley Day Trip
-   - Imlil Atlas Mountains Tour
-   - Zagora 2-Day Desert Tour
-   - Merzouga 3-Day Desert Tour
+### HTML for the Multi-Contact Button:
 
-2. Implemented in our additional tours:
-   - Ouzoud Waterfalls Day Trip
-   - Essaouira Day Trip
-   - Agafay Desert Day Trip
-   - 3-Day Tour from Marrakech to Fez
-   - 7-Day Tour from Casablanca
-   - 8-Day Tour from Casablanca
-   - 9-Day Tour from Casablanca
-   - 10-Day Tour from Casablanca
-   - 12-Day Tour from Casablanca
+```html
+<!-- Multi-Contact Button -->
+<div class="contact-options-wrapper">
+  <button class="contact-options-toggle">
+    <i class="fas fa-comments"></i>
+  </button>
+  
+  <div class="contact-options-menu">
+    <div class="contact-option-title">Contact Us</div>
+    <a href="https://wa.me/212600000000" class="contact-option whatsapp">
+      <i class="fab fa-whatsapp"></i>
+      <span>WhatsApp</span>
+    </a>
+    <a href="tel:+212600000000" class="contact-option phone">
+      <i class="fas fa-phone-alt"></i>
+      <span>Call Us</span>
+    </a>
+    <a href="mailto:info@merrakechytours.com" class="contact-option email">
+      <i class="fas fa-envelope"></i>
+      <span>Email</span>
+    </a>
+    <a href="pages/contact.html" class="contact-option contact-form">
+      <i class="fas fa-paper-plane"></i>
+      <span>Contact Form</span>
+    </a>
+  </div>
+</div>
+```
 
-3. Still need to implement:
-   - 4-Day Desert Tour to Merzouga
-   - 5-Day Desert Tour to Merzouga
+### CSS for the Multi-Contact Button:
 
-Let me provide the data for the two missing tours:
+```css
+/* Contact Options Button */
+.contact-options-wrapper {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  z-index: 999;
+}
 
-```javascript
-"merzouga-4-days": {
-    title: "4-Day Desert Tour to Merzouga",
-    subtitle: "Extended desert adventure with more time to explore each destination",
-    heroImage: "../assets/images/tours/zagora-desert-hero.jpg", // Using existing image as placeholder
-    mainImage: "../assets/images/tours/zagora-desert.jpg", // Using existing image as placeholder
-    price: 450,
-    duration: "4 days / 3 nights",
-    location: "Multiple Locations",
-    groupSize: "2-12 people",
-    rating: 4.9,
-    reviews: 84,
-    description: `
-        <h3>Tour Overview</h3>
-        <p>This extended 4-day desert tour offers a more relaxed and immersive experience compared to the shorter options. With an additional day and night, you'll have more time to explore each destination in depth, take in the breathtaking landscapes at a comfortable pace, and truly connect with the places and people you encounter along the way.</p>
-        
-        <p>Your journey begins by crossing the spectacular High Atlas Mountains via the Tizi n'Tichka pass, visiting the UNESCO World Heritage site of Aït Benhaddou and exploring the film studios of Ouarzazate. Continue through the Valley of Roses and the Dadès Valley, with an overnight stay allowing you to fully appreciate the "Valley of a Thousand Kasbahs."</p>
-        
-        <p>On the second day, visit the dramatic Todra Gorge, with time for a light hike between its towering 300-meter cliffs. Continue to the desert town of Merzouga where you'll embark on a sunset camel trek into the stunning Erg Chebbi dunes for an unforgettable night at a traditional desert camp under the stars.</p>
-        
-        <p>The third day offers the unique opportunity to explore the desert region more deeply, visiting nomadic families, hidden oases, abandoned mines, and the village of Khamlia to experience Gnawa music. After a second night in the desert or at a comfortable hotel, your return journey takes you through different landscapes and the Middle Atlas Mountains, with an overnight in a charming town before arriving back in Marrakech.</p>
-    `,
-    itinerary: [
-        {
-            time: "Day 1",
-            title: "Marrakech - Atlas Mountains - Aït Benhaddou - Ouarzazate - Dades Valley",
-            description: "Morning departure from Marrakech. Cross the High Atlas Mountains via the spectacular Tizi n'Tichka pass (2,260m) with stops for panoramic views. Visit the UNESCO World Heritage site of Aït Benhaddou with guided tour of this ancient ksar. Continue to Ouarzazate to visit the film studios and Taourirt Kasbah. Drive through the Valley of Roses to the Dades Valley. Dinner and overnight at a hotel in the Dades Valley."
-        },
-        {
-            time: "Day 2",
-            title: "Dades Valley - Todra Gorge - Merzouga (Sahara Desert)",
-            description: "After breakfast, explore the Dades Valley with its unique rock formations known as 'monkey fingers.' Drive to Tinghir to visit the impressive Todra Gorge with time for a light hike between the towering 300m cliffs. Continue to Erfoud, known for its fossils, with optional visit to a fossil workshop. Arrive in Merzouga in the afternoon. Meet your camel caravan for a sunset trek into the Erg Chebbi dunes. Reach a traditional desert camp for dinner, Berber music around the campfire, and overnight in a nomadic tent under the stars."
-        },
-        {
-            time: "Day 3",
-            title: "Merzouga Desert Exploration",
-            description: "Wake early to witness the spectacular desert sunrise. After breakfast at the camp, enjoy a full day exploring the desert region by 4x4 vehicle. Visit a nomadic family to learn about their lifestyle, the village of Khamlia to meet the Gnawa people and hear their music, abandoned mines, and hidden oases. Lunch in a desert oasis. In the late afternoon, return to the desert camp for a second night or option to stay at a comfortable hotel with pool (please specify preference at booking). Dinner and overnight."
-        },
-        {
-            time: "Day 4",
-            title: "Merzouga - Ziz Valley - Middle Atlas - Marrakech",
-            description: "After breakfast, begin the return journey to Marrakech taking a different route. Drive through the beautiful Ziz Valley with its palm oases. Continue to the Middle Atlas Mountains with a stop in Midelt, known for its minerals and apples, for lunch. Cross the Middle Atlas through Azrou, Ifrane (known as 'Little Switzerland' for its Alpine-style architecture), and cedar forests where you might spot Barbary macaques. Continue via Beni Mellal with stops for photos and refreshments. Arrive in Marrakech in the evening."
-        }
-    ],
-    includes: [
-        "Transportation in comfortable air-conditioned vehicle",
-        "English-speaking driver/guide throughout",
-        "3 nights accommodation (1 night hotel in Dades Valley, 2 nights in desert camp or 1 night camp + 1 night hotel)",
-        "Half-board (daily breakfast and dinner)",
-        "Camel trekking in Merzouga",
-        "4x4 desert exploration",
-        "Guided tours of Aït Benhaddou and Todra Gorge",
-        "Bottled water daily",
-        "All taxes and fees"
-    ],
-    bring: [
-        "Comfortable clothing and walking shoes",
-        "Warm jacket for cool desert nights",
-        "Sun protection (hat, sunglasses, sunscreen)",
-        "Personal toiletries and medications",
-        "Camera",
-        "Flashlight/headlamp for desert camp",
-        "Cash for lunches, drinks, souvenirs, and tips"
-    ],
-    availability: "Departures every Monday, Wednesday, and Saturday",
-    additionalInfo: {
-        "Difficulty": "Easy to moderate - some walking required",
-        "Minimum Age": "None - suitable for all ages",
-        "Accommodation": "Mid-range hotels and traditional desert camp",
-        "Languages": "English, French, Arabic, Spanish (request at booking)",
-        "Confirmation": "Immediate confirmation",
-        "Cancellation": "Free cancellation up to 7 days before",
-        "Not Included": "Lunches, beverages, entrance fees to monuments (approximately 50-100 MAD per site), gratuities"
-    },
-    relatedPrograms: ["zagora-2-days", "merzouga-3-days", "merzouga-5-days"]
-},
+.contact-options-toggle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e67e22, #d35400);
+  color: white;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1000;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
 
-"merzouga-5-days": {
-    title: "5-Day Desert Tour to Merzouga",
-    subtitle: "Comprehensive desert journey with time to deeply explore Morocco's southern regions",
-    heroImage: "../assets/images/tours/zagora-desert-hero.jpg", // Using existing image as placeholder
-    mainImage: "../assets/images/tours/zagora-desert.jpg", // Using existing image as placeholder
-    price: 525,
-    duration: "5 days / 4 nights",
-    location: "Multiple Locations",
-    groupSize: "2-12 people",
-    rating: 4.9,
-    reviews: 76,
-    description: `
-        <h3>Tour Overview</h3>
-        <p>Our 5-day desert expedition is the ultimate Sahara experience, offering the most comprehensive exploration of Morocco's southern regions. This extended journey allows you to travel at a relaxed pace, with time to truly immerse yourself in each destination and discover hidden gems that shorter tours must bypass.</p>
-        
-        <p>Beginning with a leisurely crossing of the High Atlas Mountains, you'll have ample time to appreciate the spectacular Tizi n'Tichka pass with multiple photo stops. Explore the UNESCO World Heritage site of Aït Benhaddou in depth, with time to wander its ancient streets beyond the main tourist areas. In Ouarzazate, enjoy a comprehensive tour of the film studios where many Hollywood blockbusters were filmed.</p>
-        
-        <p>The journey continues to the lush Dades Valley for a full day of exploration, including the dramatic road of a thousand kasbahs, the Valley of Roses, and the impressive Dades Gorge with time for hiking. Another highlight is a thorough visit to Todra Gorge, one of Morocco's most spectacular natural wonders, with opportunities for rock climbing or extended hiking for adventure seekers.</p>
-        
-        <p>Upon reaching the Sahara, you'll experience not just one but two nights in the desert - one at a traditional camp deep in the dunes, and another at a luxury desert camp with premium amenities. In between, enjoy a full day of desert exploration by 4x4, visiting nomadic families, hidden oases, and authentic cultural experiences off the tourist track.</p>
-        
-        <p>The return journey takes you through different landscapes and the cedar forests of the Middle Atlas Mountains, with a comfortable overnight stay that breaks up the long drive back to Marrakech. Throughout the tour, you'll stay in carefully selected accommodations that highlight authentic Moroccan hospitality.</p>
-    `,
-    itinerary: [
-        {
-            time: "Day 1",
-            title: "Marrakech - Atlas Mountains - Aït Benhaddou - Ouarzazate",
-            description: "Morning departure from Marrakech. Leisurely drive across the High Atlas Mountains via the Tizi n'Tichka pass (2,260m) with multiple stops for photos and short walks to viewpoints. Extended visit to the UNESCO World Heritage site of Aït Benhaddou with time to explore beyond the main tourist areas. Late afternoon arrival in Ouarzazate with tour of the film studios and Taourirt Kasbah. Dinner and overnight at a comfortable riad in Ouarzazate."
-        },
-        {
-            time: "Day 2",
-            title: "Ouarzazate - Valley of Roses - Dades Valley - Dades Gorge",
-            description: "After breakfast, full day exploring the Dades region. Drive through the Valley of Roses, famous for its annual rose festival (May) and rose products. Visit a rose cooperative to learn about rose water and oil production. Continue to the dramatic Dades Valley with its unique rock formations known as 'monkey fingers.' Afternoon hike in the Dades Gorge with a local guide. Dinner and overnight at a panoramic hotel overlooking the Dades Valley."
-        },
-        {
-            time: "Day 3",
-            title: "Dades Valley - Todra Gorge - Erfoud - Merzouga (Sahara Desert)",
-            description: "Morning departure to the impressive Todra Gorge with its 300m high cliffs. Extended visit with options for rock climbing with professional guides (additional cost) or a longer hike through the gorge. Continue to Erfoud, known as the fossil capital of Morocco, with visit to a fossil workshop to see how local artisans transform ancient fossils into decorative items. Late afternoon arrival in Merzouga. Meet your camel caravan for a sunset trek deep into the Erg Chebbi dunes. Reach a traditional Berber camp for dinner, music around the campfire, and overnight in a nomadic tent under the stars."
-        },
-        {
-            time: "Day 4",
-            title: "Merzouga Desert Exploration",
-            description: "Wake early to witness the spectacular desert sunrise. After breakfast at the camp, full day exploring the desert region by 4x4 vehicle. Visit a nomadic family to learn about their lifestyle, the village of Khamlia to experience Gnawa music, abandoned mines, and hidden oases. Picnic lunch in a palm grove oasis. Visit a desert lake (seasonal) that attracts flamingos and other birds. Late afternoon, either return to the traditional camp or transfer to a luxury desert camp with premium facilities including private bathrooms, proper beds, and gourmet dinner. Evening entertainment with traditional music and stargazing."
-        },
-        {
-            time: "Day 5",
-            title: "Merzouga - Ziz Valley - Middle Atlas - Marrakech",
-            description: "Optional sunrise camel trek or desert meditation session. After breakfast, begin the return journey to Marrakech. Drive through the stunning Ziz Valley with its endless palm groves and ancient ksour (fortified villages). Stop in Midelt for lunch. Continue through the Middle Atlas Mountains with stops in Azrou cedar forest to see wild Barbary macaques, the Alpine-style town of Ifrane (known as 'Little Switzerland'), and Beni Mellal. Arrive in Marrakech in the evening."
-        }
-    ],
-    includes: [
-        "Transportation in comfortable air-conditioned vehicle",
-        "English-speaking driver/guide throughout",
-        "4 nights accommodation (1 night riad in Ouarzazate, 1 night hotel in Dades Valley, 1 night traditional desert camp, 1 night luxury desert camp)",
-        "Half-board (daily breakfast and dinner)",
-        "Camel trekking in Merzouga",
-        "Full-day 4x4 desert exploration",
-        "Local guides in Aït Benhaddou, Dades Gorge, and Todra Gorge",
-        "Bottled water daily",
-        "All taxes and fees"
-    ],
-    bring: [
-        "Comfortable clothing and walking shoes",
-        "Warm jacket for cool desert nights",
-        "Sun protection (hat, sunglasses, sunscreen)",
-        "Personal toiletries and medications",
-        "Camera",
-        "Flashlight/headlamp for desert camp",
-        "Cash for lunches, drinks, souvenirs, and tips",
-        "Swimwear (some hotels have pools)"
-    ],
-    availability: "Departures every Sunday and Thursday",
-    additionalInfo: {
-        "Difficulty": "Easy to moderate - some hiking optional",
-        "Minimum Age": "None - suitable for all ages",
-        "Accommodation": "Mid-range to premium riads/hotels and desert camps",
-        "Languages": "English, French, Arabic, Spanish (request at booking)",
-        "Confirmation": "Immediate confirmation",
-        "Cancellation": "Free cancellation up to 14 days before",
-        "Not Included": "Lunches, beverages, entrance fees to monuments (approximately 50-100 MAD per site), optional activities like rock climbing, gratuities"
-    },
-    relatedPrograms: ["merzouga-3-days", "merzouga-4-days", "fez-3-days"]
+.contact-options-toggle:hover {
+  transform: scale(1.1);
+}
+
+.contact-options-toggle:active {
+  transform: scale(0.95);
+}
+
+.contact-options-menu {
+  position: absolute;
+  bottom: 75px;
+  left: 0;
+  background: white;
+  border-radius: 12px;
+  width: 180px;
+  padding: 15px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  transform: translateY(20px) scale(0.9);
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.contact-options-wrapper:hover .contact-options-menu {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: all;
+}
+
+.contact-option-title {
+  text-align: center;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #eee;
+}
+
+.contact-option {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  color: #555;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.contact-option:last-child {
+  margin-bottom: 0;
+}
+
+.contact-option i {
+  font-size: 20px;
+  margin-right: 12px;
+}
+
+.contact-option span {
+  font-weight: 500;
+}
+
+.contact-option.whatsapp:hover {
+  background-color: rgba(37, 211, 102, 0.1);
+  color: #25d366;
+}
+
+.contact-option.phone:hover {
+  background-color: rgba(52, 152, 219, 0.1);
+  color: #3498db;
+}
+
+.contact-option.email:hover {
+  background-color: rgba(155, 89, 182, 0.1);
+  color: #9b59b6;
+}
+
+.contact-option.contact-form:hover {
+  background-color: rgba(230, 126, 34, 0.1);
+  color: #e67e22;
+}
+
+/* Animation for the options when menu opens */
+.contact-options-wrapper:hover .contact-option {
+  animation: slideIn 0.3s forwards;
+  opacity: 0;
+}
+
+.contact-options-wrapper:hover .contact-option:nth-child(2) {
+  animation-delay: 0.05s;
+}
+
+.contact-options-wrapper:hover .contact-option:nth-child(3) {
+  animation-delay: 0.1s;
+}
+
+.contact-options-wrapper:hover .contact-option:nth-child(4) {
+  animation-delay: 0.15s;
+}
+
+.contact-options-wrapper:hover .contact-option:nth-child(5) {
+  animation-delay: 0.2s;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Optional: Add a small indicator */
+.contact-options-toggle::after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 12px;
+  height: 12px;
+  background-color: #2ecc71;
+  border-radius: 50%;
+  border: 2px solid white;
 }
 ```
 
-With these two additional tours, you will have data for all the tours listed in your summary. All of these tours will be accessible through the details page when a user clicks on them from the services page.
+### JavaScript for the Multi-Contact Button:
 
-To ensure everything works correctly, make sure:
+```javascript
+// Add this to your main.js file
+document.addEventListener('DOMContentLoaded', function() {
+    // Optional: Toggle button functionality
+    const contactToggle = document.querySelector('.contact-options-toggle');
+    const contactMenu = document.querySelector('.contact-options-menu');
+    
+    if (contactToggle && contactMenu) {
+        // Mobile-friendly toggle (for touch devices)
+        contactToggle.addEventListener('click', function(e) {
+            contactMenu.classList.toggle('active');
+            e.stopPropagation();
+        });
+        
+        // Close when clicking elsewhere on mobile
+        document.addEventListener('click', function() {
+            if (contactMenu.classList.contains('active')) {
+                contactMenu.classList.remove('active');
+            }
+        });
+        
+        // Prevent menu from closing when clicking inside it
+        contactMenu.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+    }
+});
+```
 
-1. All these tours are added to your `toursData` object in the tours.js file
-2. The details.js file is properly loading this data
-3. Links to each tour from the services page are using the correct format: `details.html?category=tour&id=tour-id` (where tour-id matches the key in the toursData object)
+### Additional CSS for touch devices:
 
-All tours should now be included and accessible on the details page when clicked from the services page.
+```css
+/* Mobile enhancements */
+@media (max-width: 768px) {
+    .contact-options-menu {
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(20px) scale(0.9);
+        transition: all 0.3s ease;
+    }
+    
+    .contact-options-menu.active {
+        opacity: 1;
+        pointer-events: all;
+        transform: translateY(0) scale(1);
+    }
+    
+    /* Hover doesn't work well on touch devices, so we don't use it */
+    .contact-options-wrapper:hover .contact-options-menu {
+        opacity: 0;
+        transform: translateY(20px) scale(0.9);
+        pointer-events: none;
+    }
+    
+    .contact-options-toggle {
+        /* Make the button slightly larger on mobile for easier tapping */
+        width: 65px;
+        height: 65px;
+    }
+}
+```
+
+### Key features of this design:
+
+1. **Modern Gradient Button**: A primary contact button with a gradient that fits with your website's color scheme.
+
+2. **Expandable Menu**: Hovering over the button (or clicking on mobile) reveals a clean menu with multiple contact options.
+
+3. **Visual Feedback**: Each option has a unique hover effect with a color that matches the service (green for WhatsApp, blue for phone, etc.).
+
+4. **Smooth Animations**: Subtle animations make the interaction feel polished and engaging.
+
+5. **Online Indicator**: A small green dot shows users that you're available for contact.
+
+6. **Mobile Optimized**: Modified behavior for touch devices with larger tap targets.
+
+This design provides a stylish, modern approach to offering multiple contact methods without cluttering your page. It's visually engaging but still functional and user-friendly.

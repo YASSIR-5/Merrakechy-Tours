@@ -121,7 +121,7 @@
         </div>
     </section>
 
-    <!-- Search/Booking Form -->
+
     <!-- Search/Booking Form -->
     <section class="booking-section">
         <div class="container">
@@ -174,7 +174,7 @@
                 <!-- Activity Card 1 -->
                 <div class="activity-card fade-in">
                     <div class="activity-img">
-                        <img src="assets/images/activities/quad-biking.jpg" alt="Quad Biking in Agafay Desert">
+                        <img src="assets/images/activities/quad.jpg" alt="Quad Biking in Agafay Desert">
                         <div class="activity-price">
                             <span>From $65</span>
                         </div>
@@ -195,7 +195,7 @@
                 <!-- Activity Card 2 -->
                 <div class="activity-card fade-in">
                     <div class="activity-img">
-                        <img src="assets/images/activities/camel-ride.jpg" alt="Camel Ride and Berber Experience">
+                        <img src="assets/images/activities/camel.jpeg" alt="Camel Ride and Berber Experience">
                         <div class="activity-price">
                             <span>From $45</span>
                         </div>
@@ -216,7 +216,7 @@
                 <!-- Activity Card 3 -->
                 <div class="activity-card fade-in">
                     <div class="activity-img">
-                        <img src="assets/images/activities/hot-air-balloon.jpg" alt="Hot Air Balloon Ride">
+                        <img src="assets/images/activities/ballon.jpg" alt="Hot Air Balloon Ride">
                         <div class="activity-price">
                             <span>From $195</span>
                         </div>
@@ -253,7 +253,7 @@
                 <!-- Tour Card 1 -->
                 <div class="tour-card fade-in">
                     <div class="tour-img">
-                        <img src="assets/images/tours/zagora-desert.jpg" alt="Zagora Desert Tour">
+                        <img src="assets/images/tours/zagora-desert.jpg.jpeg" alt="Zagora Desert Tour">
                         <div class="tour-badge">Best Seller</div>
                     </div>
                     <div class="tour-content">
@@ -726,10 +726,32 @@
             </div>
         </div>
     </footer>
-    <!-- WhatsApp Button -->
-    <a href="https://wa.me/212666698732" class="whatsapp-button" target="_blank" aria-label="Chat on WhatsApp">
-        <i class="fab fa-whatsapp"></i>
+    <!-- Multi-Contact Button -->
+<div class="contact-options-wrapper">
+  <button class="contact-options-toggle">
+    <i class="fas fa-comments"></i>
+  </button>
+  
+  <div class="contact-options-menu">
+    <div class="contact-option-title">Contact Us</div>
+    <a href="https://wa.me/212600000000" class="contact-option whatsapp">
+      <i class="fab fa-whatsapp"></i>
+      <span>WhatsApp</span>
     </a>
+    <a href="tel:+212600000000" class="contact-option phone">
+      <i class="fas fa-phone-alt"></i>
+      <span>Call Us</span>
+    </a>
+    <a href="mailto:info@merrakechytours.com" class="contact-option email">
+      <i class="fas fa-envelope"></i>
+      <span>Email</span>
+    </a>
+    <a href="pages/contact.html" class="contact-option contact-form">
+      <i class="fas fa-paper-plane"></i>
+      <span>Contact Form</span>
+    </a>
+  </div>
+</div>
     <!-- Back to Top Button -->
     <a href="#" class="back-to-top" id="backToTop">
         <i class="fas fa-chevron-up"></i>
@@ -738,7 +760,63 @@
     <!-- JavaScript Files -->
     <script src="assets/js/main.js"></script>
     <script src="assets/js/index.js"></script>
-    <!-- Translation System -->    
+    <!-- Translation System -->
+    <script>
+        // Search form functionality
+        function initializeSearchForm() {
+            const searchForm = document.getElementById('search-form');
+
+            if (searchForm) {
+                searchForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+
+                    // Get form values
+                    const destination = document.getElementById('destination').value;
+                    const date = document.getElementById('travel-date').value;
+                    const guests = document.getElementById('guests').value;
+
+                    // Validate destination (required field)
+                    if (!destination) {
+                        alert('Please select a destination');
+                        return;
+                    }
+
+                    // Build the URL for redirect
+                    let redirectUrl = 'pages/services.html?destination=' + encodeURIComponent(destination);
+
+                    // Add date parameter if provided
+                    if (date) {
+                        redirectUrl += '&date=' + encodeURIComponent(date);
+                    }
+
+                    // Add guests parameter if provided
+                    if (guests) {
+                        redirectUrl += '&guests=' + encodeURIComponent(guests);
+                    }
+
+                    // Debug info
+                    console.log('Search form submitted');
+                    console.log('Destination:', destination);
+                    console.log('Date:', date);
+                    console.log('Guests:', guests);
+                    console.log('Redirecting to:', redirectUrl);
+
+                    // Redirect to services page with search parameters
+                    window.location.href = redirectUrl;
+                });
+            } else {
+                console.warn('Search form not found on page');
+            }
+        }
+
+        // Call this function when the document is loaded
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize search form
+            initializeSearchForm();
+
+            // ... other initialization code ...
+        });
+    </script>
 
 </body>
 

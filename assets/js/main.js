@@ -428,7 +428,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Start automatic slideshow
     function startSlideshow() {
-        slideInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+        slideInterval = setInterval(nextSlide, 2000); // Change slide every 5 seconds
     }
 
     // Event listeners for dots
@@ -2545,4 +2545,31 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Add scroll event listener
     window.addEventListener('scroll', handleScroll);
+});
+
+// Add this to your main.js file
+document.addEventListener('DOMContentLoaded', function() {
+    // Optional: Toggle button functionality
+    const contactToggle = document.querySelector('.contact-options-toggle');
+    const contactMenu = document.querySelector('.contact-options-menu');
+    
+    if (contactToggle && contactMenu) {
+        // Mobile-friendly toggle (for touch devices)
+        contactToggle.addEventListener('click', function(e) {
+            contactMenu.classList.toggle('active');
+            e.stopPropagation();
+        });
+        
+        // Close when clicking elsewhere on mobile
+        document.addEventListener('click', function() {
+            if (contactMenu.classList.contains('active')) {
+                contactMenu.classList.remove('active');
+            }
+        });
+        
+        // Prevent menu from closing when clicking inside it
+        contactMenu.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+    }
 });

@@ -7462,3 +7462,37 @@ Booking confirmation page
     margin: 0 !important;
     transform: none !important;
 }
+/* Contact button animation */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+}
+
+/* Floating contact button styles - update selector to match your button */
+.contact-options-wrapper .contact-options-toggle {
+    animation: pulse 2s infinite;
+    transition: all 0.3s ease;
+}
+
+/* Hover effect to stop the animation and apply a different transform */
+.contact-options-wrapper .contact-options-toggle:hover {
+    animation: none;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Additional hover effect for the menu items */
+.contact-options-menu .contact-option:hover {
+    transform: translateX(5px);
+    transition: transform 0.3s ease;
+}

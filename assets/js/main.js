@@ -2573,3 +2573,40 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+// Add this to your serviceDetails object in your JavaScript
+const rentalServices = {
+    'city-bikes': {
+        title: 'City Bikes',
+        subtitle: 'Comfortable bikes perfect for exploring Marrakech',
+        price: 15,
+        duration: 'Up to 24 hours',
+        location: 'Marrakech',
+        description: 'Our city bikes are perfect for exploring Marrakech at your own pace. Each rental includes a helmet, lock, and optional city map. The bikes are regularly maintained and adjusted for your comfort.',
+        includes: [
+            'Comfortable city bike',
+            'Helmet and safety gear',
+            'Secure lock',
+            'Repair kit',
+            'Optional city map',
+            '24/7 support hotline'
+        ],
+        bring: [
+            'Valid ID or passport',
+            'Credit card for deposit',
+            'Comfortable clothing',
+            'Water bottle',
+            'Sunscreen'
+        ],
+        availability: 'Daily, 8:00 AM - 8:00 PM',
+        additionalInfo: {
+            'Difficulty': 'Easy',
+            'Security Deposit': '€100 (fully refundable)',
+            'Minimum Age': '16 years',
+            'Cancellation': 'Free up to 24h before'
+        }
+    },
+    // Add other rental items similarly
+};
+
+// Merge this with your existing serviceDetails object
+Object.assign(serviceDetails, rentalServices);

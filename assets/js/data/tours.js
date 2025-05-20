@@ -5,7 +5,7 @@ const toursData = {
     'zagora-2-days': {
         title: '2-Day Zagora Desert Tour',
         subtitle: 'Experience the magic of the Zagora Desert with an overnight stay in a Berber camp',
-        heroImage: '../assets/images/tours/zagora-desert-hero.jpg',
+        heroImage: '../assets/images/tours/zagora-desert.jpeg',
         mainImage: '../assets/images/tours/zagora-desert.jpg',
         price: 295,
         duration: '2 days / 1 night',

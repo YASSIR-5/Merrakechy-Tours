@@ -6,7 +6,7 @@ const activitiesData = {
         title: 'Agafay Desert Quad Biking Adventure',
         subtitle: 'Experience the thrill of quad biking in the moon-like landscape of Agafay Desert',
         heroImage: '../assets/images/activities/quad-biking-hero.jpg',
-        mainImage: '../assets/images/activities/quad-biking-large.jpg',
+        mainImage: '../assets/images/activities/quad.jpg',
         price: 65,
         duration: '2 hours',
         location: 'Agafay Desert, near Marrakech',
@@ -48,7 +48,7 @@ const activitiesData = {
         title: 'Camel Ride in the Palmeraie',
         subtitle: 'Enjoy a traditional camel trek through Marrakech\'s palm grove oasis',
         heroImage: '../assets/images/activities/camel-ride-hero.jpg',
-        mainImage: '../assets/images/activities/camel-ride-large.jpg',
+        mainImage: '../assets/images/activities/camel.jpeg',
         price: 45,
         duration: '3 hours',
         location: 'Palmeraie, Marrakech',
@@ -87,8 +87,8 @@ const activitiesData = {
     'hot-air-balloon': {
         title: 'Hot Air Balloon Experience',
         subtitle: 'Soar above the Atlas Mountains at dawn for breathtaking views',
-        heroImage: '../assets/images/activities/hot-air-balloon-hero.jpg',
-        mainImage: '../assets/images/activities/hot-air-balloon-large.jpg',
+        heroImage: '../assets/images/activities/hot-air-ballon-hero.jpg',
+        mainImage: '../assets/images/activities/ballon.jpg',
         price: 195,
         duration: '4 hours (approx. 1 hour in the air)',
         location: 'Atlas Mountains region, near Marrakech',
@@ -129,7 +129,7 @@ const activitiesData = {
         title: 'Moroccan Cooking Workshop',
         subtitle: 'Learn to prepare authentic Moroccan dishes with local chefs',
         heroImage: '../assets/images/activities/cooking-class-hero.jpg',
-        mainImage: '../assets/images/activities/cooking-class-large.jpg',
+        mainImage: '../assets/images/activities/cooking-class.jpg',
         price: 75,
         duration: '4 hours',
         location: 'Marrakech Medina',
@@ -168,7 +168,7 @@ const activitiesData = {
     title: "Hammam & Spa Experience",
     subtitle: "Indulge in a traditional Moroccan bath and relaxing massage treatment",
     heroImage: "../assets/images/activities/cooking-class-hero.jpg", // Using existing image as placeholder
-    mainImage: "../assets/images/activities/cooking-class-large.jpg", // Using existing image as placeholder
+    mainImage: "../assets/images/activities/hammam.jpg", // Using existing image as placeholder
     price: 85,
     duration: "2 hours",
     location: "Marrakech Medina",
@@ -328,98 +328,6 @@ const activitiesData = {
     relatedPrograms: ["cooking-class", "camel-ride", "marrakech-tour"]
 },
 
-"sandboarding": {
-    title: "Desert Sandboarding Adventure",
-    subtitle: "Experience the thrill of sliding down desert dunes",
-    heroImage: "../assets/images/activities/quad-biking-hero.jpg", // Using existing image as placeholder
-    mainImage: "../assets/images/activities/quad-biking-large.jpg", // Using existing image as placeholder
-    price: 70,
-    duration: "3 hours",
-    location: "Agafay Desert",
-    groupSize: "2-10 people",
-    rating: 4.8,
-    reviews: 64,
-    description: `
-        <h3>Experience Overview</h3>
-        <p>Experience the exhilaration of sandboarding on the dunes of the Agafay Desert with our guided adventure. Similar to snowboarding but on sand, this thrilling activity is suitable for all skill levels, from complete beginners to experienced boarders.</p>
-        
-        <p>After a short drive from Marrakech to the Agafay Desert, our expert instructors will provide a comprehensive safety briefing and basic techniques for sandboarding. You will then have ample time to practice and improve your skills on dunes of varying heights.</p>
-        
-        <p>Our high-quality sandboards are designed specifically for desert conditions, providing optimal performance and safety. As you gain confidence, you can progress to higher dunes and more challenging runs, always under the watchful eye of our experienced guides.</p>
-        
-        <p>Between runs, take in the stunning desert landscape and dramatic views of the Atlas Mountains in the distance. The unique terrain of the Agafay Desert, with its mixture of small and medium-sized dunes, provides the perfect environment for this exciting activity.</p>
-    `,
-    itinerary: [
-        {
-            time: "9:00 AM or 2:00 PM",
-            title: "Hotel Pickup",
-            description: "Convenient pickup from your Marrakech accommodation."
-        },
-        {
-            time: "9:30 AM or 2:30 PM",
-            title: "Arrival at Agafay Desert",
-            description: "Arrive at our base in the Agafay Desert. Meet your instructors and get fitted with sandboarding equipment."
-        },
-        {
-            time: "9:45 AM or 2:45 PM",
-            title: "Safety Briefing & Instruction",
-            description: "Comprehensive safety briefing and basic instruction on sandboarding techniques. Practice on small dunes to build confidence."
-        },
-        {
-            time: "10:15 AM or 3:15 PM",
-            title: "Sandboarding Session",
-            description: "Begin your sandboarding adventure on progressively larger dunes, with guidance from instructors throughout."
-        },
-        {
-            time: "11:15 AM or 4:15 PM",
-            title: "Refreshment Break",
-            description: "Take a break to enjoy refreshments and spectacular views of the desert landscape."
-        },
-        {
-            time: "11:30 AM or 4:30 PM",
-            title: "Advanced Dunes (Optional)",
-            description: "For those feeling confident, try sandboarding on some of the larger dunes under close instructor supervision."
-        },
-        {
-            time: "12:00 PM or 5:00 PM",
-            title: "Return to Base",
-            description: "Return to base camp to freshen up before departure."
-        },
-        {
-            time: "12:30 PM or 5:30 PM",
-            title: "Return to Marrakech",
-            description: "Transfer back to your accommodation in Marrakech."
-        }
-    ],
-    includes: [
-        "Hotel pickup and drop-off (Marrakech city area)",
-        "Transportation in air-conditioned vehicle",
-        "Professional sandboarding instructor",
-        "Sandboarding equipment (board, wax, protective gear)",
-        "Safety briefing and instruction",
-        "Bottled water and refreshments",
-        "All taxes and service charges"
-    ],
-    bring: [
-        "Comfortable, loose clothing",
-        "Closed shoes (trainers/sneakers)",
-        "Sunglasses",
-        "Sunscreen",
-        "Bandana or scarf (to protect from sand)",
-        "Camera",
-        "Sense of adventure!"
-    ],
-    availability: "Daily departures at 9:00 AM and 2:00 PM",
-    additionalInfo: {
-        "Difficulty": "Easy to moderate - no previous experience required",
-        "Minimum Age": "8 years",
-        "Languages": "English, French, Arabic",
-        "Confirmation": "Immediate confirmation",
-        "Cancellation": "Free cancellation up to 24 hours before",
-        "Weather": "Activity runs in most weather conditions, except during high winds or rain"
-    },
-    relatedPrograms: ["quad-biking", "camel-ride", "desert-camping"]
-},
 
 "hiking-tours": {
     title: "Atlas Mountains Hiking Tours",

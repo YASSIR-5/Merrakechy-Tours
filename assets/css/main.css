@@ -7496,3 +7496,346 @@ Booking confirmation page
     transform: translateX(5px);
     transition: transform 0.3s ease;
 }
+
+/* Detail Page Image Gallery Styles */
+.detail-image-slider {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.slider-main {
+    position: relative;
+    height: 400px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.slider-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.slider-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.slider-slide.active {
+    opacity: 1;
+}
+
+.slider-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.slider-prev,
+.slider-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #333;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.slider-prev {
+    left: 15px;
+}
+
+.slider-next {
+    right: 15px;
+}
+
+.slider-prev:hover,
+.slider-next:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.slider-thumbnails {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.thumbnail {
+    width: 80px;
+    height: 60px;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.thumbnail.active {
+    opacity: 1;
+    border-color: var(--primary-color);
+}
+
+.thumbnail:hover {
+    opacity: 1;
+}
+
+.thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .slider-main {
+        height: 300px;
+    }
+    
+    .slider-prev,
+    .slider-next {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .thumbnail {
+        width: 60px;
+        height: 45px;
+    }
+}
+/* Back Navigation Styles */
+.back-navigation {
+  background-color: #fff;
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 20px;
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 12px 20px;
+  border-radius: var(--border-radius-sm);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.back-btn:hover {
+  background-color: var(--secondary-color);
+  color: white;
+  transform: translateX(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.back-btn:active {
+  transform: translateX(-3px);
+}
+
+.back-btn.loading {
+  background-color: #ccc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.back-btn i {
+  font-size: 16px;
+  transition: transform 0.3s ease;
+}
+
+.back-btn:hover i {
+  transform: translateX(-3px);
+}
+
+.back-btn.loading i {
+  transform: none;
+}
+
+/* Breadcrumb Styles */
+.breadcrumb {
+  background-color: #f8f9fa;
+  padding: 15px 0;
+  margin-bottom: 20px;
+  border-radius: var(--border-radius-sm);
+}
+
+.breadcrumb-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb-item:not(:last-child)::after {
+  content: '>';
+  margin: 0 10px;
+  color: #6c757d;
+  font-weight: bold;
+}
+
+.breadcrumb-item a {
+  color: var(--primary-color);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.3s ease;
+}
+
+.breadcrumb-item a:hover {
+  color: var(--secondary-color);
+  text-decoration: underline;
+}
+
+.breadcrumb-item.active {
+  color: #6c757d;
+  font-weight: 500;
+}
+
+.breadcrumb-item i {
+  font-size: 12px;
+}
+
+/* Container adjustments for better spacing */
+.back-navigation .container,
+.breadcrumb .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .back-navigation {
+    padding: 15px 0;
+  }
+  
+  .back-btn {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+  
+  .back-btn i {
+    font-size: 14px;
+  }
+  
+  .breadcrumb {
+    padding: 12px 0;
+  }
+  
+  .breadcrumb-list {
+    font-size: 13px;
+  }
+  
+  .breadcrumb-item:not(:last-child)::after {
+    margin: 0 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .back-btn span {
+    display: none;
+  }
+  
+  .back-btn {
+    padding: 10px;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    justify-content: center;
+  }
+  
+  .breadcrumb-list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+  
+  .breadcrumb-item:not(:last-child)::after {
+    display: none;
+  }
+  
+  .breadcrumb-item {
+    position: relative;
+    padding-left: 15px;
+  }
+  
+  .breadcrumb-item:not(:first-child):before {
+    content: '↳';
+    position: absolute;
+    left: 0;
+    color: #6c757d;
+  }
+}
+
+/* Animation for smooth transitions */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.back-navigation,
+.breadcrumb {
+  animation: slideInLeft 0.5s ease;
+}
+
+/* Integration with existing page styles */
+.page-hero + .back-navigation {
+  margin-top: -10px;
+  border-top: 1px solid #eee;
+}
+
+/* Alternative compact version */
+.back-navigation.compact {
+  padding: 10px 0;
+  background-color: transparent;
+  border-bottom: none;
+}
+
+.back-navigation.compact .back-btn {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  padding: 8px 15px;
+  font-size: 14px;
+}
+
+.back-navigation.compact .back-btn:hover {
+  background-color: var(--primary-color);
+  color: white;
+}

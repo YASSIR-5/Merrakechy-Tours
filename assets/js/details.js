@@ -272,3 +272,456 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelector('.related-tours').style.display = 'none';
     }
 });
+
+// assets/js/details.js - Updated to use gallery images from data files
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize the image gallery on the details page
+  initializeDetailGallery();
+});
+
+function initializeDetailGallery() {
+  // Find the gallery container in the details page
+  const galleryContainer = document.querySelector('.tour-detail-gallery, .service-detail-gallery');
+  if (!galleryContainer) return;
+  
+  // Check if gallery already has a slider
+  if (galleryContainer.querySelector('.detail-image-slider')) return;
+  
+  // Get the current main image
+  const mainImage = galleryContainer.querySelector('img');
+  if (!mainImage) return;
+  
+  const imgSrc = mainImage.src;
+  const imgAlt = mainImage.alt || 'Tour image';
+  
+  // Get the category and ID from URL parameters to find corresponding item
+  const urlParams = new URLSearchParams(window.location.search);
+  const category = urlParams.get('category');
+  const id = urlParams.get('id');
+  
+  // Get images for this specific item from data files
+  let images = getImagesForItem(category, id, imgSrc);
+  
+  // Create and insert the gallery HTML
+  const sliderHTML = createDetailGalleryHTML(images, imgAlt);
+  galleryContainer.innerHTML = sliderHTML;
+  
+  // Initialize the gallery functionality
+  const slider = galleryContainer.querySelector('.detail-image-slider');
+  initializeDetailSlider(slider);
+}
+
+function getImagesForItem(category, id, defaultImage) {
+  let itemData = null;
+  let images = [defaultImage]; // Fallback to default image
+  
+  try {
+    // Get data based on category
+    switch(category) {
+      case 'activity':
+        if (typeof activitiesData !== 'undefined' && activitiesData[id]) {
+          itemData = activitiesData[id];
+        }
+        break;
+      case 'tour':
+        if (typeof toursData !== 'undefined' && toursData[id]) {
+          itemData = toursData[id];
+        }
+        break;
+      case 'transportation':
+        if (typeof transportationData !== 'undefined' && transportationData[id]) {
+          itemData = transportationData[id];
+        }
+        break;
+      case 'destination':
+        if (typeof destinationsData !== 'undefined' && destinationsData[id]) {
+          itemData = destinationsData[id];
+        }
+        break;
+    }
+    
+    // If we found the item data and it has gallery images, use them
+    if (itemData && itemData.galleryImages && Array.isArray(itemData.galleryImages) && itemData.galleryImages.length > 0) {
+      images = itemData.galleryImages;
+    } else if (itemData) {
+      // If no gallery images but we have other images, create a gallery from available images
+      const availableImages = [];
+      
+      // Add main image if available
+      if (itemData.mainImage) {
+        availableImages.push(itemData.mainImage);
+      }
+      
+      // Add hero image if different from main image
+      if (itemData.heroImage && itemData.heroImage !== itemData.mainImage) {
+        availableImages.push(itemData.heroImage);
+      }
+      
+      // If we have any images, use them; otherwise keep the default
+      if (availableImages.length > 0) {
+        images = availableImages;
+      }
+    }
+    
+  } catch (error) {
+    console.warn('Error loading gallery images:', error);
+    // Keep the default image as fallback
+  }
+  
+  // Ensure we always have at least one image
+  if (images.length === 0) {
+    images = [defaultImage];
+  }
+  
+  return images;
+}
+
+function createDetailGalleryHTML(images, altText) {
+  let slidesHTML = '';
+  
+  images.forEach((path, index) => {
+    slidesHTML += `
+      <div class="slider-slide ${index === 0 ? 'active' : ''}" data-index="${index}">
+        <img src="${path}" alt="${altText} ${index + 1}" loading="${index === 0 ? 'eager' : 'lazy'}">
+      </div>
+    `;
+  });
+  
+  let thumbnailsHTML = '';
+  if (images.length > 1) {
+    images.forEach((path, index) => {
+      thumbnailsHTML += `
+        <div class="thumbnail ${index === 0 ? 'active' : ''}" data-index="${index}">
+          <img src="${path}" alt="Thumbnail ${index + 1}" loading="lazy">
+        </div>
+      `;
+    });
+  }
+  
+  return `
+    <div class="detail-image-slider">
+      <div class="slider-main">
+        <div class="slider-container">
+          ${slidesHTML}
+        </div>
+        ${images.length > 1 ? `
+          <button class="slider-prev" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+          <button class="slider-next" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
+        ` : ''}
+      </div>
+      ${images.length > 1 ? `
+        <div class="slider-thumbnails">
+          ${thumbnailsHTML}
+        </div>
+      ` : ''}
+    </div>
+  `;
+}
+
+function initializeDetailSlider(sliderElement) {
+  const slides = sliderElement.querySelectorAll('.slider-slide');
+  const thumbnails = sliderElement.querySelectorAll('.thumbnail');
+  const prevBtn = sliderElement.querySelector('.slider-prev');
+  const nextBtn = sliderElement.querySelector('.slider-next');
+  
+  if (slides.length <= 1) {
+    // Hide navigation if only one slide
+    if (prevBtn) prevBtn.style.display = 'none';
+    if (nextBtn) nextBtn.style.display = 'none';
+    return;
+  }
+  
+  let currentIndex = 0;
+  let autoAdvanceInterval;
+  
+  // Function to go to a specific slide
+  function goToSlide(index) {
+    // Handle bounds
+    if (index < 0) index = slides.length - 1;
+    if (index >= slides.length) index = 0;
+    
+    // Update current index
+    currentIndex = index;
+    
+    // Update slides
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === currentIndex);
+    });
+    
+    // Update thumbnails
+    thumbnails.forEach((thumb, i) => {
+      thumb.classList.toggle('active', i === currentIndex);
+    });
+  }
+  
+  // Set up button handlers
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      goToSlide(currentIndex - 1);
+      resetAutoAdvance();
+    });
+  }
+  
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      goToSlide(currentIndex + 1);
+      resetAutoAdvance();
+    });
+  }
+  
+  // Set up thumbnail click handlers
+  thumbnails.forEach(thumb => {
+    thumb.addEventListener('click', () => {
+      const index = parseInt(thumb.getAttribute('data-index'));
+      goToSlide(index);
+      resetAutoAdvance();
+    });
+  });
+  
+  // Set up touch swipe functionality
+  let touchStartX = 0;
+  let touchEndX = 0;
+  
+  const sliderContainer = sliderElement.querySelector('.slider-container');
+  if (sliderContainer) {
+    sliderContainer.addEventListener('touchstart', e => {
+      touchStartX = e.changedTouches[0].screenX;
+      
+      // Pause auto-advance on touch
+      clearInterval(autoAdvanceInterval);
+    }, {passive: true});
+    
+    sliderContainer.addEventListener('touchend', e => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+      
+      // Restart auto-advance after touch
+      startAutoAdvance();
+    }, {passive: true});
+  }
+  
+  function handleSwipe() {
+    const swipeThreshold = 50; // minimum distance to be considered a swipe
+    
+    if (touchEndX < touchStartX - swipeThreshold) {
+      // Swipe left (next)
+      goToSlide(currentIndex + 1);
+    } else if (touchEndX > touchStartX + swipeThreshold) {
+      // Swipe right (previous)
+      goToSlide(currentIndex - 1);
+    }
+  }
+  
+  // Auto-advance slides every 4 seconds (increased from 2 for better UX)
+  function startAutoAdvance() {
+    if (slides.length > 1) {
+      autoAdvanceInterval = setInterval(() => {
+        goToSlide(currentIndex + 1);
+      }, 4000);
+    }
+  }
+  
+  function resetAutoAdvance() {
+    clearInterval(autoAdvanceInterval);
+    startAutoAdvance();
+  }
+  
+  // Start auto-advance when initialized
+  startAutoAdvance();
+  
+  // Pause auto-advance when mouse hovers over slider
+  sliderElement.addEventListener('mouseenter', () => {
+    clearInterval(autoAdvanceInterval);
+  });
+  
+  // Resume auto-advance when mouse leaves slider
+  sliderElement.addEventListener('mouseleave', () => {
+    startAutoAdvance();
+  });
+  
+  // Stop auto-advance if page visibility changes (user switches tabs)
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      clearInterval(autoAdvanceInterval);
+    } else {
+      startAutoAdvance();
+    }
+  });
+}
+// Add this to your details.js file or create a separate navigation.js file
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Create and insert the back navigation
+    createBackNavigation();
+    
+    // Initialize the image gallery (your existing code)
+    initializeDetailGallery();
+});
+
+function createBackNavigation() {
+    // Get URL parameters to determine the category
+    const urlParams = new URLSearchParams(window.location.search);
+    const category = urlParams.get('category');
+    const referrer = document.referrer;
+    
+    // Determine the back link text and URL based on category
+    let backText = 'Back to Services';
+    let backUrl = '../pages/services.html';
+    let backIcon = 'fas fa-arrow-left';
+    
+    // Set specific back navigation based on category
+    switch(category) {
+        case 'activity':
+            backText = 'Back to Activities';
+            backUrl = '../pages/services.html#activities';
+            backIcon = 'fas fa-hiking';
+            break;
+        case 'tour':
+            backText = 'Back to Tours';
+            backUrl = '../pages/services.html#tours';
+            backIcon = 'fas fa-map-marked-alt';
+            break;
+        case 'transportation':
+            backText = 'Back to Transportation';
+            backUrl = '../pages/services.html#transportation';
+            backIcon = 'fas fa-car';
+            break;
+        case 'destination':
+            backText = 'Back to Destinations';
+            backUrl = '../pages/services.html#destinations';
+            backIcon = 'fas fa-map-marker-alt';
+            break;
+        default:
+            // If coming from homepage or other page
+            if (referrer.includes('index.html') || referrer.endsWith('/')) {
+                backText = 'Back to Home';
+                backUrl = '../index.html';
+                backIcon = 'fas fa-home';
+            }
+    }
+    
+    // Create the back navigation HTML
+    const backNavHTML = `
+        <div class="back-navigation">
+            <a href="${backUrl}" class="back-btn" id="backButton">
+                <i class="${backIcon}"></i>
+                <span>${backText}</span>
+            </a>
+        </div>
+    `;
+    
+    // Find where to insert the back navigation
+    const heroSection = document.querySelector('.page-hero, .tour-detail-header');
+    const mainContent = document.querySelector('.tour-detail-container, .service-detail-container, main');
+    
+    if (heroSection) {
+        // Insert after hero section
+        heroSection.insertAdjacentHTML('afterend', backNavHTML);
+    } else if (mainContent) {
+        // Insert at the beginning of main content
+        mainContent.insertAdjacentHTML('beforebegin', backNavHTML);
+    } else {
+        // Fallback: insert at the beginning of body
+        document.body.insertAdjacentHTML('afterbegin', backNavHTML);
+    }
+    
+    // Add click handler with smooth transition
+    const backButton = document.getElementById('backButton');
+    if (backButton) {
+        backButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Add loading state
+            this.classList.add('loading');
+            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i><span>Going back...</span>';
+            
+            // Navigate after a short delay for better UX
+            setTimeout(() => {
+                window.location.href = this.getAttribute('href');
+            }, 300);
+        });
+    }
+    
+    // Add breadcrumb navigation as well
+    createBreadcrumb(category);
+}
+
+function createBreadcrumb(category) {
+    // Get current page info
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get('id');
+    
+    // Get the title from the page or data
+    let currentTitle = document.title || 'Details';
+    const h1Element = document.querySelector('h1');
+    if (h1Element) {
+        currentTitle = h1Element.textContent;
+    }
+    
+    // Create breadcrumb based on category
+    let breadcrumbHTML = '<nav class="breadcrumb" aria-label="Breadcrumb">';
+    breadcrumbHTML += '<ol class="breadcrumb-list">';
+    
+    // Home link
+    breadcrumbHTML += '<li class="breadcrumb-item"><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>';
+    
+    // Services link
+    breadcrumbHTML += '<li class="breadcrumb-item"><a href="../pages/services.html">Services</a></li>';
+    
+    // Category link
+    switch(category) {
+        case 'activity':
+            breadcrumbHTML += '<li class="breadcrumb-item"><a href="../pages/services.html#activities">Activities</a></li>';
+            break;
+        case 'tour':
+            breadcrumbHTML += '<li class="breadcrumb-item"><a href="../pages/services.html#tours">Tours</a></li>';
+            break;
+        case 'transportation':
+            breadcrumbHTML += '<li class="breadcrumb-item"><a href="../pages/services.html#transportation">Transportation</a></li>';
+            break;
+        case 'destination':
+            breadcrumbHTML += '<li class="breadcrumb-item"><a href="../pages/services.html#destinations">Destinations</a></li>';
+            break;
+    }
+    
+    // Current page
+    breadcrumbHTML += `<li class="breadcrumb-item active" aria-current="page">${currentTitle}</li>`;
+    
+    breadcrumbHTML += '</ol></nav>';
+    
+    // Insert breadcrumb
+    const backNav = document.querySelector('.back-navigation');
+    if (backNav) {
+        backNav.insertAdjacentHTML('afterend', breadcrumbHTML);
+    }
+}
+
+// Handle browser back button to maintain state
+window.addEventListener('popstate', function(event) {
+    // If user uses browser back button, ensure they go to the right section
+    const urlParams = new URLSearchParams(window.location.search);
+    const category = urlParams.get('category');
+    
+    if (category && document.referrer.includes('services.html')) {
+        // Redirect to the correct section
+        window.location.href = `../pages/services.html#${category === 'activity' ? 'activities' : category}`;
+    }
+});
+
+function renderSimpleRouteMap(tourData) {
+    if (!tourData.routeMap) return '';
+    
+    return `
+        <div style="width: 100%; height: 400px; margin: 30px 0; border-radius: 10px; overflow: hidden;">
+            <iframe 
+                src="${tourData.routeMap}" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </div>
+    `;
+}

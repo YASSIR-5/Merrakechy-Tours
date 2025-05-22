@@ -54,6 +54,11 @@ const activitiesData = {
         location: 'Palmeraie, Marrakech',
         groupSize: '1-10 people',
         rating: 4.7,
+        galleryImages: [
+            '../assets/images/activities/camel.jpeg',
+            '../assets/images/activities/',
+            '../assets/images/activities/hot-air-balloon-3.jpg'
+        ],
         reviews: 128,
         description: `
             <h3>Tour Overview</h3>
@@ -89,6 +94,11 @@ const activitiesData = {
         subtitle: 'Soar above the Atlas Mountains at dawn for breathtaking views',
         heroImage: '../assets/images/activities/hot-air-ballon-hero.jpg',
         mainImage: '../assets/images/activities/ballon.jpg',
+        galleryImages: [
+            '../assets/images/activities/camel.jpeg',
+            '../assets/images/activities/',
+            '../assets/images/activities/hot-air-balloon-3.jpg'
+        ],
         price: 195,
         duration: '4 hours (approx. 1 hour in the air)',
         location: 'Atlas Mountains region, near Marrakech',
@@ -186,121 +196,7 @@ const activitiesData = {
         <p>The experience concludes with a 30-minute relaxing massage using aromatic oils, leaving you in a state of complete relaxation. Throughout the process, you will be treated with the utmost respect for your privacy and comfort.</p>
     `,
     itinerary: [
-        {
-            time: "Arrival",
-            title: "Welcome & Preparation",
-            description: "Arrive at our traditional spa in the heart of the Marrakech medina. Change into provided spa attire and relax in the lounge with mint tea."
-        },
-        {
-            time: "First Stage",
-            title: "Steam Room",
-            description: "Enter the warm steam room to allow your skin to soften and pores to open (10-15 minutes)."
-        },
-        {
-            time: "Second Stage",
-            title: "Black Soap Application & Exfoliation",
-            description: "Traditional black soap is applied to your skin, followed by a thorough exfoliation with a Kessa glove to remove dead skin cells."
-        },
-        {
-            time: "Third Stage",
-            title: "Clay Mask Treatment",
-            description: "A natural ghassoul clay mask is applied to draw out impurities."
-        },
-        {
-            time: "Fourth Stage",
-            title: "Rinse & Moisturizing",
-            description: "The clay mask is rinsed away, and pure argan oil is applied to nourish the skin."
-        },
-        {
-            time: "Final Stage",
-            title: "Relaxing Massage",
-            description: "Enjoy a 30-minute full-body massage with aromatic oils to complete your relaxation experience."
-        },
-        {
-            time: "Conclusion",
-            title: "Rest & Refreshment",
-            description: "Relax in our lounge area with mint tea and light refreshments before departing."
-        }
-    ],
-    includes: [
-        "Traditional hammam ritual",
-        "Professional spa attendant",
-        "All spa products (black soap, ghassoul clay, argan oil)",
-        "30-minute aromatic oil massage",
-        "Spa attire (disposable underwear)",
-        "Locker for personal belongings",
-        "Towels and toiletries",
-        "Mint tea and light refreshments"
-    ],
-    bring: [
-        "Swimwear (optional, disposable underwear is provided)",
-        "Flip-flops (optional, spa slippers are provided)",
-        "Change of clothes"
-    ],
-    availability: "Daily from 10:00 AM to 8:00 PM",
-    additionalInfo: {
-        "Difficulty": "Easy - relaxation activity",
-        "Minimum Age": "16 years",
-        "Languages": "English, French, Arabic",
-        "Confirmation": "Immediate confirmation",
-        "Cancellation": "Free cancellation up to 24 hours before",
-        "Note": "Men and women are treated in separate facilities. Please inform us of any health conditions before booking."
-    },
-    relatedPrograms: ["cooking-class", "camel-ride", "marrakech-tour"]
-},
-
-"craft-workshop": {
-    title: "Traditional Craft Workshops",
-    subtitle: "Learn authentic Moroccan crafts from master artisans",
-    heroImage: "../assets/images/activities/cooking-class-hero.jpg", // Using existing image as placeholder
-    mainImage: "../assets/images/activities/cooking-class-large.jpg", // Using existing image as placeholder
-    price: 55,
-    duration: "3 hours",
-    location: "Marrakech Medina",
-    groupSize: "2-8 people",
-    rating: 4.8,
-    reviews: 87,
-    description: `
-        <h3>Experience Overview</h3>
-        <p>Immerse yourself in centuries-old Moroccan craftsmanship with our hands-on workshop led by master artisans. Choose from pottery making, leather working, or traditional carpet weaving to learn authentic techniques passed down through generations.</p>
         
-        <p>Your experience begins with a visit to artisan workshops in the medina, where you will observe skilled craftspeople at work and learn about the cultural significance of these traditional art forms. Then, you will participate in a hands-on workshop where you will create your own piece to take home as a unique souvenir.</p>
-        
-        <p>Throughout the workshop, your master artisan will guide you through each step of the process, sharing the history and cultural context of the craft. You will gain insight into the tools, materials, and techniques that have remained largely unchanged for centuries.</p>
-        
-        <p>This workshop offers more than just a creative activity - it provides a deeper understanding of Moroccan culture through its artistic heritage and supports local artisans who are preserving these traditional crafts.</p>
-    `,
-    itinerary: [
-        {
-            time: "10:00 AM or 2:00 PM",
-            title: "Meeting Point",
-            description: "Meet your guide at a designated point in the medina."
-        },
-        {
-            time: "10:15 AM or 2:15 PM",
-            title: "Artisan Quarter Tour",
-            description: "Visit traditional workshops in the medina to observe master craftspeople at work and learn about different crafts."
-        },
-        {
-            time: "11:00 AM or 3:00 PM",
-            title: "Workshop Introduction",
-            description: "Introduction to your chosen craft (pottery, leather working, or carpet weaving) with explanation of materials, tools, and techniques."
-        },
-        {
-            time: "11:15 AM or 3:15 PM",
-            title: "Hands-on Workshop",
-            description: "Begin your hands-on experience creating your own piece under the guidance of a master artisan."
-        },
-        {
-            time: "12:30 PM or 4:30 PM",
-            title: "Tea Break",
-            description: "Enjoy mint tea and Moroccan pastries while your creation is being finished (fired, dried, or prepared for transport)."
-        },
-        {
-            time: "1:00 PM or 5:00 PM",
-            title: "Conclusion",
-            description: "Receive your finished piece or arrangement for later pickup/delivery (for items that require additional processing time)."
-        }
     ],
     includes: [
         "Guided tour of artisan workshops",
@@ -351,56 +247,7 @@ const activitiesData = {
         <p>A highlight of the tour is a traditional lunch in a local Berber home or mountain restaurant, providing authentic flavors and a welcome rest. This immersive experience combines physical activity, cultural exchange, and natural beauty for a truly memorable day in the Atlas Mountains.</p>
     `,
     itinerary: [
-        {
-            time: "8:30 AM",
-            title: "Hotel Pickup",
-            description: "Morning pickup from your Marrakech accommodation."
-        },
-        {
-            time: "9:30 AM",
-            title: "Scenic Drive",
-            description: "Scenic drive through the foothills of the Atlas Mountains with a stop for panoramic views and photos."
-        },
-        {
-            time: "10:30 AM",
-            title: "Arrival & Preparation",
-            description: "Arrive at the trailhead in the Atlas Mountains. Meet your mountain guide, review the hiking route, and begin your trek."
-        },
-        {
-            time: "10:45 AM",
-            title: "Morning Hike",
-            description: "Trek through stunning mountain landscapes, with your guide providing information about the geography, flora, and fauna of the region."
-        },
-        {
-            time: "12:30 PM",
-            title: "Village Visit",
-            description: "Visit a traditional Berber village to learn about mountain life and culture."
-        },
-        {
-            time: "1:00 PM",
-            title: "Lunch",
-            description: "Enjoy a traditional Berber lunch in a local family home or mountain restaurant with spectacular views."
-        },
-        {
-            time: "2:00 PM",
-            title: "Afternoon Hike",
-            description: "Continue your trek along different paths, exploring more of the beautiful mountain landscape."
-        },
-        {
-            time: "3:30 PM",
-            title: "Tea Break",
-            description: "Stop for mint tea and a rest at a scenic viewpoint."
-        },
-        {
-            time: "4:30 PM",
-            title: "Return to Trailhead",
-            description: "Complete your hike and return to the vehicle."
-        },
-        {
-            time: "5:30 PM",
-            title: "Return to Marrakech",
-            description: "Drive back to Marrakech, arriving at your accommodation around 6:30 PM."
-        }
+        
     ],
     includes: [
         "Hotel pickup and drop-off (Marrakech city area)",
@@ -433,96 +280,288 @@ const activitiesData = {
     relatedPrograms: ["imlil-atlas", "ourika-valley", "camel-ride"]
 },
 
-"rock-climbing": {
-    title: "Rock Climbing Experience",
-    subtitle: "Scale the magnificent cliffs of Todra Gorge with expert guides",
-    heroImage: "../assets/images/tours/imlil-atlas-hero.jpg", // Using existing image as placeholder
-    mainImage: "../assets/images/tours/imlil-atlas.jpg", // Using existing image as placeholder
-    price: 90,
-    duration: "5 hours",
-    location: "Todra Gorge",
-    groupSize: "1-6 people",
+'agafay-overnight': {
+    title: 'Overnight in the Agafay Desert',
+    subtitle: 'Magical evening with camel ride, dinner under the stars, and luxury camping experience',
+    heroImage: '../assets/images/activities/agafay-overnight-hero.jpg',
+    mainImage: '../assets/images/activities/desert_camping.jpg',
+    galleryImages: [
+        '../assets/images/activities/desert_camping.jpg',
+        '../assets/images/activities/agafay-sunset-camel.jpg',
+        '../assets/images/activities/agafay-luxury-tent.jpg',
+    ],
+    price: 185,
+    duration: '24 hours (overnight experience)',
+    location: 'Agafay Desert, near Marrakech',
+    groupSize: '2-20 people',
     rating: 4.9,
-    reviews: 56,
+    reviews: 124,
     description: `
         <h3>Experience Overview</h3>
-        <p>Challenge yourself with a rock climbing adventure on the spectacular limestone cliffs of Todra Gorge. Known as the "Morocco Verdon," these majestic walls offer routes for all levels, from complete beginners to experienced climbers, all against the backdrop of one of Morocco most stunning natural wonders.</p>
+        <p>Escape to the calm of the Agafay Desert, just a short drive from Marrakech. This magical overnight experience combines the beauty of Morocco's lunar-like desert landscape with luxury camping and authentic cultural experiences.</p>
+        <p>Your adventure begins with a scenic camel ride at sunset, where you'll witness the desert transform as golden light bathes the rolling hills. As night falls, enjoy a traditional Moroccan dinner under a canopy of stars, accompanied by live Berber music around a crackling campfire.</p>
+        <p>Sleep comfortably in a luxury tent equipped with real beds and quality linens, far from the noise of the city but close to the essential beauty of the desert. Wake up to a peaceful sunrise and enjoy a fresh open-air breakfast facing the desert hills, creating memories that will last a lifetime.</p>
+    `,
+    itinerary: [
         
-        <p>Your experience is led by professional climbing guides with international certifications and intimate knowledge of the local routes. The day begins with comprehensive safety instruction and equipment fitting, followed by climbing sessions tailored to your experience level.</p>
-        
-        <p>For beginners, we focus on building confidence and teaching fundamental techniques on easier routes, with the difficulty gradually increasing as your skills develop. Experienced climbers can test themselves on more challenging routes, with our guides providing local knowledge about the best climbs for your ability.</p>
-        
-        <p>Throughout the day, you will have the opportunity to complete multiple climbs, with rest breaks to appreciate the magnificent scenery of the gorge. The towering walls reaching heights of 300 meters, the peaceful river running through the canyon, and the changing colors of the rock as the sun moves across the sky create an unforgettable backdrop for your climbing adventure.</p>
+    ],
+    includes: [
+        'Round-trip transportation from Marrakech',
+        'Welcome tea upon arrival',
+        'Sunset camel ride (approximately 1 hour)',
+        'Luxury tent accommodation with real beds',
+        'Traditional Moroccan dinner',
+        'Fresh breakfast with desert views',
+        'Live Berber music and entertainment',
+        'Campfire experience with stargazing',
+        'Professional local guides',
+        'Bottled water throughout the experience'
+    ],
+    bring: [
+        'Comfortable clothing for evening and morning',
+        'Warm jacket or sweater (desert nights can be cool)',
+        'Comfortable walking shoes',
+        'Sun protection (hat, sunglasses, sunscreen)',
+        'Camera for sunset and sunrise photos',
+        'Personal toiletries',
+        'Flashlight or phone light for nighttime',
+        'Cash for tips and personal expenses'
+    ],
+    availability: 'Daily departures, year-round (weather permitting)',
+    additionalInfo: {
+        'Difficulty': 'Easy - suitable for all ages and fitness levels',
+        'Language': 'English, French, Arabic, Berber',
+        'Confirmation': 'Immediate confirmation upon booking',
+        'Cancellation': 'Free cancellation up to 48 hours before',
+        'Best Time': 'Year-round, particularly magical during spring and autumn',
+        'Group Size': 'Private and group options available',
+        'Facilities': 'Shared bathroom facilities, luxury tents with comfortable beds'
+    },
+    relatedPrograms: ['quad-biking', 'camel-ride', 'agafay-desert', 'hot-air-balloon']
+},
+'marrakech-city-tour': {
+    title: 'Marrakech City Tour',
+    subtitle: 'Dive into the heart of Marrakech with a passionate local guide through vibrant souks and historic sites',
+    heroImage: '../assets/images/tours/marrakech-city-hero.jpg',
+    mainImage: '../assets/images/tours/marrakech-medina.jpg',
+    galleryImages: [
+        '../assets/images/tours/marrakech-medina.jpg',
+        '../assets/images/tours/marrakech-jemaa-el-fna.jpg',
+        '../assets/images/tours/marrakech-souks-spices.jpg',
+        '../assets/images/tours/marrakech-bahia-palace.jpg',
+        '../assets/images/tours/marrakech-majorelle-garden.jpg',
+        '../assets/images/tours/marrakech-koutoubia-mosque.jpg',
+        '../assets/images/tours/marrakech-traditional-crafts.jpg',
+        '../assets/images/tours/marrakech-hidden-riads.jpg',
+        '../assets/images/tours/marrakech-local-life.jpg',
+        '../assets/images/tours/marrakech-colorful-alleys.jpg'
+    ],
+    price: 45,
+    duration: '6-7 hours',
+    location: 'Marrakech Medina and New City',
+    groupSize: '2-15 people',
+    rating: 4.8,
+    reviews: 289,
+    description: `
+        <h3>Tour Overview</h3>
+        <p>Dive into the heart of Marrakech with a passionate local guide who will reveal the soul of this magical city. This comprehensive walking tour takes you through the labyrinthine streets of the ancient medina, where every alley tells a story and every door hides a secret.</p>
+        <p>Wander through vibrant souks bursting with colors, aromas, and sounds that awaken all your senses. Discover historic palaces with intricate architecture, hidden gardens that offer peaceful respites, and the legendary Djemaa el-Fna square where Morocco's rich cultural heritage comes alive through storytellers, musicians, and performers.</p>
+        <p>This isn't just a tour—it's a journey through colors, culture, and authentic Moroccan life. Your expert local guide will share insider knowledge, historical anecdotes, and cultural insights that you'd never discover on your own, making this an unforgettable immersion into the real Marrakech.</p>
     `,
     itinerary: [
         {
-            time: "9:00 AM",
-            title: "Meeting Point",
-            description: "Meet your climbing guides at the designated location in Todra Gorge. (Transportation packages from Marrakech available at additional cost.)"
+            time: '9:00 AM',
+            title: 'Meeting Point & Introduction',
+            description: 'Meet your passionate local guide at a central location. Brief introduction to Marrakech\'s history and what to expect during the tour.'
         },
         {
-            time: "9:15 AM",
-            title: "Introduction & Equipment",
-            description: "Introduction to your guides, safety briefing, and equipment fitting (harness, helmet, climbing shoes)."
+            time: '9:15 AM',
+            title: 'Koutoubia Mosque & Gardens',
+            description: 'Start with the iconic Koutoubia Mosque, Marrakech\'s most famous landmark. Learn about Islamic architecture and the mosque\'s significance to the city.'
         },
         {
-            time: "9:45 AM",
-            title: "Basic Techniques",
-            description: "Learn or review basic climbing techniques, safety procedures, and communication signals."
+            time: '10:00 AM',
+            title: 'Saadian Tombs',
+            description: 'Explore the beautifully decorated Saadian Tombs, a hidden treasure that remained sealed for centuries before being rediscovered.'
         },
         {
-            time: "10:15 AM",
-            title: "First Climbs",
-            description: "Begin climbing on routes appropriate to your experience level with close guidance from instructors."
+            time: '10:45 AM',
+            title: 'Bahia Palace',
+            description: 'Visit the stunning Bahia Palace with its intricate tilework, carved cedar ceilings, and peaceful courtyards representing the pinnacle of Moroccan architecture.'
         },
         {
-            time: "12:00 PM",
-            title: "Lunch Break",
-            description: "Break for a picnic lunch in the shade of the gorge while discussing the morning climbs."
+            time: '11:45 AM',
+            title: 'Jewish Quarter (Mellah)',
+            description: 'Walk through the historic Jewish quarter, learning about Marrakech\'s multicultural heritage and visiting the old synagogue.'
         },
         {
-            time: "1:00 PM",
-            title: "Afternoon Climbing Session",
-            description: "Continue climbing, attempting more challenging routes as confidence and skills improve."
+            time: '12:30 PM',
+            title: 'Spice & Herb Market',
+            description: 'Immerse yourself in the aromatic spice markets, where your guide will explain the uses of various spices, herbs, and traditional remedies.'
         },
         {
-            time: "2:30 PM",
-            title: "Final Climbs",
-            description: "Complete your last climbs of the day, possibly attempting a slightly more challenging route to test your progress."
+            time: '1:00 PM',
+            title: 'Traditional Lunch Break',
+            description: 'Enjoy lunch at a local restaurant recommended by your guide, experiencing authentic Moroccan cuisine away from tourist traps.'
         },
         {
-            time: "3:30 PM",
-            title: "Conclusion",
-            description: "Return equipment, debrief with guides, and receive recommendations for future climbing."
+            time: '2:30 PM',
+            title: 'Artisan Souks Exploration',
+            description: 'Navigate the maze-like souks where craftsmen create everything from leather goods to metalwork. Learn about traditional crafting techniques.'
+        },
+        {
+            time: '3:30 PM',
+            title: 'Hidden Riads & Secret Gardens',
+            description: 'Discover hidden riads and secret gardens tucked away in the medina, showcasing traditional Moroccan architecture and peaceful oases.'
+        },
+        {
+            time: '4:15 PM',
+            title: 'Ben Youssef Madrasa',
+            description: 'Visit the Ben Youssef Madrasa, once the largest Islamic college in North Africa, with stunning geometric patterns and calligraphy.'
+        },
+        {
+            time: '5:00 PM',
+            title: 'Djemaa el-Fna Square',
+            description: 'End at the legendary Djemaa el-Fna square as it transforms into an open-air theater with storytellers, musicians, and food vendors.'
+        },
+        {
+            time: '5:30 PM',
+            title: 'Tour Conclusion & Recommendations',
+            description: 'Tour concludes with personalized recommendations for dinner, shopping, and evening activities from your local guide.'
         }
     ],
     includes: [
-        "Professional certified climbing guides",
-        "All necessary climbing equipment (harness, helmet, climbing shoes, ropes, carabiners)",
-        "Safety briefing and basic instruction",
-        "Picnic lunch and bottled water",
-        "Photos of your climbing experience (sent digitally after the tour)",
-        "Personal accident insurance"
+        'Professional licensed local guide',
+        'Walking tour of Marrakech medina and main attractions',
+        'Entry fees to Bahia Palace and Saadian Tombs',
+        'Visit to Ben Youssef Madrasa',
+        'Guided exploration of souks and artisan quarters',
+        'Cultural insights and historical commentary',
+        'Navigation through the medina\'s maze-like streets',
+        'Local tips and recommendations',
+        'Small group experience for personalized attention'
     ],
     bring: [
-        "Comfortable, flexible clothing suitable for physical activity",
-        "Sneakers or light hiking shoes for walking around between climbs",
-        "Sunscreen and lip balm",
-        "Sunglasses and hat",
-        "Small backpack for personal items",
-        "Camera",
-        "1-2 liters of water (in addition to water provided)"
+        'Comfortable walking shoes (essential)',
+        'Sun protection (hat, sunglasses, sunscreen)',
+        'Camera for capturing colorful scenes',
+        'Cash for lunch and optional purchases in souks',
+        'Light backpack for personal items',
+        'Respectful clothing (covering shoulders and knees)',
+        'Water bottle to stay hydrated',
+        'Open mind and sense of adventure'
     ],
-    availability: "Daily, September through June (July and August can be too hot for comfortable climbing)",
+    availability: 'Daily departures at 9:00 AM, year-round',
     additionalInfo: {
-        "Difficulty": "Adaptable to all levels from complete beginners to experienced climbers",
-        "Minimum Age": "10 years",
-        "Guide-to-Client Ratio": "1:4 maximum for safety",
-        "Languages": "English, French, Arabic, Spanish",
-        "Confirmation": "Immediate confirmation",
-        "Cancellation": "Free cancellation up to 48 hours before",
-        "Weather": "Activity subject to cancellation in case of rain or high winds for safety reasons"
+        'Difficulty': 'Moderate - involves 4-5 hours of walking on uneven surfaces',
+        'Language': 'English, French, Arabic, Spanish (specify preference)',
+        'Group Size': 'Small groups for intimate experience',
+        'Confirmation': 'Immediate confirmation upon booking',
+        'Cancellation': 'Free cancellation up to 24 hours before',
+        'Duration': 'Approximately 6-7 hours with lunch break',
+        'Meeting Point': 'Central Marrakech location (details provided upon booking)',
+        'Weather': 'Tour operates in all weather conditions'
     },
-    relatedPrograms: ["hiking-tours", "quad-biking", "hot-air-balloon"]
+    relatedPrograms: ['cooking-class', 'hammam-spa', 'majorelle-garden', 'quad-biking']
+},
+// Add this to your activities.js file
+
+'majorelle-garden': {
+    title: 'Majorelle Garden Tour',
+    subtitle: 'A haven of peace in the heart of Marrakech with vibrant colors and tranquil atmosphere',
+    heroImage: '../assets/images/activities/majorelle-garden-hero.jpg',
+    mainImage: '../assets/images/activities/majorelle-garden-large.jpg',
+    price: 35,
+    duration: '2-3 hours',
+    location: 'Marrakech, Gueliz District',
+    groupSize: '1-15 people',
+    rating: 4.6,
+    reviews: 189,
+    description: `
+        <h3>Experience Overview</h3>
+        <p>Escape the bustling streets of Marrakech and step into the serene world of Majorelle Garden, one of Morocco's most visited attractions. This enchanting botanical garden is a living masterpiece that combines exotic plant collections, stunning architecture, and artistic heritage in a peaceful oasis.</p>
+        
+        <p>Created by French artist Jacques Majorelle in the 1920s and 1930s, the garden became world-famous after being restored by fashion designer Yves Saint Laurent and his partner Pierre Bergé in 1980. The garden's signature cobalt blue, known as "Majorelle Blue," creates a striking contrast against the lush greenery and colorful flowers.</p>
+        
+        <p>Your visit includes exploration of the beautifully landscaped gardens with their shaded paths, tranquil ponds, and exotic plants from around the world. The garden houses over 300 plant species from five continents, including towering palm trees, vibrant bougainvillea, and rare cacti collections.</p>
+        
+        <p>Don't miss the fascinating Berber Museum housed within the garden, which showcases the rich cultural heritage of Morocco's indigenous people through traditional jewelry, textiles, and artifacts. The museum provides valuable insights into Berber history and their contributions to Moroccan culture.</p>
+    `,
+    itinerary: [
+        {
+            time: "Morning Option: 9:00 AM",
+            title: "Garden Opening",
+            description: "Meet at the garden entrance. Begin your self-guided exploration of the peaceful pathways and exotic plant collections."
+        },
+        {
+            time: "9:15 AM - 10:30 AM",
+            title: "Garden Exploration",
+            description: "Wander through the shaded paths, discover the signature Majorelle Blue buildings, and enjoy the tranquil ponds and fountains. Perfect time for photography."
+        },
+        {
+            time: "10:30 AM - 11:15 AM",
+            title: "Berber Museum Visit",
+            description: "Explore the museum's collection of traditional Berber jewelry, textiles, carpets, and cultural artifacts that tell the story of Morocco's indigenous people."
+        },
+        {
+            time: "11:15 AM - 12:00 PM",
+            title: "Relaxation & Photography",
+            description: "Take time to sit in quiet corners of the garden, enjoy the peaceful atmosphere, and capture the vibrant colors and exotic plants."
+        },
+        {
+            time: "Afternoon Option: 2:00 PM",
+            title: "Alternative Visit Time",
+            description: "The garden is also beautiful in the afternoon light, offering a different perspective and generally fewer crowds."
+        }
+    ],
+    includes: [
+        'Garden entrance ticket',
+        'Berber Museum entrance',
+        'Garden map and information leaflet',
+        'Access to all garden areas and paths',
+        'Rest areas and benches throughout the garden'
+    ],
+    bring: [
+        'Comfortable walking shoes',
+        'Camera (photography is allowed in most areas)',
+        'Sun protection (hat, sunglasses, sunscreen)',
+        'Water bottle',
+        'Light clothing suitable for walking',
+        'Small backpack for personal items'
+    ],
+    availability: 'Daily from 8:00 AM to 6:00 PM (8:00 AM to 5:00 PM in winter)',
+    additionalInfo: {
+        'Difficulty': 'Easy - suitable for all ages and fitness levels',
+        'Duration': 'Self-guided visit, typically 2-3 hours',
+        'Best Time': 'Early morning (8-10 AM) or late afternoon (4-6 PM) for best light and fewer crowds',
+        'Languages': 'Information available in English, French, Arabic',
+        'Confirmation': 'Tickets can be purchased at entrance or pre-booked',
+        'Cancellation': 'Flexible - visit any time during opening hours',
+        'Photography': 'Allowed throughout the garden (some restrictions in museum)',
+        'Accessibility': 'Partially wheelchair accessible - main paths are paved'
+    },
+    highlights: [
+        {
+            title: 'Majorelle Blue Architecture',
+            description: 'The iconic cobalt blue buildings and structures that give the garden its distinctive character and photogenic appeal.'
+        },
+        {
+            title: 'Exotic Plant Collections',
+            description: 'Over 300 plant species from five continents, including rare cacti, towering palms, and colorful flowering plants.'
+        },
+        {
+            title: 'Berber Museum',
+            description: 'Fascinating collection of traditional Berber artifacts, jewelry, and textiles showcasing Morocco\'s indigenous culture.'
+        },
+        {
+            title: 'Tranquil Water Features',
+            description: 'Peaceful ponds, fountains, and water channels creating a cooling and meditative atmosphere throughout the garden.'
+        },
+        {
+            title: 'Yves Saint Laurent Memorial',
+            description: 'A touching tribute to the famous designer who helped preserve this beautiful garden for future generations.'
+        }
+    ],
+    relatedPrograms: ['cooking-class', 'marrakech-tour', 'hammam-spa']
 }
 };

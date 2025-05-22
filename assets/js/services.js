@@ -178,3 +178,84 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // ... other initialization code ...
 });
+// Add this to your services.js file or main.js to handle automatic section navigation
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Handle automatic section switching when coming from details page
+    handleSectionFromURL();
+    
+    // Your existing services page code...
+});
+
+function handleSectionFromURL() {
+    // Check if we're on the services page
+    if (!window.location.pathname.includes('services.html')) return;
+    
+    // Get the hash from URL (e.g., #activities, #tours)
+    const hash = window.location.hash.substring(1); // Remove the #
+    
+    if (hash) {
+        // Wait a bit for the page to load, then switch to the correct section
+        setTimeout(() => {
+            switchToSection(hash);
+        }, 100);
+    }
+}
+
+function switchToSection(sectionName) {
+    // Map section names to filter buttons
+    const sectionMap = {
+        'activities': 'activities',
+        'tours': 'tours', 
+        'transportation': 'transportation',
+        'destinations': 'destinations'
+    };
+    
+    const targetSection = sectionMap[sectionName];
+    if (!targetSection) return;
+    
+    // Find and click the corresponding filter button
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const targetButton = Array.from(filterButtons).find(btn => 
+        btn.getAttribute('data-filter') === targetSection
+    );
+    
+    if (targetButton) {
+        // Remove active class from all buttons
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        
+        // Add active class to target button
+        targetButton.classList.add('active');
+        
+        // Hide all content sections
+        const contentSections = document.querySelectorAll('.content-section');
+        contentSections.forEach(section => {
+            section.classList.remove('active');
+        });
+        
+        // Show target content section
+        const targetContent = document.getElementById(targetSection);
+        if (targetContent) {
+            targetContent.classList.add('active');
+            
+            // Smooth scroll to the section
+            targetContent.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+            
+            // Add a subtle highlight effect
+            targetContent.style.animation = 'sectionHighlight 2s ease';
+        }
+    }
+}
+
+// Add this CSS animation to your main.css
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes sectionHighlight {
+        0% { background-color: rgba(229, 124, 35, 0.1); }
+        100% { background-color: transparent; }
+    }
+`;
+document.head.appendChild(style);

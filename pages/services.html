@@ -9,7 +9,7 @@
     <title>Services | MerrakechyTour</title>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+        <link rel="icon" type="image/png" href="/Project1/assets/images/Logos/logo.png">
 
     <!-- CSS Files -->
     <link rel="stylesheet" href="../assets/css/main.css">
@@ -31,7 +31,9 @@
 
     <!-- Preloader -->
     <div class="preloader">
-        <div class="spinner"></div>
+        <div class="spinner">
+            <img src="/Project1/assets/images/Logos/logo.png" alt="">
+        </div>
     </div>
 
     <!-- Header Section -->
@@ -49,7 +51,6 @@
                     <ul class="nav-links">
                         <li><a href="../index.html">Home</a></li>
                         <li><a href="services.html" class="active">Services</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
                         <li><a href="about.html">About</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
@@ -86,8 +87,7 @@
                 <button class="filter-btn active" data-filter="activities">Activities</button>
                 <button class="filter-btn" data-filter="tours">Tours</button>
                 <button class="filter-btn" data-filter="transportation">Transportation</button>
-                <button class="filter-btn" data-filter="destinations">Destinations</button>
-                        <button class="filter-btn" data-filter="rentals">Rentals</button>
+                <button class="filter-btn" data-filter="rentals">Rentals</button>
             </div>
         </div>
     </section>
@@ -187,19 +187,20 @@
                     <!-- Activity 3: Desert Camping -->
                     <div class="service-card desert-activities">
                         <div class="service-image">
-                            <img src="../assets/images/activities/desert_camping.jpg" alt="Desert Camping">
+                            <img src="../assets/images/activities/desert_camping.jpg" alt="Agafay Desert Overnight">
+                            <div class="service-badge">New Experience</div>
                         </div>
                         <div class="service-info">
                             <div class="service-title">
-                                <h3>Desert Camping Experience</h3>
-                                <div class="service-price">From <span>$120</span></div>
+                                <h3>Overnight in the Agafay Desert</h3>
+                                <div class="service-price">From <span>$185</span></div>
                             </div>
                             <div class="service-meta">
                                 <span><i class="far fa-clock"></i> 24 hours</span>
                                 <span><i class="fas fa-map-marker-alt"></i> Agafay Desert</span>
                             </div>
-                            <p>Experience a night under the stars in a luxurious desert camp, with traditional dinner,
-                                Berber music around the campfire, and stunning sunrise views.</p>
+                            <p>Escape to the calm of the Agafay Desert with a magical evening featuring camel rides at
+                                sunset, traditional dinner under the stars, and luxury tent accommodation.</p>
                             <div class="service-rating">
                                 <div class="stars">
                                     <i class="fas fa-star"></i>
@@ -208,17 +209,21 @@
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                 </div>
-                                <span>4.9 (73 reviews)</span>
+                                <span>4.9 (124 reviews)</span>
+                            </div>
+                            <div class="service-features">
+                                <span><i class="fas fa-bed"></i> Luxury Tents</span>
+                                <span><i class="fas fa-utensils"></i> Traditional Dinner</span>
+                                <span><i class="fas fa-music"></i> Live Music</span>
                             </div>
                             <div class="service-actions">
-                                <a href="details.html?category=activity&id=desert-camping" class="btn btn-outline">View
-                                    Details</a>
-                                <a href="checkout.html?category=activity&id=desert-camping" class="btn btn-primary">Book
-                                    Now</a>
+                                <a href="details.html?category=activity&id=agafay-overnight"
+                                    class="btn btn-outline">View Details</a>
+                                <a href="checkout.html?category=activity&id=agafay-overnight"
+                                    class="btn btn-primary">Book Now</a>
                             </div>
                         </div>
                     </div>
-
                     <!-- Cultural Activities -->
                     <!-- Activity 4: Cooking Class -->
                     <div class="service-card cultural-activities">
@@ -254,7 +259,81 @@
                             </div>
                         </div>
                     </div>
-
+                    <!-- Activity: Majorelle Garden Tour -->
+                    <div class="service-card cultural-activities">
+                        <div class="service-image">
+                            <img src="../assets/images/activities/majorelle-garden.jpg" alt="Majorelle Garden Tour">
+                            <div class="service-badge">Peaceful</div>
+                        </div>
+                        <div class="service-info">
+                            <div class="service-title">
+                                <h3>Majorelle Garden Tour</h3>
+                                <div class="service-price">From <span>$35</span></div>
+                            </div>
+                            <div class="service-meta">
+                                <span><i class="far fa-clock"></i> 2-3 hours</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Marrakech</span>
+                            </div>
+                            <p>A haven of peace in the heart of Marrakech with vibrant Majorelle Blue colors, exotic
+                                plants, and the fascinating Berber Museum. Perfect for photography and relaxation.</p>
+                            <div class="service-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span>4.6 (189 reviews)</span>
+                            </div>
+                            <div class="service-actions">
+                                <a href="details.html?category=activity&id=majorelle-garden"
+                                    class="btn btn-outline">View Details</a>
+                                <a href="checkout.html?category=activity&id=majorelle-garden"
+                                    class="btn btn-primary">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tour: Marrakech City Tour -->
+                    <div class="service-card cultural-activities">
+                        <div class="service-image">
+                            <img src="../assets/images/tours/marrakech-medina.jpg" alt="Marrakech City Tour">
+                            <div class="service-badge">Local Guide</div>
+                        </div>
+                        <div class="service-info">
+                            <div class="service-title">
+                                <h3>Marrakech City Tour</h3>
+                                <div class="service-price">From <span>$45</span></div>
+                            </div>
+                            <div class="service-meta">
+                                <span><i class="far fa-clock"></i> 6-7 hours</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Marrakech Medina</span>
+                            </div>
+                            <p>Dive into the heart of Marrakech with a passionate local guide through vibrant souks,
+                                historic palaces, hidden gardens, and the legendary Djemaa el-Fna square.</p>
+                            <div class="service-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span>4.8 (289 reviews)</span>
+                            </div>
+                            <div class="service-features">
+                                <span><i class="fas fa-walking"></i> Walking Tour</span>
+                                <span><i class="fas fa-mosque"></i> Historic Sites</span>
+                                <span><i class="fas fa-shopping-bag"></i> Souks Visit</span>
+                            </div>
+                            <div class="service-actions">
+                                <a href="details.html?category=tour&id=marrakech-city-tour" class="btn btn-outline">View
+                                    Details</a>
+                                <a href="checkout.html?category=tour&id=marrakech-city-tour"
+                                    class="btn btn-primary">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
                     <!-- Activity 5: Hammam & Spa -->
                     <div class="service-card cultural-activities">
                         <div class="service-image">
@@ -357,41 +436,6 @@
                                 <a href="details.html?category=activity&id=hiking-tours" class="btn btn-outline">View
                                     Details</a>
                                 <a href="checkout.html?category=activity&id=hiking-tours" class="btn btn-primary">Book
-                                    Now</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Activity 10: Rock Climbing -->
-                    <div class="service-card adventure-activities">
-                        <div class="service-image">
-                            <img src="../assets/images/tours/imlil-atlas.jpg" alt="Rock Climbing">
-                        </div>
-                        <div class="service-info">
-                            <div class="service-title">
-                                <h3>Rock Climbing Experience</h3>
-                                <div class="service-price">From <span>$90</span></div>
-                            </div>
-                            <div class="service-meta">
-                                <span><i class="far fa-clock"></i> 5 hours</span>
-                                <span><i class="fas fa-map-marker-alt"></i> Todra Gorge</span>
-                            </div>
-                            <p>Guided rock climbing in the magnificent Todra Gorge, with routes suitable for beginners
-                                and experienced climbers. Equipment and safety instruction provided.</p>
-                            <div class="service-rating">
-                                <div class="stars">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                                <span>4.9 (56 reviews)</span>
-                            </div>
-                            <div class="service-actions">
-                                <a href="details.html?category=activity&id=rock-climbing" class="btn btn-outline">View
-                                    Details</a>
-                                <a href="checkout.html?category=activity&id=rock-climbing" class="btn btn-primary">Book
                                     Now</a>
                             </div>
                         </div>
@@ -627,183 +671,9 @@
                         </div>
                     </div>
 
-                    <!-- Tour 7: Merzouga 3 Days -->
-                    <div class="service-card multi-day-tours">
-                        <div class="service-image">
-                            <img src="../assets/images/tours/merzoga.jpeg" alt="Merzouga Desert Tour">
-                            <div class="service-badge">Featured</div>
-                        </div>
-                        <div class="service-info">
-                            <div class="service-title">
-                                <h3>3-Day Desert Tour to Merzouga</h3>
-                                <div class="service-price">From <span>$375</span></div>
-                            </div>
-                            <div class="service-meta">
-                                <span><i class="far fa-clock"></i> 3 days / 2 nights</span>
-                                <span><i class="fas fa-map-marker-alt"></i> Merzouga Desert</span>
-                            </div>
-                            <p>Journey through diverse landscapes to the majestic Erg Chebbi sand dunes of Merzouga.
-                                Visit Aït Benhaddou, Todra Gorge, and spend a night under the desert stars.</p>
-                            <div class="service-rating">
-                                <div class="stars">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                                <span>4.9 (92 reviews)</span>
-                            </div>
-                            <div class="service-actions">
-                                <a href="details.html?category=tour&id=merzouga-3-days" class="btn btn-outline">View
-                                    Details</a>
-                                <a href="checkout.html?category=tour&id=merzouga-3-days" class="btn btn-primary">Book
-                                    Now</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Tour 8: Merzouga 4 Days -->
-                    <div class="service-card multi-day-tours">
-                        <div class="service-image">
-                            <img src="../assets/images/tours/merzoga.jpeg" alt="4-Day Merzouga Desert Tour">
-                        </div>
-                        <div class="service-info">
-                            <div class="service-title">
-                                <h3>4-Day Desert Tour to Merzouga</h3>
-                                <div class="service-price">From <span>$450</span></div>
-                            </div>
-                            <div class="service-meta">
-                                <span><i class="far fa-clock"></i> 4 days / 3 nights</span>
-                                <span><i class="fas fa-map-marker-alt"></i> Multiple Locations</span>
-                            </div>
-                            <p>Extended desert adventure with more time to explore each destination. Visit Aït
-                                Benhaddou, Ouarzazate, Todra Gorge, and enjoy camel trekking in the Erg Chebbi dunes.
-                            </p>
-                            <div class="service-rating">
-                                <div class="stars">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                                <span>4.9 (84 reviews)</span>
-                            </div>
-                            <div class="service-actions">
-                                <a href="details.html?category=tour&id=merzouga-4-days" class="btn btn-outline">View
-                                    Details</a>
-                                <a href="checkout.html?category=tour&id=merzouga-4-days" class="btn btn-primary">Book
-                                    Now</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Tour 9: Merzouga 5 Days -->
-                    <div class="service-card multi-day-tours">
-                        <div class="service-image">
-                            <img src="../assets/images/tours/merzoga1.jpeg" alt="5-Day Merzouga Desert Tour">
-                        </div>
-                        <div class="service-info">
-                            <div class="service-title">
-                                <h3>5-Day Desert Tour From Zagora to Merzouga</h3>
-                                <div class="service-price">From <span>$525</span></div>
-                            </div>
-                            <div class="service-meta">
-                                <span><i class="far fa-clock"></i> 5 days / 4 nights</span>
-                                <span><i class="fas fa-map-marker-alt"></i> Multiple Locations</span>
-                            </div>
-                            <p>Comprehensive desert journey with time to deeply explore Morocco's southern regions.
-                                Visit ancient kasbahs, oases, gorges, and spend two nights in the Sahara Desert.</p>
-                            <div class="service-rating">
-                                <div class="stars">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                                <span>4.9 (76 reviews)</span>
-                            </div>
-                            <div class="service-actions">
-                                <a href="details.html?category=tour&id=merzouga-5-days" class="btn btn-outline">View
-                                    Details</a>
-                                <a href="checkout.html?category=tour&id=merzouga-5-days" class="btn btn-primary">Book
-                                    Now</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Tour 10: Fez 3 Days -->
-                    <div class="service-card multi-day-tours">
-                        <div class="service-image">
-                            <img src="../assets/images/tours/fez.webp" alt="3-Day Tour to Fez">
-                        </div>
-                        <div class="service-info">
-                            <div class="service-title">
-                                <h3>3-Day Tour from Marrakech to Fez</h3>
-                                <div class="service-price">From <span>$395</span></div>
-                            </div>
-                            <div class="service-meta">
-                                <span><i class="far fa-clock"></i> 3 days / 2 nights</span>
-                                <span><i class="fas fa-map-marker-alt"></i> Multiple Cities</span>
-                            </div>
-                            <p>Journey from Marrakech to Fez through the scenic Middle Atlas Mountains. Visit Aït
-                                Benhaddou, spend a night in the desert, and explore Ifrane, the "Switzerland of
-                                Morocco".</p>
-                            <div class="service-rating">
-                                <div class="stars">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star-half-alt"></i>
-                                </div>
-                                <span>4.7 (89 reviews)</span>
-                            </div>
-                            <div class="service-actions">
-                                <a href="details.html?category=tour&id=fez-3-days" class="btn btn-outline">View
-                                    Details</a>
-                                <a href="checkout.html?category=tour&id=fez-3-days" class="btn btn-primary">Book Now</a>
-                            </div>
-                        </div>
-                    </div>
 
                     <!-- Morocco Packages -->
-                    <!-- Tour 11: 7 Days Casablanca -->
-                    <div class="service-card morocco-packages">
-                        <div class="service-image">
-                            <img src="../assets/images/tours/casablanca.webp" alt="7-Day Morocco Tour">
-                        </div>
-                        <div class="service-info">
-                            <div class="service-title">
-                                <h3>7-Day Tour from Casablanca</h3>
-                                <div class="service-price">From <span>$875</span></div>
-                            </div>
-                            <div class="service-meta">
-                                <span><i class="far fa-clock"></i> 7 days / 6 nights</span>
-                                <span><i class="fas fa-map-marker-alt"></i> Multiple Cities</span>
-                            </div>
-                            <p>Comprehensive tour starting in Casablanca, visiting Rabat, Chefchaouen, Fes, Merzouga
-                                Desert, Todra Gorge, and ending in Marrakech. Perfect introduction to Morocco.</p>
-                            <div class="service-rating">
-                                <div class="stars">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                                <span>4.9 (67 reviews)</span>
-                            </div>
-                            <div class="service-actions">
-                                <a href="details.html?category=tour&id=casablanca-7-days" class="btn btn-outline">View
-                                    Details</a>
-                                <a href="checkout.html?category=tour&id=casablanca-7-days" class="btn btn-primary">Book
-                                    Now</a>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
 
@@ -1317,7 +1187,7 @@
                     <ul>
                         <li><i class="fas fa-map-marker-alt"></i> MerrakechyTour Office, Bab Al Khmis, Marrakech 40000,
                             Morocco</li>
-                        <li><i class="fas fa-phone"></i> ++212 666-698732</li>
+                        <li><i class="fas fa-phone"></i> +212 666-698732</li>
                         <li><i class="fas fa-envelope"></i> aitaliyassir55@gmail.com</li>
                         <li><i class="fas fa-clock"></i> Open Daily: 8AM - 8PM</li>
                     </ul>

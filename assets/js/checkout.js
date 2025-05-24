@@ -1,4 +1,4 @@
-// Fixed checkout.js - matches your HTML structure
+// Updated checkout.js - Handles Adult/Children Pricing Structure
 
 document.addEventListener('DOMContentLoaded', function() {
     console.log('=== CHECKOUT DEBUG ===');
@@ -67,10 +67,40 @@ function displayProgramInfo(data, category, id) {
         programImageEl.style.display = 'block';
     }
     
-    // Update hidden form fields
+    // Update hidden form fields with pricing structure
     document.getElementById('category').value = category;
     document.getElementById('program-id').value = id;
-    document.getElementById('program-price').value = data.price || 0;
+    
+    // Handle both old and new pricing structures
+    if (data.pricing) {
+        // New pricing structure with adult/children prices
+        document.getElementById('program-price').value = data.pricing.adult;
+        
+        // Add hidden field for children price
+        let childrenPriceInput = document.getElementById('children-price');
+        if (!childrenPriceInput) {
+            childrenPriceInput = document.createElement('input');
+            childrenPriceInput.type = 'hidden';
+            childrenPriceInput.id = 'children-price';
+            childrenPriceInput.name = 'children-price';
+            document.getElementById('checkout-form').appendChild(childrenPriceInput);
+        }
+        childrenPriceInput.value = data.pricing.child;
+    } else {
+        // Fallback to old pricing structure
+        document.getElementById('program-price').value = data.price || 0;
+        
+        // Calculate children price as 50% of adult price for backward compatibility
+        let childrenPriceInput = document.getElementById('children-price');
+        if (!childrenPriceInput) {
+            childrenPriceInput = document.createElement('input');
+            childrenPriceInput.type = 'hidden';
+            childrenPriceInput.id = 'children-price';
+            childrenPriceInput.name = 'children-price';
+            document.getElementById('checkout-form').appendChild(childrenPriceInput);
+        }
+        childrenPriceInput.value = (data.price || 0) * 0.5;
+    }
     
     // Update booking summary
     const summaryProgram = document.getElementById('summary-program');
@@ -78,15 +108,46 @@ function displayProgramInfo(data, category, id) {
         summaryProgram.textContent = data.title;
     }
     
-    const summaryPrice = document.getElementById('summary-price');
-    if (summaryPrice) {
-        summaryPrice.textContent = data.price || 0;
+    // Update pricing display in summary
+    updatePricingDisplay(data);
+    
+    console.log('Program info displayed successfully');
+}
+
+function updatePricingDisplay(data) {
+    const summaryPriceEl = document.getElementById('summary-price');
+    
+    if (!summaryPriceEl) return;
+    
+    // Get prices based on data structure
+    let adultPrice, childPrice;
+    
+    if (data.pricing) {
+        // New pricing structure
+        adultPrice = data.pricing.adult;
+        childPrice = data.pricing.child;
+    } else {
+        // Fallback to old structure
+        adultPrice = data.price || 0;
+        childPrice = (data.price || 0) * 0.5;
+    }
+    
+    // Update the pricing display
+    if (adultPrice !== childPrice) {
+        // Show both adult and children prices
+        summaryPriceEl.innerHTML = `
+            <div class="pricing-breakdown">
+                <div class="price-item">Adults: $${adultPrice}/person</div>
+                <div class="price-item">Children: $${childPrice}/person</div>
+            </div>
+        `;
+    } else {
+        // Show single price
+        summaryPriceEl.textContent = `$${adultPrice}/person`;
     }
     
     // Calculate initial total
-    updateTotalPrice(data.price || 0);
-    
-    console.log('Program info displayed successfully');
+    updateTotalPrice();
 }
 
 function showError() {
@@ -119,13 +180,21 @@ function initializeForm() {
         childrenSelect.addEventListener('change', updateParticipants);
     }
     
-    // Handle date changes (keep your existing code)
+    // Handle date changes
     const dateInput = document.getElementById('date');
     if (dateInput) {
         dateInput.addEventListener('change', function() {
             const summaryDate = document.getElementById('summary-date');
             if (summaryDate) {
-                summaryDate.textContent = this.value || 'Select a date';
+                // Format the date nicely
+                const date = new Date(this.value);
+                const options = { 
+                    weekday: 'long', 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                };
+                summaryDate.textContent = date.toLocaleDateString('en-US', options);
             }
         });
     }
@@ -146,29 +215,55 @@ function updateParticipants() {
         summaryParticipants.textContent = `${adults} adult${adults !== 1 ? 's' : ''}, ${children} child${children !== 1 ? 'ren' : ''}`;
         
         // Update total price
-        const basePrice = parseFloat(document.getElementById('program-price').value) || 0;
-        updateTotalPrice(basePrice);
+        updateTotalPrice();
     }
 }
 
-function updateTotalPrice(basePrice) {
+function updateTotalPrice() {
     const adultsSelect = document.getElementById('adults');
     const childrenSelect = document.getElementById('children');
     const summaryTotal = document.getElementById('summary-total');
+    const adultPriceInput = document.getElementById('program-price');
+    const childPriceInput = document.getElementById('children-price');
     
-    if (adultsSelect && childrenSelect && summaryTotal) {
+    if (adultsSelect && childrenSelect && summaryTotal && adultPriceInput) {
         const adults = parseInt(adultsSelect.value) || 2;
         const children = parseInt(childrenSelect.value) || 0;
         
-        // Calculate total (children get 50% discount)
-        const adultTotal = basePrice * adults;
-        const childrenTotal = basePrice * children * 0.5;
+        // Get prices
+        const adultPrice = parseFloat(adultPriceInput.value) || 0;
+        const childPrice = childPriceInput ? parseFloat(childPriceInput.value) || 0 : adultPrice * 0.5;
+        
+        // Calculate totals
+        const adultTotal = adultPrice * adults;
+        const childrenTotal = childPrice * children;
         const totalPrice = adultTotal + childrenTotal;
         
         summaryTotal.textContent = totalPrice.toFixed(2);
         
+        // Update detailed breakdown if it exists
+        const breakdownEl = document.getElementById('price-breakdown');
+        if (breakdownEl) {
+            breakdownEl.innerHTML = `
+                <div class="breakdown-item">
+                    <span>Adults (${adults} × $${adultPrice}):</span>
+                    <span>$${adultTotal.toFixed(2)}</span>
+                </div>
+                ${children > 0 ? `
+                <div class="breakdown-item">
+                    <span>Children (${children} × $${childPrice}):</span>
+                    <span>$${childrenTotal.toFixed(2)}</span>
+                </div>` : ''}
+                <div class="breakdown-total">
+                    <span>Total:</span>
+                    <span>$${totalPrice.toFixed(2)}</span>
+                </div>
+            `;
+        }
+        
         console.log('Price calculation:', {
-            basePrice,
+            adultPrice,
+            childPrice,
             adults,
             children,
             adultTotal,
@@ -178,8 +273,7 @@ function updateTotalPrice(basePrice) {
     }
 }
 
-// ===== ADD THESE TWO NEW FUNCTIONS =====
-
+// Date picker functions (keeping your existing ones)
 function initializeDatePicker() {
     const dateInput = document.getElementById('date');
     if (!dateInput) return;
@@ -313,6 +407,30 @@ function addDatePickerCSS() {
             width: 40px;
             height: 100%;
             cursor: pointer;
+        }
+        
+        .pricing-breakdown {
+            font-size: 0.9rem;
+        }
+        
+        .price-item {
+            margin-bottom: 5px;
+        }
+        
+        .breakdown-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .breakdown-total {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #eee;
+            font-weight: 600;
         }
         
         /* Mobile responsive */

@@ -7839,3 +7839,82 @@ Booking confirmation page
   background-color: var(--primary-color);
   color: white;
 }
+/* Add this CSS to your main.css or in a <style> tag in checkout.html */
+
+.program-showcase {
+    display: flex;
+    gap: 20px;
+    margin: 20px 0;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.program-image-container {
+    flex: 0 0 200px;
+}
+
+.program-image-container img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.program-details {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.program-details p {
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+    margin: 0;
+}
+
+.program-details span {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .program-showcase {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .program-image-container {
+        flex: none;
+        max-width: 100%;
+    }
+    
+    .program-image-container img {
+        height: 200px;
+    }
+}
+/* Add this to your main.css file */
+
+.itinerary-map {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.itinerary-map img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .itinerary-map img {
+        max-width: 100%;
+    }
+}

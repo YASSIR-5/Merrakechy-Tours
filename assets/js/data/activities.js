@@ -7,6 +7,15 @@ const activitiesData = {
         subtitle: 'Experience the thrill of quad biking in the moon-like landscape of Agafay Desert',
         heroImage: '../assets/images/activities/quad-biking-hero.jpg',
         mainImage: '../assets/images/activities/quad.jpg',
+        galleryImages: [
+            '../assets/images/activities/quad.jpg',
+            '../assets/images/activities/',
+            '../assets/images/activities/hot-air-balloon-3.jpg'
+        ],
+        pricing: {
+            adult: 45,     
+            child: 23       
+        },
         price: 65,
         duration: '2 hours',
         location: 'Agafay Desert, near Marrakech',
@@ -99,6 +108,10 @@ const activitiesData = {
             '../assets/images/activities/',
             '../assets/images/activities/hot-air-balloon-3.jpg'
         ],
+        pricing: {
+            adult: 160,     
+            child: 75       
+        },
         price: 195,
         duration: '4 hours (approx. 1 hour in the air)',
         location: 'Atlas Mountains region, near Marrakech',
@@ -140,6 +153,11 @@ const activitiesData = {
         subtitle: 'Learn to prepare authentic Moroccan dishes with local chefs',
         heroImage: '../assets/images/activities/cooking-class-hero.jpg',
         mainImage: '../assets/images/activities/cooking-class.jpg',
+        galleryImages: [
+            '../assets/images/activities/quad.jpg',
+            '../assets/images/activities/',
+            '../assets/images/activities/hot-air-balloon-3.jpg'
+        ], 
         price: 75,
         duration: '4 hours',
         location: 'Marrakech Medina',
@@ -179,6 +197,11 @@ const activitiesData = {
     subtitle: "Indulge in a traditional Moroccan bath and relaxing massage treatment",
     heroImage: "../assets/images/activities/cooking-class-hero.jpg", // Using existing image as placeholder
     mainImage: "../assets/images/activities/hammam.jpg", // Using existing image as placeholder
+    galleryImages: [
+            '../assets/images/activities/quad.jpg',
+            '../assets/images/activities/',
+            '../assets/images/activities/hot-air-balloon-3.jpg'
+        ],
     price: 85,
     duration: "2 hours",
     location: "Marrakech Medina",
@@ -230,6 +253,11 @@ const activitiesData = {
     subtitle: "Explore breathtaking landscapes and traditional Berber villages on foot",
     heroImage: "../assets/images/tours/imlil-atlas-hero.jpg", // Using existing image as placeholder
     mainImage: "../assets/images/tours/imlil-atlas.jpg", // Using existing image as placeholder
+    galleryImages: [
+            '../assets/images/tours/imlil-atlas.jpg',
+            '../assets/images/activities/',
+            '../assets/images/activities/hot-air-balloon-3.jpg'
+        ],
     price: 60,
     duration: "6-8 hours",
     location: "High Atlas Mountains",
@@ -290,6 +318,10 @@ const activitiesData = {
         '../assets/images/activities/agafay-sunset-camel.jpg',
         '../assets/images/activities/agafay-luxury-tent.jpg',
     ],
+    pricing: {
+            adult: 60,     
+            child: 30       
+        },
     price: 185,
     duration: '24 hours (overnight experience)',
     location: 'Agafay Desert, near Marrakech',
@@ -342,19 +374,12 @@ const activitiesData = {
 'marrakech-city-tour': {
     title: 'Marrakech City Tour',
     subtitle: 'Dive into the heart of Marrakech with a passionate local guide through vibrant souks and historic sites',
-    heroImage: '../assets/images/tours/marrakech-city-hero.jpg',
-    mainImage: '../assets/images/tours/marrakech-medina.jpg',
+    heroImage: '../assets/images/tours/marrakech-medina.jpg',
+    mainImage: '../assets/images/tours/marrakech.jpeg',
     galleryImages: [
-        '../assets/images/tours/marrakech-medina.jpg',
-        '../assets/images/tours/marrakech-jemaa-el-fna.jpg',
+        '../assets/images/tours/marrakech.jpeg',
+        '../assets/images/tours/marrakech1.jpeg',
         '../assets/images/tours/marrakech-souks-spices.jpg',
-        '../assets/images/tours/marrakech-bahia-palace.jpg',
-        '../assets/images/tours/marrakech-majorelle-garden.jpg',
-        '../assets/images/tours/marrakech-koutoubia-mosque.jpg',
-        '../assets/images/tours/marrakech-traditional-crafts.jpg',
-        '../assets/images/tours/marrakech-hidden-riads.jpg',
-        '../assets/images/tours/marrakech-local-life.jpg',
-        '../assets/images/tours/marrakech-colorful-alleys.jpg'
     ],
     price: 45,
     duration: '6-7 hours',
@@ -368,68 +393,7 @@ const activitiesData = {
         <p>Wander through vibrant souks bursting with colors, aromas, and sounds that awaken all your senses. Discover historic palaces with intricate architecture, hidden gardens that offer peaceful respites, and the legendary Djemaa el-Fna square where Morocco's rich cultural heritage comes alive through storytellers, musicians, and performers.</p>
         <p>This isn't just a tour—it's a journey through colors, culture, and authentic Moroccan life. Your expert local guide will share insider knowledge, historical anecdotes, and cultural insights that you'd never discover on your own, making this an unforgettable immersion into the real Marrakech.</p>
     `,
-    itinerary: [
-        {
-            time: '9:00 AM',
-            title: 'Meeting Point & Introduction',
-            description: 'Meet your passionate local guide at a central location. Brief introduction to Marrakech\'s history and what to expect during the tour.'
-        },
-        {
-            time: '9:15 AM',
-            title: 'Koutoubia Mosque & Gardens',
-            description: 'Start with the iconic Koutoubia Mosque, Marrakech\'s most famous landmark. Learn about Islamic architecture and the mosque\'s significance to the city.'
-        },
-        {
-            time: '10:00 AM',
-            title: 'Saadian Tombs',
-            description: 'Explore the beautifully decorated Saadian Tombs, a hidden treasure that remained sealed for centuries before being rediscovered.'
-        },
-        {
-            time: '10:45 AM',
-            title: 'Bahia Palace',
-            description: 'Visit the stunning Bahia Palace with its intricate tilework, carved cedar ceilings, and peaceful courtyards representing the pinnacle of Moroccan architecture.'
-        },
-        {
-            time: '11:45 AM',
-            title: 'Jewish Quarter (Mellah)',
-            description: 'Walk through the historic Jewish quarter, learning about Marrakech\'s multicultural heritage and visiting the old synagogue.'
-        },
-        {
-            time: '12:30 PM',
-            title: 'Spice & Herb Market',
-            description: 'Immerse yourself in the aromatic spice markets, where your guide will explain the uses of various spices, herbs, and traditional remedies.'
-        },
-        {
-            time: '1:00 PM',
-            title: 'Traditional Lunch Break',
-            description: 'Enjoy lunch at a local restaurant recommended by your guide, experiencing authentic Moroccan cuisine away from tourist traps.'
-        },
-        {
-            time: '2:30 PM',
-            title: 'Artisan Souks Exploration',
-            description: 'Navigate the maze-like souks where craftsmen create everything from leather goods to metalwork. Learn about traditional crafting techniques.'
-        },
-        {
-            time: '3:30 PM',
-            title: 'Hidden Riads & Secret Gardens',
-            description: 'Discover hidden riads and secret gardens tucked away in the medina, showcasing traditional Moroccan architecture and peaceful oases.'
-        },
-        {
-            time: '4:15 PM',
-            title: 'Ben Youssef Madrasa',
-            description: 'Visit the Ben Youssef Madrasa, once the largest Islamic college in North Africa, with stunning geometric patterns and calligraphy.'
-        },
-        {
-            time: '5:00 PM',
-            title: 'Djemaa el-Fna Square',
-            description: 'End at the legendary Djemaa el-Fna square as it transforms into an open-air theater with storytellers, musicians, and food vendors.'
-        },
-        {
-            time: '5:30 PM',
-            title: 'Tour Conclusion & Recommendations',
-            description: 'Tour concludes with personalized recommendations for dinner, shopping, and evening activities from your local guide.'
-        }
-    ],
+   
     includes: [
         'Professional licensed local guide',
         'Walking tour of Marrakech medina and main attractions',
@@ -471,6 +435,11 @@ const activitiesData = {
     subtitle: 'A haven of peace in the heart of Marrakech with vibrant colors and tranquil atmosphere',
     heroImage: '../assets/images/activities/majorelle-garden-hero.jpg',
     mainImage: '../assets/images/activities/majorelle-garden-large.jpg',
+    galleryImages: [
+            '../assets/images/activities/quad.jpg',
+            '../assets/images/activities/',
+            '../assets/images/activities/hot-air-balloon-3.jpg'
+        ],
     price: 35,
     duration: '2-3 hours',
     location: 'Marrakech, Gueliz District',
@@ -487,40 +456,7 @@ const activitiesData = {
         
         <p>Don't miss the fascinating Berber Museum housed within the garden, which showcases the rich cultural heritage of Morocco's indigenous people through traditional jewelry, textiles, and artifacts. The museum provides valuable insights into Berber history and their contributions to Moroccan culture.</p>
     `,
-    itinerary: [
-        {
-            time: "Morning Option: 9:00 AM",
-            title: "Garden Opening",
-            description: "Meet at the garden entrance. Begin your self-guided exploration of the peaceful pathways and exotic plant collections."
-        },
-        {
-            time: "9:15 AM - 10:30 AM",
-            title: "Garden Exploration",
-            description: "Wander through the shaded paths, discover the signature Majorelle Blue buildings, and enjoy the tranquil ponds and fountains. Perfect time for photography."
-        },
-        {
-            time: "10:30 AM - 11:15 AM",
-            title: "Berber Museum Visit",
-            description: "Explore the museum's collection of traditional Berber jewelry, textiles, carpets, and cultural artifacts that tell the story of Morocco's indigenous people."
-        },
-        {
-            time: "11:15 AM - 12:00 PM",
-            title: "Relaxation & Photography",
-            description: "Take time to sit in quiet corners of the garden, enjoy the peaceful atmosphere, and capture the vibrant colors and exotic plants."
-        },
-        {
-            time: "Afternoon Option: 2:00 PM",
-            title: "Alternative Visit Time",
-            description: "The garden is also beautiful in the afternoon light, offering a different perspective and generally fewer crowds."
-        }
-    ],
-    includes: [
-        'Garden entrance ticket',
-        'Berber Museum entrance',
-        'Garden map and information leaflet',
-        'Access to all garden areas and paths',
-        'Rest areas and benches throughout the garden'
-    ],
+    
     bring: [
         'Comfortable walking shoes',
         'Camera (photography is allowed in most areas)',

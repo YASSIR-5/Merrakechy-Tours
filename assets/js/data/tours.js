@@ -6,7 +6,7 @@ const toursData = {
         title: '2-Day Zagora Desert Tour',
         subtitle: 'Experience the magic of the Zagora Desert with an overnight stay in a Berber camp',
         heroImage: '../assets/images/tours/zagora-desert.jpeg',
-        mainImage: '../assets/images/tours/zagora-desert.jpg',
+        mainImage: '../assets/images/tours/zagora-desert.jpg.jpeg',
         price: 295,
         duration: '2 days / 1 night',
         location: 'Zagora Desert',
@@ -19,8 +19,10 @@ const toursData = {
             <p>Experience an overnight stay in a traditional Berber desert camp, enjoy camel trekking across golden dunes, and witness the spectacular sunset and sunrise over the desert landscape. The journey provides authentic cultural experiences with opportunities to connect with local Berber people and learn about their way of life.</p>
             <p>Throughout the tour, you'll be accompanied by an experienced guide who will share insights into the region's rich history, culture, and natural beauty, making this desert adventure both educational and unforgettable.</p>
         `,
+            mapImage: '../assets/images/itinerary/zagora.png',
+
         itinerary: [
-            
+
         ],
         includes: [
             'Transportation in comfortable air-conditioned vehicle',
@@ -54,6 +56,10 @@ const toursData = {
         subtitle: 'Discover lush landscapes and Berber villages in the Atlas Mountains foothills',
         heroImage: '../assets/images/tours/ourika-valley-hero.jpg',
         mainImage: '../assets/images/tours/ourika-valley.jpg',
+        pricing: {
+            adult: 30,     
+            child: 15       
+        },
         price: 55,
         duration: '1 day (8 hours)',
         location: 'Ourika Valley, Atlas Mountains',
@@ -67,7 +73,7 @@ const toursData = {
             <p>Visit an authentic Berber home where you'll enjoy traditional Moroccan hospitality with mint tea and homemade bread. Learn about the traditional lifestyle of the indigenous Berber people who have inhabited these mountains for thousands of years.</p>
             <p>The highlight of the tour is a guided hike to the spectacular Setti Fatma waterfalls, where you can cool off in the clear mountain waters. Throughout the day, you'll have plenty of opportunities to capture stunning photographs of the valley's verdant landscapes and mountain vistas.</p>
         `,
-        routeMap: 'https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d109662.83290037788!2d-7.98581486706543!3d31.51350079309674!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0xdafeed09ac1783b%3A0x8d3ac2ebcc6c1d6f!2sMarrakech%2C%20Morocco!3m2!1d31.6294723!2d-7.9810845!4m5!1s0xdaffc9f7b62c221%3A0x6b1f2c3a4b5d6e7f!2sOurika%2C%20Morocco!3m2!1d31.3975!2d-7.6653!5e0!3m2!1sen!2s!4v1635789012345!5m2!1sen!2s',
+            mapImage: '../assets/images/itinerary/ourika.png',
         itinerary: [
             
         ],
@@ -112,6 +118,8 @@ const toursData = {
             <p>From Marrakech, you'll journey through picturesque landscapes and traditional mountain villages, witnessing the authentic rural lifestyle of the Berber people who have inhabited these mountains for generations. Upon reaching Imlil, you'll enjoy a guided hike through terraced fields, walnut groves, and stunning viewpoints.</p>
             <p>The hiking route is tailored to your fitness level and preferences, with options ranging from easy walks to more challenging trails. Throughout the day, your knowledgeable guide will share insights about Berber culture, local flora and fauna, and the fascinating history of the region.</p>
         `,
+            mapImage: '../assets/images/itinerary/imlil.png',
+
         itinerary: [
             
         ],
@@ -141,61 +149,74 @@ const toursData = {
         relatedPrograms: ['ourika-valley', 'zagora-2-days', 'hot-air-balloon']
     },
     
-    'merzouga-3-days': {
-        title: '3-Day Desert Tour to Merzouga',
-        subtitle: 'Journey through diverse landscapes to the majestic Erg Chebbi sand dunes',
-        heroImage: '../assets/images/tours/zagora-desert-hero.jpg', // Use similar image for now
-        mainImage: '../assets/images/tours/zagora-desert.jpg', // Use similar image for now
-        price: 375,
-        duration: '3 days / 2 nights',
-        location: 'Atlas Mountains, Dades Valley, Merzouga Desert',
-        groupSize: '2-16 people',
-        rating: 4.9,
-        reviews: 92,
-        description: `
-            <h3>Tour Overview</h3>
-            <p>This comprehensive 3-day tour takes you on an unforgettable journey from Marrakech to the spectacular Erg Chebbi dunes of Merzouga, home to the most spectacular sand dunes in Morocco. Along the way, you'll experience the diversity of Morocco's landscapes and the richness of its cultural heritage.</p>
-            <p>Cross the High Atlas Mountains via the stunning Tizi n'Tichka pass, explore the UNESCO World Heritage site of Aït Benhaddou, and travel through the Valley of a Thousand Kasbahs. Experience the dramatic scenery of Todra Gorge and Dades Valley before reaching the golden sand dunes of Erg Chebbi.</p>
-            <p>The highlight of the tour is spending a night in a desert camp nestled among the towering dunes of Merzouga. Enjoy a camel trek at sunset, traditional Berber dinner, and music around the campfire under the star-filled desert sky. This tour offers a perfect blend of adventure, culture, and natural beauty.</p>
-        `,
-        itinerary: [
-            
-        ],
-        includes: [
-            'Transportation in comfortable air-conditioned vehicle',
-            'English/French/Spanish speaking guide',
-            'Accommodation: 1 night in hotel/riad, 1 night in desert camp',
-            'Camel trekking in Merzouga',
-            '2 breakfasts and 2 dinners',
-            'All entrance fees to monuments and attractions mentioned',
-            'Bottled water during the journey'
-        ],
-        bring: [
-            'Comfortable clothing and walking shoes',
-            'Warm jacket (desert nights can be cold)',
-            'Sun protection (hat, sunglasses, sunscreen)',
-            'Camera',
-            'Personal toiletries',
-            'Cash for lunches and personal expenses',
-            'Flashlight for the desert camp'
-        ],
-        availability: 'Daily departures, year-round',
-        additionalInfo: {
-            'Difficulty': 'Easy - moderate',
-            'Language': 'English, French, Arabic, Spanish',
-            'Confirmation': 'Immediate',
-            'Cancellation': 'Free up to 72h before'
-        },
-        relatedPrograms: ['zagora-2-days', 'ourika-valley', 'imlil-atlas']
+    'marrakech-city-tour': {
+    title: 'Marrakech City Tour',
+    subtitle: 'Dive into the heart of Marrakech with a passionate local guide through vibrant souks and historic sites',
+    heroImage: '../assets/images/tours/marrakech-medina.jpg',
+    mainImage: '../assets/images/tours/marrakech.jpeg',
+    galleryImages: [
+        '../assets/images/tours/marrakech.jpeg',
+        '../assets/images/tours/marrakech1.jpeg',
+        '../assets/images/tours/marrakech-souks-spices.jpg',
+    ],
+    price: 45,
+    duration: '6-7 hours',
+    location: 'Marrakech Medina and New City',
+    groupSize: '2-15 people',
+    rating: 4.8,
+    reviews: 289,
+    description: `
+        <h3>Tour Overview</h3>
+        <p>Dive into the heart of Marrakech with a passionate local guide who will reveal the soul of this magical city. This comprehensive walking tour takes you through the labyrinthine streets of the ancient medina, where every alley tells a story and every door hides a secret.</p>
+        <p>Wander through vibrant souks bursting with colors, aromas, and sounds that awaken all your senses. Discover historic palaces with intricate architecture, hidden gardens that offer peaceful respites, and the legendary Djemaa el-Fna square where Morocco's rich cultural heritage comes alive through storytellers, musicians, and performers.</p>
+        <p>This isn't just a tour—it's a journey through colors, culture, and authentic Moroccan life. Your expert local guide will share insider knowledge, historical anecdotes, and cultural insights that you'd never discover on your own, making this an unforgettable immersion into the real Marrakech.</p>
+    `,
+   
+    includes: [
+        'Professional licensed local guide',
+        'Walking tour of Marrakech medina and main attractions',
+        'Entry fees to Bahia Palace and Saadian Tombs',
+        'Visit to Ben Youssef Madrasa',
+        'Guided exploration of souks and artisan quarters',
+        'Cultural insights and historical commentary',
+        'Navigation through the medina\'s maze-like streets',
+        'Local tips and recommendations',
+        'Small group experience for personalized attention'
+    ],
+    bring: [
+        'Comfortable walking shoes (essential)',
+        'Sun protection (hat, sunglasses, sunscreen)',
+        'Camera for capturing colorful scenes',
+        'Cash for lunch and optional purchases in souks',
+        'Light backpack for personal items',
+        'Respectful clothing (covering shoulders and knees)',
+        'Water bottle to stay hydrated',
+        'Open mind and sense of adventure'
+    ],
+    availability: 'Daily departures at 9:00 AM, year-round',
+    additionalInfo: {
+        'Difficulty': 'Moderate - involves 4-5 hours of walking on uneven surfaces',
+        'Language': 'English, French, Arabic, Spanish (specify preference)',
+        'Group Size': 'Small groups for intimate experience',
+        'Confirmation': 'Immediate confirmation upon booking',
+        'Cancellation': 'Free cancellation up to 24 hours before',
+        'Duration': 'Approximately 6-7 hours with lunch break',
+        'Meeting Point': 'Central Marrakech location (details provided upon booking)',
+        'Weather': 'Tour operates in all weather conditions'
     },
-
+    relatedPrograms: ['cooking-class', 'hammam-spa', 'majorelle-garden', 'quad-biking']
+},
 
 "ouzoud-waterfalls": {
     title: "Ouzoud Waterfalls Day Trip",
     subtitle: "Discover Morocco's most spectacular waterfalls surrounded by lush greenery",
     heroImage: "../assets/images/tours/ourika-valley-hero.jpg", // Using existing image as placeholder
     mainImage: "../assets/images/tours/ourika-valley.jpg", // Using existing image as placeholder
-    price: 65,
+    pricing: {
+            adult: 40,     
+            child: 20       
+        },
+    price: 40,
     duration: "10 hours",
     location: "Middle Atlas Mountains",
     groupSize: "4-16 people",
@@ -211,6 +232,8 @@ const toursData = {
         
         <p>After working up an appetite, enjoy lunch at a local restaurant overlooking the falls. The afternoon offers free time to further explore the area at your own pace, perhaps taking a swim in the natural pools (seasonal), visiting small local shops, or simply relaxing in this idyllic setting before returning to Marrakech.</p>
     `,
+            mapImage: '../assets/images/itinerary/oroud.png',
+
     itinerary: [
         
     ],
@@ -245,7 +268,11 @@ const toursData = {
     title: "Essaouira Day Trip",
     subtitle: "Explore the charming coastal city with its blue and white medina and fresh sea breeze",
     heroImage: "../assets/images/tours/ourika-valley-hero.jpg", // Using existing image as placeholder
-    mainImage: "../assets/images/tours/ourika-valley.jpg", // Using existing image as placeholder
+    mainImage: "../assets/images/tours/ourika-valley.jpg", 
+    pricing: {
+            adult: 40,     
+            child: 20       
+        },
     price: 75,
     duration: "10 hours",
     location: "Atlantic Coast",
@@ -262,6 +289,8 @@ const toursData = {
         
         <p>Enjoy a guided tour of the main attractions including the historic port where blue fishing boats dock with their daily catch, the bustling fish market, the artisan quarter, and the impressive 18th-century sea fortifications. After lunch, you'll have free time to explore independently - perhaps strolling along the beach, shopping for unique handicrafts, or simply relaxing in a seafront café before returning to Marrakech.</p>
     `,
+            mapImage: '../assets/images/itinerary/essaouira.png',
+
     itinerary: [
         
     ],
@@ -297,7 +326,7 @@ const toursData = {
     title: "Agafay Desert Day Trip",
     subtitle: "Experience the lunar-like landscape just outside Marrakech",
     heroImage: "../assets/images/tours/zagora-desert-hero.jpg", // Using existing image as placeholder
-    mainImage: "../assets/images/tours/zagora-desert.jpg", // Using existing image as placeholder
+    mainImage: "../assets/images/tours/agafay.jpg", // Using existing image as placeholder
     price: 90,
     duration: "8 hours",
     location: "Agafay Desert",
@@ -314,6 +343,8 @@ const toursData = {
         
         <p>In the afternoon, choose between relaxing at the camp or taking a gentle camel ride across the desert landscape. As the day winds down, you'll return to Marrakech with amazing photos and memories of Morocco's diverse natural beauty.</p>
     `,
+            mapImage: '../assets/images/itinerary/agafy.png',
+
     itinerary: [
         
     ],

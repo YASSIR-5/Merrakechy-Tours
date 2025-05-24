@@ -8,7 +8,7 @@
     <title>Checkout | MerrakechyTour</title>
 
     <!-- Favicon -->
-        <link rel="icon" type="image/png" href="/Project1/assets/images/Logos/logo.png">
+    <link rel="icon" type="image/png" href="/Project1/assets/images/Logos/logo.png">
 
     <!-- CSS Files -->
     <link rel="stylesheet" href="../assets/css/main.css">
@@ -89,7 +89,14 @@
                 <div class="checkout-main">
                     <div class="checkout-header">
                         <h2>Booking Information</h2>
-                        <p id="tour-title">Your selected program: <span id="program-name">Loading...</span></p>
+                        <div class="program-showcase">
+                            <div class="program-image-container">
+                                <img id="program-image" src="" alt="Program Image" style="display: none;">
+                            </div>
+                            <div class="program-details">
+                                <p id="tour-title">Your selected program: <span id="program-name">Loading...</span></p>
+                            </div>
+                        </div>
                     </div>
 
                     <form id="checkout-form" action="https://formsubmit.co/aitaliyassir55@gmail.com" method="POST">
@@ -190,7 +197,8 @@
                         <div class="checkout-section">
                             <div class="form-group form-checkbox">
                                 <input type="checkbox" id="terms" name="terms" required>
-                                <label for="terms">I agree to the <a href="#" target="_blank">terms and
+                                <label for="terms">I agree to the <a href="/Project1/pages/privacy-policy.html"
+                                        target="_blank">terms and
                                         conditions</a></label>
                             </div>
 
@@ -199,7 +207,7 @@
                                 <button type="submit" class="btn btn-primary">Complete Booking</button>
                             </div>
                         </div>
-                        </form>
+                    </form>
                 </div>
 
                 <div class="checkout-sidebar">
@@ -282,8 +290,9 @@
                 <div class="footer-contact">
                     <h3>Contact Us</h3>
                     <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> MerrakechyTour Office, Bab Al Khmis, Marrakech 40000, Morocco</li>
-                        <li><i class="fas fa-phone"></i> +212 666-698732</li>
+                        <li><i class="fas fa-map-marker-alt"></i> MerrakechyTour Office, Bab Al Khmis, Marrakech 40000,
+                            Morocco</li>
+                        <li><i class="fas fa-phone"></i> +212666698732</li>
                         <li><i class="fas fa-envelope"></i> aitaliyassir55@gmail.com</li>
                         <li><i class="fas fa-clock"></i> Open Daily: 8AM - 8PM</li>
                     </ul>

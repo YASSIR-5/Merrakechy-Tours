@@ -1,4 +1,4 @@
-// assets/js/details.js - Make sure all data types are loaded
+// assets/js/details.js - Updated with Adult/Children Pricing
 
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Details page loaded');
@@ -55,6 +55,17 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Function to load program details into the page
     function loadProgramDetails(data, category, id) {
+      
+        console.log('=== DEBUG START ===');
+        console.log('Full data object:', data);
+        console.log('Category:', category);
+        console.log('ID:', id);
+        console.log('mapImage exists:', data.mapImage);
+        console.log('mapImage value:', data.mapImage);
+        console.log('itinerary exists:', data.itinerary);
+        console.log('pricing exists:', data.pricing);
+        console.log('=== DEBUG END ===');
+        
         // Set page title
         document.title = `${data.title} | Merrakechy Tour`;
         
@@ -88,22 +99,35 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('program-description').innerHTML = data.description;
         
         // Set itinerary if it exists
-        if (data.itinerary) {
+         if (data.mapImage || data.itinerary) {
             let itineraryHtml = '<h3>Itinerary</h3>';
             
-            data.itinerary.forEach(item => {
+            // Add map image if it exists
+            if (data.mapImage) {
                 itineraryHtml += `
-                    <div class="itinerary-item">
-                        <div class="itinerary-time">${item.time}</div>
-                        <div class="itinerary-content">
-                            <h4>${item.title}</h4>
-                            <p>${item.description}</p>
-                        </div>
+                    <div class="itinerary-map">
+                        <img src="${data.mapImage}" alt="Tour Route Map" style="width: 100%; max-width: 600px; height: auto; border-radius: 8px; margin: 20px 0; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
                     </div>
                 `;
-            });
+            }
+            
+            // Add text itinerary if it exists
+            if (data.itinerary) {
+                data.itinerary.forEach(item => {
+                    itineraryHtml += `
+                        <div class="itinerary-item">
+                            <div class="itinerary-time">${item.time}</div>
+                            <div class="itinerary-content">
+                                <h4>${item.title}</h4>
+                                <p>${item.description}</p>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
             
             document.getElementById('program-itinerary').innerHTML = itineraryHtml;
+            
         } else if (data.highlights) {
             // For destinations, show highlights instead of itinerary
             let highlightsHtml = '<h3>Highlights</h3>';
@@ -155,14 +179,9 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('program-bring').style.display = 'none';
         }
         
-        // Set price if applicable (not for destinations)
-        if (data.price) {
-            document.getElementById('program-price').textContent = data.price;
-            
-            // Set price unit if it exists
-            if (data.priceUnit) {
-                document.getElementById('price-unit').textContent = data.priceUnit;
-            }
+        // Set price if applicable (not for destinations) - UPDATED FOR ADULT/CHILDREN PRICING
+        if (data.price || data.pricing) {
+            updatePricingDisplay(data);
             
             // For bookable items, show the booking button
             document.getElementById('booking-link').href = `checkout.html?category=${category}&id=${id}`;
@@ -204,7 +223,45 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Function to load related programs
+    // NEW FUNCTION: Update pricing display with adult/children prices
+    function updatePricingDisplay(data) {
+        const priceBox = document.querySelector('.price-box');
+        
+        if (!priceBox) return;
+        
+        // Get prices
+        const adultPrice = data.pricing ? data.pricing.adult : data.price;
+        const childPrice = data.pricing ? data.pricing.child : (data.price * 0.5);
+        
+        // Check if we have different prices for adults and children
+        if (data.pricing && data.pricing.adult !== data.pricing.child) {
+            // Show both adult and children prices
+            priceBox.innerHTML = `
+                <div class="price-label">Price From</div>
+                <div class="pricing-details">
+                    <div class="price-item">
+                        <span>Adults:</span>
+                        <span class="price-value">$${adultPrice}<small>/person</small></span>
+                    </div>
+                    <div class="price-item">
+                        <span>Children:</span>
+                        <span class="price-value">$${childPrice}<small>/person</small></span>
+                    </div>
+                </div>
+                ${data.priceUnit ? `<div class="price-unit">${data.priceUnit}</div>` : ''}
+            `;
+        } else {
+            // Show single price (fallback to old format)
+            const displayPrice = data.price || adultPrice;
+            priceBox.innerHTML = `
+                <div class="price-label">Price From</div>
+                <div class="price-value">$${displayPrice}<small>/person</small></div>
+                ${data.priceUnit ? `<div class="price-unit">${data.priceUnit}</div>` : ''}
+            `;
+        }
+    }
+    
+    // Function to load related programs - UPDATED FOR PRICING
     function loadRelatedPrograms(relatedIds, currentCategory) {
         let relatedHtml = '';
         
@@ -229,7 +286,15 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             if (relatedData) {
-                const priceText = relatedData.price ? `From $${relatedData.price}` : '';
+                // Get the appropriate price to display
+                let priceText = '';
+                if (relatedData.pricing) {
+                    const adultPrice = relatedData.pricing.adult;
+                    priceText = `From $${adultPrice}`;
+                } else if (relatedData.price) {
+                    priceText = `From $${relatedData.price}`;
+                }
+                
                 const priceDisplay = priceText ? `<span><i class="fas fa-tag"></i> ${priceText}</span>` : '';
                 
                 relatedHtml += `
@@ -725,3 +790,4 @@ function renderSimpleRouteMap(tourData) {
         </div>
     `;
 }
+

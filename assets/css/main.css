@@ -1261,6 +1261,7 @@ Buttons
     background-color: transparent;
     color: var(--primary-color);
     border-color: var(--primary-color);
+    
 }
 
 .btn-outline:hover {

@@ -31,7 +31,6 @@ const activitiesData = {
         includes: [
             'Quad bike rental and fuel',
             'Safety equipment (helmet, goggles, gloves)',
-            'Professional guide',
             'Safety briefing and practice session',
             'Bottled water',
             'Hotel pickup and drop-off (Marrakech area)'
@@ -59,6 +58,10 @@ const activitiesData = {
         heroImage: '../assets/images/activities/camel-ride-hero.jpg',
         mainImage: '../assets/images/activities/camel.jpeg',
         price: 45,
+        pricing: {
+            adult: 45,     
+            child: 23       
+        },
         duration: '3 hours',
         location: 'Palmeraie, Marrakech',
         groupSize: '1-10 people',
@@ -159,6 +162,10 @@ const activitiesData = {
             '../assets/images/activities/hot-air-balloon-3.jpg'
         ], 
         price: 75,
+        pricing: {
+            adult: 45,     
+            child: 23       
+        },
         duration: '4 hours',
         location: 'Marrakech Medina',
         groupSize: '2-12 people',
@@ -203,6 +210,10 @@ const activitiesData = {
             '../assets/images/activities/hot-air-balloon-3.jpg'
         ],
     price: 85,
+    pricing: {
+            adult: 45,     
+            child: 23       
+        },
     duration: "2 hours",
     location: "Marrakech Medina",
     groupSize: "1-6 people",
@@ -218,9 +229,7 @@ const activitiesData = {
         
         <p>The experience concludes with a 30-minute relaxing massage using aromatic oils, leaving you in a state of complete relaxation. Throughout the process, you will be treated with the utmost respect for your privacy and comfort.</p>
     `,
-    itinerary: [
-        
-    ],
+   
     includes: [
         "Guided tour of artisan workshops",
         "Hands-on workshop with master artisan",
@@ -248,65 +257,6 @@ const activitiesData = {
 },
 
 
-"hiking-tours": {
-    title: "Atlas Mountains Hiking Tours",
-    subtitle: "Explore breathtaking landscapes and traditional Berber villages on foot",
-    heroImage: "../assets/images/tours/imlil-atlas-hero.jpg", // Using existing image as placeholder
-    mainImage: "../assets/images/tours/imlil-atlas.jpg", // Using existing image as placeholder
-    galleryImages: [
-            '../assets/images/tours/imlil-atlas.jpg',
-            '../assets/images/activities/',
-            '../assets/images/activities/hot-air-balloon-3.jpg'
-        ],
-    price: 60,
-    duration: "6-8 hours",
-    location: "High Atlas Mountains",
-    groupSize: "2-12 people",
-    rating: 4.7,
-    reviews: 103,
-    description: `
-        <h3>Experience Overview</h3>
-        <p>Discover the majestic High Atlas Mountains on foot with our guided hiking tours, suitable for all fitness levels. These treks offer an authentic mountain experience with incredible scenery, cultural encounters with Berber villages, and the chance to reconnect with nature away from the bustling city.</p>
-        
-        <p>Departing from Marrakech, you will journey into the heart of the Atlas Mountains. Upon arrival at the trailhead, your experienced mountain guide will lead you along scenic paths that wind through terraced fields, walnut groves, and traditional Berber villages where life continues much as it has for centuries.</p>
-        
-        <p>Throughout the hike, your knowledgeable guide will share insights about Berber culture, local flora and fauna, and the fascinating history of the region. The pace is adjusted to the comfort level of the group, with regular stops to rest, take photos, and simply absorb the breathtaking mountain vistas.</p>
-        
-        <p>A highlight of the tour is a traditional lunch in a local Berber home or mountain restaurant, providing authentic flavors and a welcome rest. This immersive experience combines physical activity, cultural exchange, and natural beauty for a truly memorable day in the Atlas Mountains.</p>
-    `,
-    itinerary: [
-        
-    ],
-    includes: [
-        "Hotel pickup and drop-off (Marrakech city area)",
-        "Transportation in air-conditioned vehicle",
-        "Professional mountain guide",
-        "Traditional Berber lunch",
-        "Mint tea and snacks",
-        "Bottled water",
-        "All taxes and service charges"
-    ],
-    bring: [
-        "Comfortable hiking or walking shoes with good grip",
-        "Layered clothing (temperatures can vary in the mountains)",
-        "Hat and sunglasses",
-        "Sunscreen",
-        "Small backpack for personal items",
-        "Camera",
-        "Walking stick/poles (optional)",
-        "1-2 liters of water (in addition to water provided)"
-    ],
-    availability: "Daily departures, year-round",
-    additionalInfo: {
-        "Difficulty": "Easy to moderate (routes can be adapted to group fitness level)",
-        "Minimum Age": "6 years (trails can be adapted for families)",
-        "Languages": "English, French, Arabic, Berber",
-        "Confirmation": "Immediate confirmation",
-        "Cancellation": "Free cancellation up to 24 hours before",
-        "Weather": "Activity runs year-round, but routes may change in winter months due to snow"
-    },
-    relatedPrograms: ["imlil-atlas", "ourika-valley", "camel-ride"]
-},
 
 'agafay-overnight': {
     title: 'Overnight in the Agafay Desert',
@@ -327,6 +277,11 @@ const activitiesData = {
     location: 'Agafay Desert, near Marrakech',
     groupSize: '2-20 people',
     rating: 4.9,
+    galleryImages: [
+            '../assets/images/activities/quad.jpg',
+            '../assets/images/activities/',
+            '../assets/images/activities/hot-air-balloon-3.jpg'
+        ],
     reviews: 124,
     description: `
         <h3>Experience Overview</h3>
@@ -334,9 +289,7 @@ const activitiesData = {
         <p>Your adventure begins with a scenic camel ride at sunset, where you'll witness the desert transform as golden light bathes the rolling hills. As night falls, enjoy a traditional Moroccan dinner under a canopy of stars, accompanied by live Berber music around a crackling campfire.</p>
         <p>Sleep comfortably in a luxury tent equipped with real beds and quality linens, far from the noise of the city but close to the essential beauty of the desert. Wake up to a peaceful sunrise and enjoy a fresh open-air breakfast facing the desert hills, creating memories that will last a lifetime.</p>
     `,
-    itinerary: [
-        
-    ],
+
     includes: [
         'Round-trip transportation from Marrakech',
         'Welcome tea upon arrival',
@@ -346,7 +299,6 @@ const activitiesData = {
         'Fresh breakfast with desert views',
         'Live Berber music and entertainment',
         'Campfire experience with stargazing',
-        'Professional local guides',
         'Bottled water throughout the experience'
     ],
     bring: [
@@ -395,7 +347,6 @@ const activitiesData = {
     `,
    
     includes: [
-        'Professional licensed local guide',
         'Walking tour of Marrakech medina and main attractions',
         'Entry fees to Bahia Palace and Saadian Tombs',
         'Visit to Ben Youssef Madrasa',
@@ -434,9 +385,9 @@ const activitiesData = {
     title: 'Majorelle Garden Tour',
     subtitle: 'A haven of peace in the heart of Marrakech with vibrant colors and tranquil atmosphere',
     heroImage: '../assets/images/activities/majorelle-garden-hero.jpg',
-    mainImage: '../assets/images/activities/majorelle-garden-large.jpg',
+    mainImage: '../assets/images/activities/majorel.webp',
     galleryImages: [
-            '../assets/images/activities/quad.jpg',
+            '../assets/images/activities/majorel.webp',
             '../assets/images/activities/',
             '../assets/images/activities/hot-air-balloon-3.jpg'
         ],

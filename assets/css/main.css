@@ -1876,7 +1876,6 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Optional - add preloader */
 .preloader {
     position: fixed;
     top: 0;
@@ -1896,14 +1895,21 @@ html {
     visibility: hidden;
 }
 
-.spinner {
-    width: 40px;
-    height: 40px;
-    border: 4px solid var(--light-gray);
-    border-top: 4px solid var(--primary-color);
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
+.preloader-logo {
+    width: 80px;
+    height: auto;
+    animation: pulse 1.2s ease-in-out infinite;
 }
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
 
 @keyframes spin {
     0% {

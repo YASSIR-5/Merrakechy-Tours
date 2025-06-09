@@ -12,6 +12,12 @@ const toursData = {
         location: 'Zagora Desert',
         groupSize: '2-16 people',
         rating: 4.8,
+         galleryImages: [
+            '../assets/images/tours/',
+            '../assets/images/tours/',
+            '../assets/images/tours/',
+
+        ],
         reviews: 145,
         description: `
             <h3>Tour Overview</h3>
@@ -26,7 +32,6 @@ const toursData = {
         ],
         includes: [
             'Transportation in comfortable air-conditioned vehicle',
-            'English/French/Spanish speaking guide',
             'Overnight accommodation in desert camp',
             'Camel trekking with experienced camel handlers',
             'Dinner and breakfast',
@@ -65,6 +70,12 @@ const toursData = {
         location: 'Ourika Valley, Atlas Mountains',
         groupSize: '2-16 people',
         rating: 4.7,
+        galleryImages: [
+            '../assets/images/tours/ourika-valley.jpg',
+            '../assets/images/tours/ourika1.jpeg',
+            '../assets/images/tours/ourika3.jpeg',
+
+        ],
         reviews: 187,
             
         description: `
@@ -79,9 +90,7 @@ const toursData = {
         ],
         includes: [
             'Round-trip transportation from your Marrakech accommodation',
-            'English/French/Arabic speaking guide',
             'Visit to a traditional Berber home with tea ceremony',
-
             'Bottled water',
         ],
         bring: [
@@ -111,6 +120,12 @@ const toursData = {
         location: 'Imlil, High Atlas Mountains',
         groupSize: '2-12 people',
         rating: 4.9,
+         galleryImages: [
+            '../assets/images/tours/',
+            '../assets/images/tours/',
+            '../assets/images/tours/',
+
+        ],
         reviews: 109,
         description: `
             <h3>Tour Overview</h3>
@@ -157,7 +172,7 @@ const toursData = {
     galleryImages: [
         '../assets/images/tours/marrakech.jpeg',
         '../assets/images/tours/marrakech1.jpeg',
-        '../assets/images/tours/marrakech-souks-spices.jpg',
+        '../assets/images/tours/marrakech3.jpeg',
     ],
     price: 45,
     duration: '6-7 hours',
@@ -173,7 +188,6 @@ const toursData = {
     `,
    
     includes: [
-        'Professional licensed local guide',
         'Walking tour of Marrakech medina and main attractions',
         'Entry fees to Bahia Palace and Saadian Tombs',
         'Visit to Ben Youssef Madrasa',
@@ -221,6 +235,12 @@ const toursData = {
     location: "Middle Atlas Mountains",
     groupSize: "4-16 people",
     rating: 4.8,
+     galleryImages: [
+            '../assets/images/tours/',
+            '../assets/images/tours/',
+            '../assets/images/tours/',
+
+        ],
     reviews: 156,
     description: `
         <h3>Tour Overview</h3>
@@ -240,7 +260,6 @@ const toursData = {
     includes: [
         "Round-trip transportation from Marrakech in air-conditioned vehicle",
         "Professional English-speaking guide",
-        "Guided walking tour of the falls area",
         "Bottled water",
         "All taxes and fees"
     ],
@@ -278,6 +297,12 @@ const toursData = {
     location: "Atlantic Coast",
     groupSize: "4-16 people",
     rating: 4.7,
+     galleryImages: [
+            '../assets/images/tours/',
+            '../assets/images/tours/',
+            '../assets/images/tours/',
+
+        ],
     reviews: 142,
     description: `
         <h3>Tour Overview</h3>
@@ -296,7 +321,6 @@ const toursData = {
     ],
     includes: [
         "Round-trip transportation from Marrakech in air-conditioned vehicle",
-        "Professional English-speaking guide",
         "Guided tour of Essaouira",
         "Visit to argan oil cooperative",
         "Bottled water",
@@ -332,6 +356,12 @@ const toursData = {
     location: "Agafay Desert",
     groupSize: "2-12 people",
     rating: 4.8,
+     galleryImages: [
+            '../assets/images/tours/',
+            '../assets/images/tours/',
+            '../assets/images/tours/',
+
+        ],
     reviews: 98,
     description: `
         <h3>Tour Overview</h3>
@@ -350,7 +380,7 @@ const toursData = {
     ],
     includes: [
         "Round-trip transportation from Marrakech in 4x4 vehicle",
-        "Professional English-speaking guide/driver",
+        "Professional English-speaking driver",
         "Visit to a Berber village with mint tea",
         "Traditional Moroccan lunch at desert camp",
         "Camel ride (approximately 30 minutes)",

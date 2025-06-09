@@ -137,8 +137,8 @@ function updatePricingDisplay(data) {
         // Show both adult and children prices
         summaryPriceEl.innerHTML = `
             <div class="pricing-breakdown">
-                <div class="price-item">Adults: $${adultPrice}/person</div>
-                <div class="price-item">Children: $${childPrice}/person</div>
+                <div class="price-item">Adults: €${adultPrice}/person</div>
+                <div class="price-item">Children: €${childPrice}/person</div>
             </div>
         `;
     } else {

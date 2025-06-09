@@ -241,11 +241,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="pricing-details">
                     <div class="price-item">
                         <span>Adults:</span>
-                        <span class="price-value">$${adultPrice}<small>/person</small></span>
+                        <span class="price-value">€${adultPrice}<small>/person</small></span>
                     </div>
                     <div class="price-item">
                         <span>Children:</span>
-                        <span class="price-value">$${childPrice}<small>/person</small></span>
+                        <span class="price-value">€${childPrice}<small>/person</small></span>
                     </div>
                 </div>
                 ${data.priceUnit ? `<div class="price-unit">${data.priceUnit}</div>` : ''}

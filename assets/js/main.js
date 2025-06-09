@@ -2610,3 +2610,12 @@ const rentalServices = {
 
 // Merge this with your existing serviceDetails object
 Object.assign(serviceDetails, rentalServices);
+
+window.addEventListener('load', function () {
+        document.querySelector('.preloader').classList.add('fade-out');
+        setTimeout(() => {
+            document.querySelector('.preloader').style.display = 'none';
+        }, 500); // matches the transition duration
+    });
+
+    

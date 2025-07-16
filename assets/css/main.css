@@ -1258,6 +1258,9 @@ Buttons
 }
 
 .btn-outline {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
     background-color: transparent;
     color: var(--primary-color);
     border-color: var(--primary-color);
@@ -7903,7 +7906,7 @@ Booking confirmation page
         height: 200px;
     }
 }
-/* Add this to your main.css file */
+/* Itinerary Map Styles */
 
 .itinerary-map {
     text-align: center;
@@ -7925,3 +7928,131 @@ Booking confirmation page
         max-width: 100%;
     }
 }
+.hero-slider {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.hero-slide {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.hero-slide.active {
+    opacity: 1;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    color: #fff;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.hero-buttons .btn {
+    margin: 0 0.5rem;
+}
+
+
+
+
+
+/* Animations */
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.activities-grid .activity-card,
+.tours-grid .tour-card,
+.services-grid .service-card {
+    opacity: 0;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+.activities-grid .activity-card:nth-child(odd) {
+    animation-name: slideInLeft;
+}
+
+.activities-grid .activity-card:nth-child(even) {
+    animation-name: slideInRight;
+}
+
+.tours-grid .tour-card:nth-child(odd) {
+    animation-name: slideInLeft;
+}
+
+.tours-grid .tour-card:nth-child(even) {
+    animation-name: slideInRight;
+}
+
+.services-grid .service-card:nth-child(odd) {
+    animation-name: slideInLeft;
+}
+
+.services-grid .service-card:nth-child(even) {
+    animation-name: slideInRight;
+}
+
+
+
+
+
+/* Align 'Learn More' button in transportation section */
+.services-grid .service-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Pushes content apart, button to bottom */
+}
+
+.services-grid .service-card .btn {
+    margin-top: auto; /* Pushes the button to the bottom if using flex-direction: column */
+}
+
+
+
+

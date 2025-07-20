@@ -5,6 +5,7 @@ All interactive functionality in one file
 ==============================================
 */
 
+
 document.addEventListener('DOMContentLoaded', function () {
     'use strict';
 
@@ -2618,4 +2619,11 @@ window.addEventListener('load', function () {
         }, 500); // matches the transition duration
     });
 
-    
+    // Add swipe + arrow keys
+const slider = new Swiper('.hero-slider', {
+  loop: true,
+  autoplay: { delay: 5000 },
+  keyboard: true,
+  pagination: { el: '.slider-nav', clickable: true }
+});
+

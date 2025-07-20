@@ -898,6 +898,44 @@ Responsive Styles (All in the same CSS file)
         padding: 10px 0;
     }
 }
+/* Prevent horizontal scroll globally */
+body {
+  overflow-x: hidden;
+}
+
+/* Smallest screens like S8 (360px width) */
+@media (max-width: 400px) {
+    
+  .tours-grid {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+  }
+
+  .tour-card {
+    margin: 0;
+    padding-inline: 0.5rem;
+  }
+}
+/* Prevent horizontal scroll globally */
+body {
+  overflow-x: hidden;
+}
+
+
+/* Smallest screens like S8 (360px width) */
+@media (max-width: 380px) {
+  .tours-grid {
+    padding: 0;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .tour-card {
+    width: calc(100vw - 30px); /* Adjust 30px as needed */
+    margin: 0 auto;
+  }
+}
+
 
 /*
 Main Stylesheet for Merrakechy Tour
@@ -7978,11 +8016,22 @@ Booking confirmation page
     margin: 0 0.5rem;
 }
 
+/* Align 'Learn More' button in transportation section */
+.services-grid .service-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Pushes content apart, button to bottom */
+}
+
+.services-grid .service-card .btn {
+    margin-top: auto; /* Pushes the button to the bottom if using flex-direction: column */
+}
 
 
 
 
-/* Animations */
+/* Animations 
 @keyframes slideInLeft {
     from {
         transform: translateX(-100%);
@@ -8037,22 +8086,419 @@ Booking confirmation page
     animation-name: slideInRight;
 }
 
+*/
 
 
+/* CSS-only swipe-friendly fade */
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+.hero-slide.active {
+  opacity: 1;
+}
 
 
-/* Align 'Learn More' button in transportation section */
-.services-grid .service-card {
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Playfair+Display:wght@400;700&display=swap');
+
+/* Splash Screen Container */
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #ffffff;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between; /* Pushes content apart, button to bottom */
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 1.2s ease-out;
 }
 
-.services-grid .service-card .btn {
-    margin-top: auto; /* Pushes the button to the bottom if using flex-direction: column */
+.splash-screen.fade-out {
+    opacity: 0;
 }
 
+/* Animated Zellij Background Pattern */
+.zellij-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
 
+/* 8-Point Star Pattern (Classic Zellij) */
+.zellij-star {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    opacity: 0.6;
+}
+
+.zellij-star::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, 
+        transparent 30%, 
+        rgba(2, 84, 100, 0.12) 30%, 
+        rgba(2, 84, 100, 0.12) 70%, 
+        transparent 70%
+    );
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    animation: starRotate 15s linear infinite;
+}
+
+.zellij-star::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, 
+        transparent 30%, 
+        rgba(2, 84, 100, 0.08) 30%, 
+        rgba(2, 84, 100, 0.08) 70%, 
+        transparent 70%
+    );
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    animation: starRotate 12s linear infinite reverse;
+}
+
+/* Diamond Patterns */
+.zellij-diamond {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(45deg, 
+        rgba(2, 84, 100, 0.1) 25%, 
+        transparent 25%, 
+        transparent 75%, 
+        rgba(2, 84, 100, 0.1) 75%
+    );
+    transform: rotate(45deg);
+    opacity: 0.5;
+}
+
+/* Star Positioning with Floating Animation */
+.star-1 { 
+    top: 15%; 
+    left: 10%; 
+    animation: floatSlow 12s ease-in-out infinite;
+}
+
+.star-2 { 
+    top: 20%; 
+    right: 15%; 
+    animation: floatSlow 14s ease-in-out infinite 2s;
+}
+
+.star-3 { 
+    bottom: 25%; 
+    left: 20%; 
+    animation: floatSlow 16s ease-in-out infinite 4s;
+}
+
+.star-4 { 
+    bottom: 15%; 
+    right: 25%; 
+    animation: floatSlow 13s ease-in-out infinite 1s;
+}
+
+.star-5 { 
+    top: 50%; 
+    left: 5%; 
+    animation: floatSlow 18s ease-in-out infinite 3s;
+}
+
+.star-6 { 
+    top: 40%; 
+    right: 8%; 
+    animation: floatSlow 15s ease-in-out infinite 5s;
+}
+
+/* Diamond Positioning */
+.diamond-1 { 
+    top: 30%; 
+    left: 30%; 
+    animation: floatDiamond 10s ease-in-out infinite;
+}
+
+.diamond-2 { 
+    top: 60%; 
+    right: 35%; 
+    animation: floatDiamond 11s ease-in-out infinite 2s;
+}
+
+.diamond-3 { 
+    bottom: 40%; 
+    left: 60%; 
+    animation: floatDiamond 9s ease-in-out infinite 1s;
+}
+
+.diamond-4 { 
+    top: 25%; 
+    left: 70%; 
+    animation: floatDiamond 13s ease-in-out infinite 3s;
+}
+
+/* Radial Gradient Overlay */
+.radial-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, 
+        transparent 30%, 
+        rgba(255, 255, 255, 0.3) 60%, 
+        rgba(255, 255, 255, 0.7) 90%
+    );
+    pointer-events: none;
+}
+
+/* Main Content */
+.splash-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    animation: contentFadeIn 2s ease-out 0.5s both;
+}
+
+.logo-container {
+    margin-bottom: 30px;
+}
+
+.logo {
+    max-width: 200px;
+    width: 80vw;
+    height: auto;
+    filter: drop-shadow(0 4px 20px rgba(2, 84, 100, 0.2));
+    animation: logoFloat 3s ease-in-out infinite;
+}
+
+.welcome-text {
+    margin-top: 20px;
+}
+
+.arabic-text {
+    font-family: 'Amiri', serif;
+    font-size: 2rem;
+    color: #025464;
+    font-weight: 700;
+    margin-bottom: 8px;
+    opacity: 0.9;
+    animation: textSlideUp 1.5s ease-out 1s both;
+}
+
+.english-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: #025464;
+    font-weight: 400;
+    opacity: 0.8;
+    letter-spacing: 2px;
+    animation: textSlideUp 1.5s ease-out 1.3s both;
+}
+
+/* Loading Ornament */
+.loading-ornament {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+
+.ornament-dot {
+    width: 8px;
+    height: 8px;
+    background: linear-gradient(45deg, #025464, rgba(2, 84, 100, 0.6));
+    border-radius: 50%;
+    animation: dotPulse 1.5s ease-in-out infinite;
+}
+
+.ornament-dot:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.ornament-dot:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+/* Animations */
+@keyframes floatSlow {
+    0%, 100% { 
+        transform: translateY(0px) rotate(0deg); 
+    }
+    50% { 
+        transform: translateY(-20px) rotate(5deg); 
+    }
+}
+
+@keyframes floatDiamond {
+    0%, 100% { 
+        transform: rotate(45deg) translateY(0px); 
+    }
+    50% { 
+        transform: rotate(50deg) translateY(-15px); 
+    }
+}
+
+@keyframes starRotate {
+    0% { 
+        transform: rotate(0deg); 
+    }
+    100% { 
+        transform: rotate(360deg); 
+    }
+}
+
+@keyframes logoFloat {
+    0%, 100% { 
+        transform: translateY(0px); 
+    }
+    50% { 
+        transform: translateY(-10px); 
+    }
+}
+
+@keyframes contentFadeIn {
+    0% { 
+        opacity: 0; 
+        transform: translateY(30px); 
+    }
+    100% { 
+        opacity: 1; 
+        transform: translateY(0px); 
+    }
+}
+
+@keyframes textSlideUp {
+    0% { 
+        opacity: 0; 
+        transform: translateY(20px); 
+    }
+    100% { 
+        opacity: 1; 
+        transform: translateY(0px); 
+    }
+}
+
+@keyframes dotPulse {
+    0%, 100% { 
+        transform: scale(1); 
+        opacity: 0.7; 
+    }
+    50% { 
+        transform: scale(1.2); 
+        opacity: 1; 
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .zellij-star {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .zellij-diamond {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .logo {
+        max-width: 150px;
+    }
+    
+    .arabic-text {
+        font-size: 1.5rem;
+    }
+    
+    .english-text {
+        font-size: 1rem;
+        letter-spacing: 1px;
+    }
+    
+    .loading-ornament {
+        bottom: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .arabic-text {
+        font-size: 1.3rem;
+    }
+    
+    .english-text {
+        font-size: 0.9rem;
+    }
+    
+    .logo {
+        max-width: 120px;
+    }
+}
+
+/* Replace the existing .logo styles with this */
+.logo {
+    max-width: 200px;
+    width: 80vw;
+    height: auto;
+    filter: drop-shadow(0 4px 20px rgba(2, 84, 100, 0.2));
+    animation: logoComplexEntry 3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    transform: scale(0.3) translateZ(-200px) rotateY(180deg);
+    opacity: 0;
+}
+
+/* Replace the existing logoFloat animation with this complex entry */
+@keyframes logoComplexEntry {
+    0% {
+        transform: scale(0.3) translateZ(-200px) rotateY(180deg);
+        opacity: 0;
+        filter: blur(10px) drop-shadow(0 0 0 transparent);
+    }
+    30% {
+        transform: scale(0.6) translateZ(-100px) rotateY(90deg);
+        opacity: 0.3;
+        filter: blur(5px) drop-shadow(0 2px 10px rgba(2, 84, 100, 0.1));
+    }
+    60% {
+        transform: scale(1.1) translateZ(0px) rotateY(10deg);
+        opacity: 0.8;
+        filter: blur(2px) drop-shadow(0 4px 15px rgba(2, 84, 100, 0.15));
+    }
+    80% {
+        transform: scale(0.95) translateZ(0px) rotateY(-5deg);
+        opacity: 1;
+        filter: blur(0px) drop-shadow(0 4px 20px rgba(2, 84, 100, 0.2));
+    }
+    100% {
+        transform: scale(1) translateZ(0px) rotateY(0deg);
+        opacity: 1;
+        filter: blur(0px) drop-shadow(0 4px 20px rgba(2, 84, 100, 0.2));
+        animation: logoFloat 3s ease-in-out infinite;
+    }
+}
+
+/* Keep the floating animation for after the entry */
+@keyframes logoFloat {
+    0%, 100% { 
+        transform: translateY(0px); 
+    }
+    50% { 
+        transform: translateY(-10px); 
+    }
+}
 
 

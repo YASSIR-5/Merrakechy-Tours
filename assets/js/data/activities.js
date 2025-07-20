@@ -148,7 +148,7 @@ Enjoy 2 hours of total escape, far beyond an ordinary quad ride: journey through
             'Confirmation': 'Immediate',
             'Cancellation': 'Free up to 24h before'
         },
-        relatedPrograms: ['quad-biking', 'camel-ride', 'atlas-mountains']
+        relatedPrograms: ['quad-biking', 'camel-ride', 'cooking-class']
     },
 
     'cooking-class': {
@@ -369,18 +369,19 @@ Enjoy 2 hours of total escape, far beyond an ordinary quad ride: journey through
     'majorelle-garden': {
         title: 'Majorelle Garden Tour',
         subtitle: 'A haven of peace in the heart of Marrakech with vibrant colors and tranquil atmosphere',
-        heroImage: '../assets/images/activities/majorelle-garden-hero.jpg',
+        heroImage: '../assets/images/activities/majorel.webp',
         mainImage: '../assets/images/activities/majorel.webp',
         galleryImages: [
             '../assets/images/activities/majorel.webp',
             '../assets/images/activities/marrakech-menara-pavilion.webp',
-            '../assets/images/activities/palmerai.webp',
+            '../assets/images/activities/palmerai.webp'
         ],
-        pricing: {
-            adult: 40,
-        },
-        price: 40,
 
+        groupPricing: [
+            { min: 1, max: 2, pricePerPerson: 40 },
+            { min: 3, max: 3, pricePerPerson: 30 },
+            { min: 4, max: Infinity, pricePerPerson: 25 }
+        ],
         duration: '2-3 hours',
         location: 'Marrakech, Gueliz District',
         groupSize: '1-15 people',
@@ -388,20 +389,32 @@ Enjoy 2 hours of total escape, far beyond an ordinary quad ride: journey through
         reviews: 189,
         description: `
         <h3>Experience Overview</h3>
-        <p>Experience the cultural treasures of Marrakech on a 3 to 4-hour guided tour. Begin with the Ramparts of Marrakech, a striking 19 km-long wall encircling the old city, featuring 22 historic gates and standing up to 8 meters tall. These walls, made from the region’s signature red earth, reflect the city's deep-rooted history and architectural charm.
-
-Next, explore the stunning Majorelle Garden, a botanical haven home to nearly 3,000 plant species, created in 1931 by French painter Jacques Majorelle. The garden, inspired by Islamic and Moorish designs, became world-famous thanks to fashion designer Yves Saint Laurent, who restored it in 1980. Its iconic Majorelle Blue—a vivid, soothing color found throughout the property—is a registered trademark and a highlight of the visit.
-
-Inside the garden lies the Berber Museum, showcasing a rich collection of traditional Berber artifacts from across Morocco, enhanced by educational materials in French, English, and Arabic..</p>
+        <p>Escape the bustling streets of Marrakech and step into the serene world of Majorelle Garden, one of Morocco's most visited attractions. This enchanting botanical garden is a living masterpiece that combines exotic plant collections, stunning architecture, and artistic heritage in a peaceful oasis.</p>
+        
+        <p>Created by French artist Jacques Majorelle in the 1920s and 1930s, the garden became world-famous after being restored by fashion designer Yves Saint Laurent and his partner Pierre Bergé in 1980. The garden's signature cobalt blue, known as "Majorelle Blue," creates a striking contrast against the lush greenery and colorful flowers.</p>
+        
+        <p>Your visit includes exploration of the beautifully landscaped gardens with their shaded paths, tranquil ponds, and exotic plants from around the world. The garden houses over 300 plant species from five continents, including towering palm trees, vibrant bougainvillea, and rare cacti collections.</p>
+        
+        <p>Don't miss the fascinating Berber Museum housed within the garden, which showcases the rich cultural heritage of Morocco's indigenous people through traditional jewelry, textiles, and artifacts. The museum provides valuable insights into Berber history and their contributions to Moroccan culture.</p>
     `,
 
-
-        availability: 'Daily from 8:00 AM to 5:00 PM ',
+        includes: [
+            'Transportation ',
+        ],
+        bring: [
+            'Important: Entrance ticket is not included (purchase at the website)',
+            'Comfortable walking shoes',
+            'Camera (photography is allowed in most areas)',
+            'Sun protection (hat, sunglasses, sunscreen)',
+            'Water bottle',
+            'Light clothing suitable for walking',
+            'Small backpack for personal items'
+        ],
+        availability: 'Daily from 8:00 AM to 6:00 PM (8:00 AM to 5:00 PM in winter)',
         additionalInfo: {
-            'Duration': '3-4 hours',
+            'Difficulty': 'Easy - suitable for all ages and fitness levels',
+            'Duration': 'Self-guided visit, typically 4-5 hours',
             'Best Time': 'Early morning (8-10 AM) or late afternoon (4-6 PM) for best light and fewer crowds',
-            'Languages': 'Information available in English, French, Arabic',
-            'Confirmation': 'Tickets can be purchased at entrance or pre-booked (For Majorelle Garden you must book a ticket from there website)',
             'Cancellation': 'Free cancellation up to 24 hours before',
             'Photography': 'Allowed throughout the garden (some restrictions in museum)',
             'Accessibility': 'Partially wheelchair accessible - main paths are paved'
@@ -410,3 +423,17 @@ Inside the garden lies the Berber Museum, showcasing a rich collection of tradit
         relatedPrograms: ['cooking-class', 'marrakech-tour', 'hammam-spa']
     }
 };
+function calculateDynamicPrice(activityKey, numberOfPeople) {
+    const activity = activitiesData[activityKey];
+    if (!activity || !activity.groupPricing) {
+        return activity ? activity.price : null; // Return fixed price if no group pricing or activity not found
+    }
+
+    for (const tier of activity.groupPricing) {
+        if (numberOfPeople >= tier.min && numberOfPeople <= tier.max) {
+            return numberOfPeople * tier.pricePerPerson;
+        }
+    }
+    return null; // Should not happen if tiers cover all cases
+}
+

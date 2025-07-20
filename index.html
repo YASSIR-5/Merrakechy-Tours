@@ -26,11 +26,44 @@
 </head>
 
 <body>
-    <div class="menu-overlay"></div>
-    <!--PreLoader-->
-    <div class="preloader">
-        <img src="/assets/images/Logos/logo.png" alt="Logo" class="preloader-logo">
+    
+  <!-- HTML Structure -->
+<div id="splash-screen" class="splash-screen">
+    <!-- Zellij Background Pattern -->
+    <div class="zellij-background">
+        <div class="zellij-star star-1"></div>
+        <div class="zellij-star star-2"></div>
+        <div class="zellij-star star-3"></div>
+        <div class="zellij-star star-4"></div>
+        <div class="zellij-star star-5"></div>
+        <div class="zellij-star star-6"></div>
+        <div class="zellij-diamond diamond-1"></div>
+        <div class="zellij-diamond diamond-2"></div>
+        <div class="zellij-diamond diamond-3"></div>
+        <div class="zellij-diamond diamond-4"></div>
     </div>
+
+    <!-- Radial Gradient Overlay -->
+    <div class="radial-overlay"></div>
+
+    <!-- Main Content -->
+    <div class="splash-content">
+        <div class="logo-container">
+            <img src="assets/images/Logos/logo.png" alt="Marrakech Logo" class="logo">
+        </div>
+        <div class="welcome-text">
+            <p class="english-text">Welcome to Marrakech</p>
+        </div>
+    </div>
+
+    <!-- Loading Animation -->
+    <div class="loading-ornament">
+        <div class="ornament-dot"></div>
+        <div class="ornament-dot"></div>
+        <div class="ornament-dot"></div>
+    </div>
+</div>
+
     <!-- Menu Overlay (for mobile) -->
     <div class="menu-overlay"></div>
 
@@ -251,18 +284,18 @@
                 <!-- Tour Card 1 -->
                 <div class="tour-card fade-in">
                     <div class="tour-img">
-                        <img src="assets/images/tours/zagora-desert.jpg.jpeg" alt="Zagora Desert Tour">
+                            <img src="../assets/images/tours/ozod.jpeg" alt="Ouzoud Waterfalls">
                         <div class="tour-badge">Best Seller</div>
                     </div>
                     <div class="tour-content">
                         <div class="tour-info">
-                            <span><i class="fa-regular fa-clock"></i> 2 Days</span>
-                            <span><i class="fa-solid fa-tag"></i> From €295</span>
+                            <span><i class="fa-regular fa-clock"></i> 1 Days</span>
+                            <span><i class="fa-solid fa-tag"></i> From €20</span>
                         </div>
-                        <h3>2-Day Zagora Desert Tour</h3>
-                        <p>Set off on an adventure from Marrakech to experience the magic of the Zagora Desert with an
-                            overnight stay in Berber tents.</p>
-                        <a href="pages/details.html?category=tour&id=zagora-2-days" class="btn btn-outline">View
+                        <h3>Ouzoud Waterfalls Day Trip</h3>
+                        <p>Visit the spectacular Ouzoud Waterfalls, with their 110-meter cascades surrounded by lush
+                                vegetation. Enjoy a boat ride, spot Barbary macaques, and have lunch with a view.</p>
+                        <a href="/pages/details.html?category=tour&id=ouzoud-waterfalls" class="btn btn-outline">View
                             Details</a>
                     </div>
                 </div>
@@ -289,17 +322,17 @@
                 <!-- Tour Card 3 -->
                 <div class="tour-card fade-in">
                     <div class="tour-img">
-                        <img src="assets/images/tours/imlil-atlas.jpg" alt="Imlil Atlas Mountains Tour">
+                            <img src="../assets/images/tours/essaouira.jpg" alt="Essaouira Day Trip">
                     </div>
                     <div class="tour-content">
                         <div class="tour-info">
                             <span><i class="fa-regular fa-clock"></i> 1 Day</span>
-                            <span><i class="fa-solid fa-tag"></i> From €85</span>
+                            <span><i class="fa-solid fa-tag"></i> From €17</span>
                         </div>
-                        <h3>Imlil Atlas Mountains Tour</h3>
-                        <p>Discover Imlil, a charming village nestled at the foot of Mount Toubkal, North Africa's
-                            highest peak.</p>
-                        <a href="pages/details.html?category=tour&id=imlil-atlas" class="btn btn-outline">View
+                        <h3>Essaouira Day Trip</h3>
+                        <p>Discover the charming coastal town of Essaouira with its blue and white medina, historic
+                                port, and beautiful beaches. Enjoy fresh seafood and the relaxed atmosphere.</p>
+                        <a href="/pages/details.html?category=tour&id=essaouira" class="btn btn-outline">View
                             Details</a>
                     </div>
                 </div>
@@ -817,6 +850,87 @@
         });
     </script>
 
+    <!-- Agafay-style scroll reveal -->
+<style>
+  .activity-card,
+  .tour-card,
+  .service-card {
+    opacity: 0;
+    transform: translateY(60px) scale(0.92);
+    transition: opacity 1s cubic-bezier(0.25,0.46,0.45,0.94),
+                transform 1s cubic-bezier(0.25,0.46,0.45,0.94);
+  }
+  .reveal {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+</style>
+
+<script>
+window.addEventListener('load', () => {
+  const cards = document.querySelectorAll('.activity-card, .tour-card, .service-card');
+  const io = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry, idx) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('reveal'), idx * 150);
+          obs.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+  cards.forEach(card => io.observe(card));
+});
+</script>
+<script>
+// Wait for everything to load completely
+window.addEventListener('load', function() {
+    console.log('Page fully loaded, starting splash timer...');
+    
+    // Set a timer regardless of whether splash element is found
+    setTimeout(function() {
+        console.log('3 seconds passed, removing splash...');
+        
+        // Multiple removal methods
+        const splash = document.getElementById('splash-screen');
+        
+        if (splash) {
+            // Method 1: Add fade class
+            splash.classList.add('fade-out');
+            
+            // Method 2: Force hide after fade
+            setTimeout(function() {
+                splash.style.display = 'none';
+                splash.remove();
+            }, 1200);
+        }
+        
+        // Method 3: Nuclear option - remove any element with splash classes
+        const allSplash = document.querySelectorAll('.splash-screen, #splash-screen');
+        allSplash.forEach(function(el) {
+            el.style.display = 'none';
+            el.remove();
+        });
+        
+        // Force enable scrolling
+        document.body.style.overflow = 'auto';
+        document.documentElement.style.overflow = 'auto';
+        
+        console.log('Splash removal complete!');
+        
+    }, 3000);
+});
+
+// Backup timer in case window.load doesn't fire
+setTimeout(function() {
+    const splash = document.getElementById('splash-screen');
+    if (splash) {
+        splash.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+}, 4000);
+</script>
 </body>
 
 </html>

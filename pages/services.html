@@ -9,7 +9,7 @@
     <title>Services | MerrakechyTour</title>
 
     <!-- Favicon -->
-        <link rel="icon" type="image/png" href="/Project1/assets/images/Logos/logo.png">
+        <link rel="icon" type="image/png" href="/assets/images/Logos/logo.png">
 
     <!-- CSS Files -->
     <link rel="stylesheet" href="../assets/css/main.css">
@@ -224,7 +224,7 @@
                         <div class="service-info">
                             <div class="service-title">
                                 <h3>Agafay Desert Sunset Dinner and Show</h3>
-                                <div class="service-price">From <span>€60</span></div>
+                                <div class="service-price">From <span>€45</span></div>
                             </div>
                             <div class="service-meta">
                                 <span><i class="far fa-clock"></i> 6 hours</span>
@@ -298,7 +298,7 @@
                         <div class="service-info">
                             <div class="service-title">
                                 <h3>Majorelle gardens and ramparts</h3>
-                                <div class="service-price">From <span>€40</span></div>
+                                <div class="service-price">From <span>€25</span></div>
                             </div>
                             <div class="service-meta">
                                 <span><i class="far fa-clock"></i> 3-4 hours</span>
@@ -459,7 +459,7 @@
                         <div class="service-info">
                             <div class="service-title">
                                 <h3>Marrakech City Tour</h3>
-                                <div class="service-price">From <span>€45</span></div>
+                                <div class="service-price">From <span>€60</span></div>
                             </div>
                             <div class="service-meta">
                                 <span><i class="far fa-clock"></i> 6-7 hours</span>
@@ -498,7 +498,7 @@
                         <div class="service-info">
                             <div class="service-title">
                                 <h3>Essaouira Day Trip</h3>
-                                <div class="service-price">From <span>€20</span></div>
+                                <div class="service-price">From <span>€17</span></div>
                             </div>
                             <div class="service-meta">
                                 <span><i class="far fa-clock"></i> 10 hours</span>
@@ -532,7 +532,7 @@
                         <div class="service-info">
                             <div class="service-title">
                                 <h3>Imlil Atlas Mountains Tour</h3>
-                                <div class="service-price">From <span>€85</span></div>
+                                <div class="service-price">From <span>€20</span></div>
                             </div>
                             <div class="service-meta">
                                 <span><i class="far fa-clock"></i> 9 hours</span>
@@ -604,7 +604,7 @@
                         <div class="service-info">
                             <div class="service-title">
                                 <h3>2-Day Zagora Desert Tour</h3>
-                                <div class="service-price">From <span>€295</span></div>
+                                <div class="service-price">From <span>€60</span></div>
                             </div>
                             <div class="service-meta">
                                 <span><i class="far fa-clock"></i> 2 days / 1 night</span>
@@ -626,6 +626,42 @@
                                 <a href="details.html?category=tour&id=zagora-2-days" class="btn btn-outline">View
                                     Details</a>
                                 <a href="checkout.html?category=tour&id=zagora-2-days" class="btn btn-primary">Book
+                                    Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tour 7: Ourzazate Desert -->
+                    <div class="service-card multi-day-tours">
+                        <div class="service-image">
+                            <img src="../assets/images/tours/ourzazat1.jpeg" alt="Ourzazate Desert Tour">
+                            <div class="service-badge">Best Seller</div>
+                        </div>
+                        <div class="service-info">
+                            <div class="service-title">
+                                <h3>3-Day Ourzazate Tour</h3>
+                                <div class="service-price">From <span>€80</span></div>
+                            </div>
+                            <div class="service-meta">
+                                <span><i class="far fa-clock"></i> 3 days / 2 night</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Ourzazate city</span>
+                            </div>
+                            <p>Experience the magic of the Zagora Desert with an overnight stay in a traditional Berber
+                                camp, camel trekking, and a visit to the ancient Kasbah of Aït Benhaddou.</p>
+                            <div class="service-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span>4.8 (145 reviews)</span>
+                            </div>
+                            <div class="service-actions">
+                                <a href="details.html?category=tour&id=ouarzazate-3-days" class="btn btn-outline">View
+                                    Details</a>
+                                <a href="checkout.html?category=tour&id=ouarzazate-3-days" class="btn btn-primary">Book
                                     Now</a>
                             </div>
                         </div>
@@ -1178,6 +1214,39 @@
     <!-- JavaScript Files -->
     <script src="../assets/js/main.js"></script>
     <script src="../assets/js/services.js"></script>
+    <!-- Agafay-style scroll reveal -->
+<style>
+  .activity-card,
+  .tour-card,
+  .service-card {
+    opacity: 0;
+    transform: translateY(60px) scale(0.92);
+    transition: opacity 1s cubic-bezier(0.25,0.46,0.45,0.94),
+                transform 1s cubic-bezier(0.25,0.46,0.45,0.94);
+  }
+  .reveal {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+</style>
+
+<script>
+window.addEventListener('load', () => {
+  const cards = document.querySelectorAll('.activity-card, .tour-card, .service-card');
+  const io = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry, idx) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('reveal'), idx * 150);
+          obs.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+  cards.forEach(card => io.observe(card));
+});
+</script>
 </body>
 
 </html>

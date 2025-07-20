@@ -5,8 +5,8 @@ const transportationData = {
     'airport-transfer': {
         title: 'Airport Transfer Service',
         subtitle: 'Comfortable and reliable transfers between Marrakech Menara Airport and your accommodation',
-        heroImage: '../assets/images/tours/zagora-desert-hero.jpg', // Use a placeholder image for now
-        mainImage: '../assets/images/tours/zagora-desert.jpg', // Use a placeholder image for now
+        heroImage: '../assets/images/itinerary/airport-transfers-1.png', // Use a placeholder image for now
+        mainImage: '../assets/images/itinerary/airport-transfers-1.png', // Use a placeholder image for now
         price: 25,
         duration: 'Approximately 20-30 minutes',
         location: 'Marrakech',
@@ -23,8 +23,7 @@ const transportationData = {
             'Meet and greet service at the airport (for arrivals)',
             'Private transportation in air-conditioned vehicle',
             'Professional English-speaking driver',
-            'Bottle of water per passenger',
-            'All taxes and service fees'
+
         ],
         bring: [
             'Your flight details (for airport pickup)',
@@ -41,54 +40,72 @@ const transportationData = {
         priceUnit: '/vehicle (up to 4 people)',
         relatedPrograms: ['private-driver', 'intercity-transfer', 'camel-ride']
     },
-    
-    'private-driver': {
-        title: 'Private Car with Driver',
-        subtitle: 'Explore Morocco at your own pace with a professional driver and comfortable vehicle',
-        heroImage: '../assets/images/tours/ourika-valley-hero.jpg', // Use a placeholder image for now
-        mainImage: '../assets/images/tours/ourika-valley.jpg', // Use a placeholder image for now
-        price: 85,
-        duration: 'Full day (up to 10 hours)',
-        location: 'Marrakech and surrounding areas',
-        groupSize: '1-4 people per standard vehicle',
+
+    "private-driver": {
+        title: "Private Car with Driver",
+        subtitle: "Customize your day trip with flexible vehicle and fuel options",
+        heroImage: "../assets/images/itinerary/car_fleet.webp", // Placeholder
+        mainImage: "../assets/images/itinerary/car_fleet.webp", // Placeholder
+        price: 40, // Base from
+        duration: "Full day (up to 10 hours)",
+        location: "Marrakech and surrounding areas",
+        groupSize: "1–16 people depending on vehicle",
         rating: 4.9,
         reviews: 78,
         description: `
-            <h3>Service Overview</h3>
-            <p>Explore Morocco at your own pace with our private car and professional driver service. This flexible transportation option gives you the freedom to create your own itinerary while enjoying the comfort of a modern, air-conditioned vehicle and the knowledge of an experienced local driver.</p>
-            <p>Whether you want to discover Marrakech's hidden gems, visit multiple attractions in one day, or venture to nearby towns and natural landmarks, our service provides a convenient and stress-free way to travel. Your driver can suggest routes and stops based on your interests, or simply follow your pre-planned itinerary.</p>
-            <p>All our drivers speak fluent English and have extensive knowledge of Morocco's geography, culture, and attractions. They can provide insights about the places you visit and assist with practical matters such as finding restaurants, shopping opportunities, or photo stops.</p>
-        `,
+    <h3>Service Overview</h3>
+    <p>Enjoy the flexibility of traveling through Marrakech and nearby regions with a professional driver and private vehicle tailored to your group and needs. This service is perfect for families, groups, or couples who want to explore without the stress of navigation or planning transport.</p>
+
+    <p>You can choose from a range of vehicle and fuel options depending on your route, distance, and preferences. After booking, our team will contact you to confirm all the details and suggest the best setup for your journey.</p>
+
+    <h4>Available Options:</h4>
+    <ul>
+      <li>🚘 <strong>Vehicle Types:</strong>
+        <ul>
+          <li>Standard Private Car (1–4 people)</li>
+          <li>4x4 Vehicle (for mountain or off-road trips)</li>
+          <li>Minibus (for larger groups up to 16 people)</li>
+        </ul>
+      </li>
+      <li>⛽ <strong>Fuel Options:</strong>
+        <ul>
+          <li>With fuel included</li>
+          <li>Without fuel (you cover fuel separately)</li>
+        </ul>
+      </li>
+      <li>🕒 <strong>Duration:</strong> Full-day service (up to 10 hours)</li>
+    </ul>
+
+    <p><em>Our agent will contact you after booking to finalize the best setup based on your destination and group size.</em></p>
+  `,
         includes: [
-            'Private transportation in air-conditioned vehicle',
-            'Professional English-speaking driver',
-            'Pickup and drop-off at your accommodation',
-            'Fuel and all transportation costs',
-            'Bottled water',
-            'All taxes and service fees'
+            "Private air-conditioned vehicle",
+            "Professional English-speaking driver",
+            "Pickup and drop-off at your accommodation",
         ],
         bring: [
-            'Comfortable clothing appropriate for your planned activities',
-            'Sun protection (hat, sunglasses, sunscreen)',
-            'Camera',
-            'Cash for meals, entrance fees, and personal expenses'
+            "Sunglasses, hat, sunscreen",
+            "Camera",
+            "Comfortable clothing for your planned activities",
+            "Cash for meals, entrance fees, and extras"
         ],
-        availability: 'Daily, subject to availability',
+        availability: "Available daily, advance booking recommended",
         additionalInfo: {
-            'Vehicle Types': 'Standard sedan, minivan, or minibus depending on group size',
-            'Operating Hours': 'Flexible start time, up to 10 hours of service',
-            'Customization': 'Fully customizable itinerary',
-            'Cancellation': 'Free up to 48h before'
+            "Customization": "You can suggest your own itinerary or ask the driver for recommendations",
+            "Vehicle Selection": "Based on group size and route (city, mountain, desert, etc.)",
+            "Operating Hours": "Flexible, up to 10 hours total",
+            "Confirmation": "Instant, followed by a confirmation call",
+            "Cancellation": "Free up to 48h before"
         },
-        priceUnit: '/day',
-        relatedPrograms: ['airport-transfer', 'intercity-transfer', 'imlil-atlas']
+        priceUnit: "/day",
+        relatedPrograms: ["airport-transfer", "intercity-transfer", "imlil-atlas"]
     },
-    
+
     'intercity-transfer': {
         title: 'City-to-City Transfer Service',
         subtitle: 'Comfortable and direct transportation between Morocco\'s major cities and destinations',
-        heroImage: '../assets/images/tours/imlil-atlas-hero.jpg', // Use a placeholder image for now
-        mainImage: '../assets/images/tours/imlil-atlas.jpg', // Use a placeholder image for now
+        heroImage: '../assets/images/itinerary/city-to-city.webp', // Use a placeholder image for now
+        mainImage: '../assets/images/itinerary/city-to-city.webp', // Use a placeholder image for now
         price: 40,
         duration: 'Varies by destination',
         location: 'Various cities in Morocco',
@@ -101,39 +118,19 @@ const transportationData = {
             <p>Our service offers a convenient alternative to public transportation, giving you the flexibility to depart at your preferred time and to travel directly to your accommodation at your destination. Your driver can make short stops upon request for bathroom breaks, photo opportunities, or quick refreshments.</p>
             <p>Popular routes include Marrakech to Essaouira, Marrakech to Casablanca, Marrakech to Fes, and many more. All our vehicles are well-maintained and equipped for long-distance travel, ensuring your journey is as comfortable as possible.</p>
         `,
-        itinerary: [
-            {
-                time: 'Example: Marrakech to Essaouira',
-                title: '2.5 hours, 190 km',
-                description: 'Direct route through beautiful countryside and argan tree forests.'
-            },
-            {
-                time: 'Example: Marrakech to Casablanca',
-                title: '3 hours, 240 km',
-                description: 'Highway route with option for stops along the way.'
-            },
-            {
-                time: 'Example: Marrakech to Fes',
-                title: '7 hours, 530 km',
-                description: 'Long-distance journey with option for lunch break and scenic stops.'
-            }
-        ],
         includes: [
             'Private transportation in air-conditioned vehicle',
             'Professional English-speaking driver',
             'Pickup from your accommodation at origin city',
             'Drop-off at your accommodation at destination city',
             'Fuel and all transportation costs',
-            'Bottled water',
             'Short breaks upon request',
-            'All taxes and service fees'
         ],
         bring: [
             'Comfortable clothing for the journey',
             'Sun protection (hat, sunglasses)',
             'Snacks for longer journeys',
             'Entertainment (books, music, etc.)',
-            'Cash for meals and personal expenses'
         ],
         availability: 'Daily, 24/7, subject to availability',
         additionalInfo: {

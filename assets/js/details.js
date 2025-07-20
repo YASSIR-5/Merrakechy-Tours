@@ -180,16 +180,44 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         // Set price if applicable (not for destinations) - UPDATED FOR ADULT/CHILDREN PRICING
-        if (data.price || data.pricing) {
+                   // For bookable items, show the booking button
+                   // Set price if applicable (not for destinations) - UPDATED FOR ADULT/CHILDREN PRICING
+        if (data.price || data.pricing || data.groupPricing) { // <-- ADDED data.groupPricing HERE
             updatePricingDisplay(data);
             
             // For bookable items, show the booking button
-            document.getElementById('booking-link').href = `checkout.html?category=${category}&id=${id}`;
+            document.getElementById("booking-link").href = `checkout.html?category=${category}&id=${id}`;
+
+            // Add event listener for the booking form
+            const bookingForm = document.getElementById("booking-form");
+            if (bookingForm) {
+                bookingForm.addEventListener("submit", function(event) {
+                    event.preventDefault();
+                    const adults = parseInt(document.getElementById("adults").value);
+                    const children = parseInt(document.getElementById("children").value);
+                    const totalPeople = adults + children;
+
+                    let calculatedPrice = 0;
+                    if (category === 'activity' && data.groupPricing) {
+                        calculatedPrice = calculateDynamicPrice(id, totalPeople);
+                    } else if (category === 'tour' && data.groupPricing) {
+                        calculatedPrice = calculateDynamicTourPrice(id, totalPeople);
+                    } else if (data.pricing) {
+                        calculatedPrice = (adults * data.pricing.adult) + (children * data.pricing.child);
+                    } else if (data.price) {
+                        calculatedPrice = data.price * totalPeople;
+                    }
+
+                    document.getElementById("calculated-price").textContent = `Total Price: €${calculatedPrice}`;
+                    // Further logic for booking, e.g., redirect to confirmation page
+                    console.log("Booking submitted for:", data.title, "Total people:", totalPeople, "Calculated Price:", calculatedPrice);
+                });
+            }
         } else {
-            // For destinations, hide the price and booking section
-            document.querySelector('.sidebar-box:first-child').style.display = 'none';
+            // Hide booking section if not applicable
+            document.getElementById("booking-section").style.display = "none";
         }
-        
+
         // Set availability if applicable
         if (data.availability) {
             document.getElementById('program-availability').textContent = data.availability;
@@ -222,44 +250,72 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelector('.related-tours').style.display = 'none';
         }
     }
+
     
-    // NEW FUNCTION: Update pricing display with adult/children prices
+        // NEW FUNCTION: Update pricing display with adult/children prices and group pricing
     function updatePricingDisplay(data) {
-        const priceBox = document.querySelector('.price-box');
-        
+        const priceBox = document.querySelector(".price-box");
+
         if (!priceBox) return;
-        
-        // Get prices
-        const adultPrice = data.pricing ? data.pricing.adult : data.price;
-        const childPrice = data.pricing ? data.pricing.child : (data.price * 0.5);
-        
-        // Check if we have different prices for adults and children
-        if (data.pricing && data.pricing.adult !== data.pricing.child) {
-            // Show both adult and children prices
-            priceBox.innerHTML = `
+
+        if (data.groupPricing) {
+            // Display group pricing tiers
+            let pricingHtml = `
                 <div class="price-label">Price From</div>
-                <div class="pricing-details">
-                    <div class="price-item">
-                        <span>Adults:</span>
-                        <span class="price-value">€${adultPrice}<small>/person</small></span>
-                    </div>
-                    <div class="price-item">
-                        <span>Children:</span>
-                        <span class="price-value">€${childPrice}<small>/person</small></span>
-                    </div>
-                </div>
-                ${data.priceUnit ? `<div class="price-unit">${data.priceUnit}</div>` : ''}
+                <div class="pricing-details group-pricing">
             `;
-        } else {
-            // Show single price (fallback to old format)
-            const displayPrice = data.price || adultPrice;
+            data.groupPricing.forEach(tier => {
+                const maxText = tier.max === Infinity ? "+" : `-${tier.max}`;
+                pricingHtml += `
+                    <div class="price-item">
+                        <span>${tier.min}${maxText} people:</span>
+                        <span class="price-value">€${tier.pricePerPerson}<small>/person</small></span>
+                    </div>
+                `;
+            });
+            pricingHtml += `</div>`;
+            priceBox.innerHTML = pricingHtml;
+        } else if (data.pricing) {
+            // Get prices
+            const adultPrice = data.pricing.adult;
+            const childPrice = data.pricing.child;
+
+            // Check if we have different prices for adults and children
+            if (data.pricing.adult !== data.pricing.child) {
+                // Show both adult and children prices
+                priceBox.innerHTML = `
+                    <div class="price-label">Price From</div>
+                    <div class="pricing-details">
+                        <div class="price-item">
+                            <span>Adults:</span>
+                            <span class="price-value">€${adultPrice}<small>/person</small></span>
+                        </div>
+                        <div class="price-item">
+                            <span>Children:</span>
+                            <span class="price-value">€${childPrice}<small>/person</small></span>
+                        </div>
+                    </div>
+                    ${data.priceUnit ? `<div class="price-unit">${data.priceUnit}</div>` : ""}
+                `;
+            } else {
+                // Show single price (fallback to old format)
+                const displayPrice = data.price || adultPrice;
+                priceBox.innerHTML = `
+                    <div class="price-label">Price From</div>
+                    <div class="price-value">€${displayPrice}<small>/person</small></div>
+                    ${data.priceUnit ? `<div class="price-unit">${data.priceUnit}</div>` : ""}
+                `;
+            }
+        } else if (data.price) {
+            // Display single price
             priceBox.innerHTML = `
                 <div class="price-label">Price From</div>
-                <div class="price-value">$${displayPrice}<small>/person</small></div>
-                ${data.priceUnit ? `<div class="price-unit">${data.priceUnit}</div>` : ''}
+                <div class="price-value">$${data.price}<small>/person</small></div>
+                ${data.priceUnit ? `<div class="price-unit">${data.priceUnit}</div>` : ""}
             `;
         }
     }
+
     
     // Function to load related programs - UPDATED FOR PRICING
     function loadRelatedPrograms(relatedIds, currentCategory) {

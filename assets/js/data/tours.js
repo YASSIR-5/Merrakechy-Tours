@@ -5,12 +5,12 @@ const toursData = {
     'zagora-2-days': {
         title: '2-Day Zagora Desert Tour',
         subtitle: 'Experience the magic of the Zagora Desert with an overnight stay in a Berber camp',
-        heroImage: '../assets/images/tours/zagora-desert.jpeg',
+        heroImage: '../assets/images/tours/zagora-desert.jpg.jpeg',
         mainImage: '../assets/images/tours/zagora-desert.jpg.jpeg',
         price: 60,
         duration: '2 days / 1 night',
         location: 'Zagora Desert',
-        groupSize: '2-16 people',
+        groupSize: '2-50 people',
         rating: 4.8,
         galleryImages: [
             '../assets/images/tours/zagora-desert.jpg.jpeg',
@@ -32,11 +32,7 @@ const toursData = {
         ],
         includes: [
             'Transportation in comfortable air-conditioned vehicle',
-            'Overnight accommodation in desert camp',
-            'Camel trekking with experienced camel handlers',
-            'Dinner and breakfast',
-            'All entrance fees to monuments and attractions',
-            'Bottled water during the journey'
+            
         ],
         bring: [
             'Comfortable clothing and walking shoes',
@@ -59,13 +55,13 @@ const toursData = {
     'ourika-valley': {
         title: 'Ourika Valley Day Trip',
         subtitle: 'Discover lush landscapes and Berber villages in the Atlas Mountains foothills',
-        heroImage: '../assets/images/tours/ourika-valley-hero.jpg',
+        heroImage: '../assets/images/tours/ourika-valley.jpg',
         mainImage: '../assets/images/tours/ourika-valley.jpg',
 
         price: 17,
         duration: '1 day (8 hours)',
         location: 'Ourika Valley, Atlas Mountains',
-        groupSize: '2-16 people',
+        groupSize: '2-50 people',
         rating: 4.7,
         galleryImages: [
             '../assets/images/tours/ourika-valley.jpg',
@@ -107,7 +103,7 @@ const toursData = {
     'imlil-atlas': {
         title: 'Imlil Atlas Mountains Tour',
         subtitle: 'Hike through stunning mountain landscapes and traditional Berber villages',
-        heroImage: '../assets/images/tours/imlil-atlas-hero.jpg',
+        heroImage: '../assets/images/tours/imlil-atlas.jpg',
         mainImage: '../assets/images/tours/imlil-atlas.jpg',
         price: 20,
         duration: '1 day (9 hours)',
@@ -157,7 +153,7 @@ const toursData = {
     'marrakech-city-tour': {
         title: 'Marrakech City Tour',
         subtitle: 'Dive into the heart of Marrakech with a passionate local guide through vibrant souks and historic sites',
-        heroImage: '../assets/images/tours/marrakech-medina.jpg',
+        heroImage: '../assets/images/tours/marrakech.jpeg',
         mainImage: '../assets/images/tours/marrakech.jpeg',
         galleryImages: [
             '../assets/images/tours/marrakech.jpeg',
@@ -214,7 +210,7 @@ const toursData = {
     "ouzoud-waterfalls": {
         title: "Ouzoud Waterfalls Day Trip",
         subtitle: "Discover Morocco's most spectacular waterfalls surrounded by lush greenery",
-        heroImage: "../assets/images/tours/ourika-valley-hero.jpg", // Using existing image as placeholder
+        heroImage: "../assets/images/tours/ozod.jpeg", // Using existing image as placeholder
         mainImage: "../assets/images/tours/ourika-valley.jpg", // Using existing image as placeholder
 
         price: 20,
@@ -269,7 +265,7 @@ const toursData = {
     "essaouira": {
         title: "Essaouira Day Trip",
         subtitle: "Explore the charming coastal city with its blue and white medina and fresh sea breeze",
-        heroImage: "../assets/images/tours/ourika-valley-hero.jpg", // Using existing image as placeholder
+        heroImage: "../assets/images/tours/essaouira.jpg", // Using existing image as placeholder
         mainImage: "../assets/images/tours/ourika-valley.jpg",
 
         price: 20,
@@ -380,7 +376,7 @@ const toursData = {
 },
 
     'ouarzazate-3-days': {
-        title: '3-Day Ouarzazate & Desert Tour',
+        title: 'Ouarzazate & Desert Tour',
         subtitle: 'Journey through cinematic landscapes, ancient kasbahs, and desert oases',
         heroImage: '../assets/images/tours/ourzazat1.jpeg',
         mainImage: '../assets/images/tours/ourzazat1.jpeg',
@@ -390,14 +386,14 @@ const toursData = {
             '../assets/images/tours/ourzazat3.jpeg',
         ],
         price: 80,
-        duration: '3 days / 2 nights',
+        duration: '1 days',
         location: 'Ouarzazate, Skoura, and Draa Valley',
-        groupSize: '2-16 people',
+        groupSize: '2-50 people',
         rating: 4.9,
         reviews: 178,
         description: `
         <h3>Tour Overview</h3>
-        <p>Explore the iconic city of Ouarzazate, known as the "Hollywood of Morocco", and its surrounding desert treasures on this immersive 3-day adventure. Visit legendary filming locations, UNESCO-listed kasbahs, and palm-filled valleys that reflect centuries of Moroccan history.</p>
+        <p>Explore the iconic city of Ouarzazate, known as the "Hollywood of Morocco", and its surrounding desert treasures on this immersive day adventure. Visit legendary filming locations, UNESCO-listed kasbahs, and palm-filled valleys that reflect centuries of Moroccan history.</p>
         <p>Discover the cinematic Aït Benhaddou Kasbah, the breathtaking Draa Valley, and the quiet charm of Skoura Oasis. Spend nights in cozy accommodations including a night in a desert camp with local cuisine and traditional music under the stars.</p>
         <p>This tour is perfect for culture lovers, photographers, and anyone seeking a deeper look into Morocco’s Saharan gateway.</p>
     `,
@@ -406,27 +402,68 @@ const toursData = {
             // You can optionally fill in day-by-day later
         ],
         includes: [
-            'Round-trip transportation in a comfortable, air-conditioned 4×4 or minibus.',
+            'Transportation in a comfortable, air-conditioned 4×4 or minibus.',
             'Pick up and drop-off at your Marrakech accommodation.',
-            'Professional, multilingual guide (English, French, Arabic).',
-            'Guided tours of Aït Ben Haddou and Ouarzazate’s main attractions.',
+            'Professional, multilingual driver (English, French, Arabic).',
         ],
         bring: [
             'Warm clothing for desert nights',
             'Comfortable shoes and light layers',
             'Sun protection (hat, sunscreen, glasses)',
             'Camera or phone for stunning landscapes',
-            'Personal hygiene items',
         ],
         availability: 'Daily departures, year-round',
         additionalInfo: {
             'Difficulty': 'Easy to Moderate',
             'Language': 'English, French, Arabic, Spanish',
             'Confirmation': 'Instant upon booking',
-            'Cancellation': 'Free up to 48h before departure'
+            'Cancellation': 'Free up to 24h before departure'
         },
         relatedPrograms: ['zagora-2-days', 'merzouga-3-days', 'ait-benhaddou']
-    }
+    },
+    'merzouga-3-days': {
+    title: '3-Day Merzouga Desert Tour',
+    subtitle: 'Cross the Atlas, ride camels, and sleep under the Sahara stars',
+    heroImage: '../assets/images/tours/marzoga1.jpeg',
+    mainImage: '../assets/images/tours/marzoga1.jpeg',
+    galleryImages: [
+        '../assets/images/tours/marzoga1.jpeg',
+        '../assets/images/tours/marzoga2.jpeg',
+        '../assets/images/tours/marzoga3.jpeg',
+    ],
+    price: 110,
+    duration: '3 days / 2 nights',
+    location: 'Merzouga Desert via Aït Benhaddou & Dades Gorges',
+    groupSize: '2–18 people',
+    rating: 4.9,
+    reviews: 267,
+    description: `
+        <h3>Tour Overview</h3>
+        <p>This 3-day adventure takes you deep into the Moroccan Sahara, passing through the majestic Atlas Mountains and the dramatic Dades Gorges. Discover ancient kasbahs, Berber villages, and the UNESCO site of Aït Benhaddou.</p>
+        <p>On Day 2, ride camels through golden dunes at sunset and arrive at a Berber camp in Merzouga, where you’ll enjoy dinner, music by the fire, and a night under the stars in a desert tent.</p>
+        <p>This is the ultimate desert experience for adventurers and cultural explorers.</p>
+    `,
+    mapImage: '../assets/images/itinerary/merzouga-map.png',
+   
+    includes: [
+        'Comfortable transport in 4x4 or minibus',
+        'Hotel pickup and drop-off in Marrakech',
+        'Multilingual driver'
+    ],
+    bring: [
+        'Warm clothes for desert night',
+        'Comfortable shoes',
+        'Sunglasses, sunscreen, and hat',
+        'Camera',    ],
+    availability: 'Daily departures, year-round',
+    additionalInfo: {
+        'Difficulty': 'Easy to Moderate',
+        'Language': 'English, French, Arabic, Spanish',
+        'Confirmation': 'Instant',
+        'Cancellation': 'Free cancellation up to 48h before departure'
+    },
+    relatedPrograms: ['zagora-2-days', 'ouarzazate-3-days', 'camel-ride']
+}
 
 };
 function calculateDynamicTourPrice(tourKey, numberOfPeople) {

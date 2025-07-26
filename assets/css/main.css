@@ -8117,7 +8117,7 @@ Booking confirmation page
     justify-content: center;
     align-items: center;
     z-index: 9999;
-    opacity: 0;
+    opacity: 1;
     transition: opacity 1.2s ease-out;
 }
 
@@ -8303,7 +8303,7 @@ Booking confirmation page
     font-family: 'Playfair Display', serif;
     font-size: 1.2rem;
     color: #025464;
-    font-weight: 400;
+    font-weight: 900;
     opacity: 0.8;
     letter-spacing: 2px;
     animation: textSlideUp 1.5s ease-out 1.3s both;

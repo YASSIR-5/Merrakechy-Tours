@@ -5,7 +5,7 @@ const activitiesData = {
     'quad-biking': {
         title: 'Agafay Desert Quad Biking Adventure',
         subtitle: 'Experience the thrill of quad biking in the moon-like landscape of Agafay Desert',
-        heroImage: '../assets/images/activities/quad-biking-hero.jpg',
+        heroImage: '../assets/images/activities/quad1.jpeg',
         mainImage: '../assets/images/activities/quad.jpg',
         galleryImages: [
             '../assets/images/activities/quad1.jpeg',
@@ -58,7 +58,7 @@ Enjoy 2 hours of total escape, far beyond an ordinary quad ride: journey through
     'camel-ride': {
         title: 'Camel Ride in the Palmeraie',
         subtitle: 'Enjoy a traditional camel trek through Marrakech\'s palm grove oasis',
-        heroImage: '../assets/images/activities/camel-ride-hero.jpg',
+        heroImage: '.../assets/images/activities/camel.jpeg',
         mainImage: '../assets/images/activities/camel.jpeg',
         price: 20,
         pricing: {
@@ -106,7 +106,7 @@ Enjoy 2 hours of total escape, far beyond an ordinary quad ride: journey through
     'hot-air-balloon': {
         title: 'Hot Air Balloon Experience',
         subtitle: 'Soar above the Atlas Mountains at dawn for breathtaking views',
-        heroImage: '../assets/images/activities/hot-air-ballon-hero.jpg',
+        heroImage: '../assets/images/activities/ballon.jpg',
         mainImage: '../assets/images/activities/ballon.jpg',
         galleryImages: [
             '../assets/images/activities/ballon.jpg',
@@ -154,7 +154,7 @@ Enjoy 2 hours of total escape, far beyond an ordinary quad ride: journey through
     'cooking-class': {
         title: 'Moroccan Cooking Workshop',
         subtitle: 'Learn to prepare authentic Moroccan dishes with local chefs',
-        heroImage: '../assets/images/activities/cooking-class-hero.jpg',
+        heroImage: '../assets/images/activities/quad.jpg',
         mainImage: '../assets/images/activities/cooking-class.jpg',
         galleryImages: [
             '../assets/images/activities/quad.jpg',
@@ -202,7 +202,7 @@ Enjoy 2 hours of total escape, far beyond an ordinary quad ride: journey through
     "hammam-spa": {
         title: "Hammam & Spa Experience",
         subtitle: "Indulge in a traditional Moroccan bath and relaxing massage treatment",
-        heroImage: "../assets/images/activities/cooking-class-hero.jpg", // Using existing image as placeholder
+        heroImage: "../assets/images/activities/quad.jpg", // Using existing image as placeholder
         mainImage: "../assets/images/activities/hammam.jpg", // Using existing image as placeholder
         galleryImages: [
             '../assets/images/activities/quad.jpg',
@@ -311,7 +311,7 @@ Enjoy 2 hours of total escape, far beyond an ordinary quad ride: journey through
     'marrakech-city-tour': {
         title: 'Marrakech City Tour',
         subtitle: 'Dive into the heart of Marrakech with a passionate local guide through vibrant souks and historic sites',
-        heroImage: '../assets/images/tours/marrakech-medina.jpg',
+        heroImage: './assets/images/tours/marrakech.jpeg',
         mainImage: '../assets/images/tours/marrakech.jpeg',
         galleryImages: [
             '../assets/images/tours/marrakech.jpeg',

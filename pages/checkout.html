@@ -69,7 +69,7 @@
 
     <!-- Page Hero Section -->
     <section class="page-hero"
-        style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../assets/images/hero/checkout-hero.jpg');">
+        style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),;">
         <div class="container">
             <div class="page-hero-content">
                 <h1>Complete Your Booking</h1>
@@ -128,6 +128,8 @@
                         <input type="hidden" id="category" name="category" value="">
                         <input type="hidden" id="program-id" name="program-id" value="">
                         <input type="hidden" id="program-price" name="program-price" value="">
+                        <input type="hidden" id="total-price" name="total_price" value="">
+                        <input type="hidden" id="program-name-hidden" name="program_name" value="">
 
                         <!-- Personal Information -->
                         <div class="checkout-section">
@@ -153,7 +155,80 @@
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="nationality">Nationality*</label>
-                                    <input type="text" id="nationality" name="nationality" required>
+                                    <select id="nationality" name="nationality" required>
+                                        <option value="">Select your nationality</option>
+                                        <option value="morocco">Morocco</option>
+                                        <option value="france">France</option>
+                                        <option value="spain">Spain</option>
+                                        <option value="italy">Italy</option>
+                                        <option value="usa">USA</option>
+                                        <option value="uk">United Kingdom</option>
+                                        <option value="germany">Germany</option>
+                                        <option value="canada">Canada</option>
+                                        <option disabled>──────────────────</option>
+                                        <option value="albania">Albania</option>
+                                        <option value="argentina">Argentina</option>
+                                        <option value="armenia">Armenia</option>
+                                        <option value="australia">Australia</option>
+                                        <option value="austria">Austria</option>
+                                        <option value="azerbaijan">Azerbaijan</option>
+                                        <option value="belarus">Belarus</option>
+                                        <option value="belgium">Belgium</option>
+                                        <option value="bosnia-herzegovina">Bosnia and Herzegovina</option>
+                                        <option value="brazil">Brazil</option>
+                                        <option value="bulgaria">Bulgaria</option>
+                                        <option value="china">China</option>
+                                        <option value="croatia">Croatia</option>
+                                        <option value="cyprus">Cyprus</option>
+                                        <option value="czech-republic">Czech Republic</option>
+                                        <option value="denmark">Denmark</option>
+                                        <option value="egypt">Egypt</option>
+                                        <option value="estonia">Estonia</option>
+                                        <option value="finland">Finland</option>
+                                        <option value="georgia">Georgia</option>
+                                        <option value="greece">Greece</option>
+                                        <option value="hungary">Hungary</option>
+                                        <option value="iceland">Iceland</option>
+                                        <option value="india">India</option>
+                                        <option value="iran">Iran</option>
+                                        <option value="iraq">Iraq</option>
+                                        <option value="japan">Japan</option>
+                                        <option value="jordan">Jordan</option>
+                                        <option value="kazakhstan">Kazakhstan</option>
+                                        <option value="kosovo">Kosovo</option>
+                                        <option value="kyrgyzstan">Kyrgyzstan</option>
+                                        <option value="latvia">Latvia</option>
+                                        <option value="lebanon">Lebanon</option>
+                                        <option value="lithuania">Lithuania</option>
+                                        <option value="malta">Malta</option>
+                                        <option value="mexico">Mexico</option>
+                                        <option value="moldova">Moldova</option>
+                                        <option value="montenegro">Montenegro</option>
+                                        <option value="netherlands">Netherlands</option>
+                                        <option value="macedonia">North Macedonia</option>
+                                        <option value="norway">Norway</option>
+                                        <option value="palestine">Palestine</option>
+                                        <option value="poland">Poland</option>
+                                        <option value="portugal">Portugal</option>
+                                        <option value="romania">Romania</option>
+                                        <option value="russia">Russia</option>
+                                        <option value="saudi-arabia">Saudi Arabia</option>
+                                        <option value="serbia">Serbia</option>
+                                        <option value="slovakia">Slovakia</option>
+                                        <option value="slovenia">Slovenia</option>
+                                        <option value="south-africa">South Africa</option>
+                                        <option value="sweden">Sweden</option>
+                                        <option value="switzerland">Switzerland</option>
+                                        <option value="syria">Syria</option>
+                                        <option value="tajikistan">Tajikistan</option>
+                                        <option value="turkey">Turkey</option>
+                                        <option value="turkmenistan">Turkmenistan</option>
+                                        <option value="uae">United Arab Emirates</option>
+                                        <option value="ukraine">Ukraine</option>
+                                        <option value="uzbekistan">Uzbekistan</option>
+
+                                        <option value="other">Other</option>
+                                    </select>
                                 </div>
 
                                 <div class="form-group">
@@ -188,10 +263,20 @@
                                         <option value="10">10</option>
                                         <option value="11">11</option>
                                         <option value="12">12</option>
-                                        <option value="custom">More than 12 (specify)</option>
+                                        <option value="13">13</option>
+                                        <option value="14">14</option>
+                                        <option value="15">15</option>
+                                        <option value="16">16</option>
+                                        <option value="17">17</option>
+                                        <option value="18">18</option>
+                                        <option value="19">19</option>
+                                        <option value="20">20</option>
+                                        <option value="21">21</option>
+                                        <option value="22">22</option>
+                                        <option value="23">23</option>
+                                        <option value="24">24</option>
+                                        <option value="25">25</option>
                                     </select>
-                                    <input type="number" id="adults-custom" name="adults-custom" min="13" max="100" placeholder="Enter number" style="display: none; margin-top: 10px;">
-
                                 </div>
 
                                 <div class="form-group">
@@ -204,9 +289,16 @@
                                         <option value="4">4</option>
                                         <option value="5">5</option>
                                         <option value="6">6</option>
-                                        <option value="custom">More than 6 (specify)</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>      
+                                        <option value="12">13</option>
+                                        <option value="14">14</option>
+                                        <option value="15">15</option>
                                     </select>
-                                    <input type="number" id="children-custom" name="children-custom" min="7" max="100" placeholder="Enter number" style="display: none; margin-top: 10px;">
                                 </div>
                             </div>
 

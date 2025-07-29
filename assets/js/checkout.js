@@ -488,47 +488,42 @@ function addDatePickerCSS() {
     document.head.appendChild(style);
     console.log('Date picker CSS added');
 }
-// Add this to checkout.js - Form submission handler
-document.getElementById('checkout-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Generate booking number
-    const bookingNumber = 'MK' + Date.now().toString().slice(-6);
-    
-    // Get form data
-    const formData = new FormData(this);
-    const bookingInfo = {
-        bookingNumber: bookingNumber,
-        programName: document.getElementById('program-name').textContent,
-        category: formData.get('category'),
-        programId: formData.get('program-id'),
-        date: formData.get('date'),
-        adults: parseInt(formData.get('adults')),
-        children: parseInt(formData.get('children')),
-        price: document.getElementById('summary-total').textContent,
-        customerName: formData.get('full-name'),
-        customerEmail: formData.get('email'),
-        customerPhone: formData.get('phone'),
-        specialRequests: formData.get('special-requests') || ''
-    };
-    
-    // Save to localStorage
-    localStorage.setItem('bookingInfo', JSON.stringify(bookingInfo));
-    
-    // Redirect to confirmation
-    window.location.href = 'booking-confirmation.html';
-});
 
-// Add this to checkout.js or in a script tag
+// Add this to your checkout.js
 document.addEventListener('DOMContentLoaded', function() {
-    // Set checkout step as active
-    const checkoutStep = document.querySelector('[data-step="1"]');
-    const confirmStep = document.querySelector('[data-step="2"]');
-    
-    if (checkoutStep) {
-        checkoutStep.classList.add('active');
+    function updateTotalPriceField() {
+        const totalPriceField = document.getElementById('total-price');
+        const summaryTotal = document.getElementById('summary-total');
+        const programName = document.getElementById('program-name');
+        const programNameField = document.getElementById('program-name-hidden');
+        
+        if (totalPriceField && summaryTotal && summaryTotal.textContent) {
+            totalPriceField.value = '€' + summaryTotal.textContent;
+            console.log('Updated total price field:', totalPriceField.value);
+        }
+        
+        if (programNameField && programName && programName.textContent !== 'Loading...') {
+            programNameField.value = programName.textContent;
+            console.log('Updated program name field:', programNameField.value);
+        }
     }
-    if (confirmStep) {
-        confirmStep.classList.remove('active', 'completed');
+    
+    // Update on page load
+    setTimeout(updateTotalPriceField, 2000);
+    
+    // Update when adults/children change
+    const adultsSelect = document.getElementById('adults');
+    const childrenSelect = document.getElementById('children');
+    
+    if (adultsSelect) {
+        adultsSelect.addEventListener('change', function() {
+            setTimeout(updateTotalPriceField, 100);
+        });
+    }
+    
+    if (childrenSelect) {
+        childrenSelect.addEventListener('change', function() {
+            setTimeout(updateTotalPriceField, 100);
+        });
     }
 });

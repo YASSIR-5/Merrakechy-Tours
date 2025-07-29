@@ -870,10 +870,10 @@ Responsive Styles (All in the same CSS file)
     }
 
     .back-to-top {
-        width: 40px;
-        height: 40px;
-        bottom: 20px;
-        right: 20px;
+        width: 40px !important;
+        height: 40px !important;
+        bottom: 20px    !important;
+        right: 20px !important;
     }
 }
 
@@ -8440,7 +8440,7 @@ Booking confirmation page
     }
     
     .english-text {
-        font-size: 1rem;
+        font-size: 1.5rem;
         letter-spacing: 1px;
     }
     
@@ -8455,7 +8455,7 @@ Booking confirmation page
     }
     
     .english-text {
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
     
     .logo {

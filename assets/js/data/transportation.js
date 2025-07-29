@@ -8,6 +8,7 @@ const transportationData = {
         heroImage: '../assets/images/itinerary/airport-transfers-1.png', // Use a placeholder image for now
         mainImage: '../assets/images/itinerary/airport-transfers-1.png', // Use a placeholder image for now
         price: 25,
+        showCustomPricing: true ,
         duration: 'Approximately 20-30 minutes',
         location: 'Marrakech',
         groupSize: '1-4 people per standard vehicle',
@@ -48,10 +49,9 @@ const transportationData = {
         mainImage: "../assets/images/itinerary/car_fleet.webp", // Placeholder
         price: 40, // Base from
         showCustomPricing: true ,
-
         duration: "Full day (up to 10 hours)",
         location: "Marrakech and surrounding areas",
-        groupSize: "1–16 people depending on vehicle",
+        groupSize: "1–50 people ",
         rating: 4.9,
         reviews: 78,
         description: `
@@ -109,9 +109,10 @@ const transportationData = {
         heroImage: '../assets/images/itinerary/city-to-city.webp', // Use a placeholder image for now
         mainImage: '../assets/images/itinerary/city-to-city.webp', // Use a placeholder image for now
         price: 40,
+        showCustomPricing: true ,
         duration: 'Varies by destination',
         location: 'Various cities in Morocco',
-        groupSize: '1-4 people per standard vehicle',
+        groupSize: '1-50 people per standard vehicle',
         rating: 4.7,
         reviews: 93,
         description: `

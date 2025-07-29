@@ -184,3 +184,8 @@ document.addEventListener('DOMContentLoaded', function() {
         progressLine.classList.add('active');
     }
 });
+// Instead of directly accessing elements, check if they exist first:
+const element = document.getElementById('some-element');
+if (element && element.classList) {
+    element.classList.add('some-class');
+}

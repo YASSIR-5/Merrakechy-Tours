@@ -595,35 +595,35 @@ Back to Top Button
 ==============================================
 */
 .back-to-top {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 50px;
-    height: 50px;
-    background-color: var(--primary-color);
-    color: var(--text-light);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    z-index: 99;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    position: fixed !important;
+    bottom: 30px !important;
+    right: 30px !important;
+    width: 50px !important;
+    height: 50px !important;
+    background-color: var(--primary-color) !important;
+    color: var(--text-light) !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    opacity: 0  !important;
+    visibility: hidden !important;
+    transition: all 0.3s ease !important;
+    z-index: 99 !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3) !important;
 }
 
 .back-to-top.active {
-    opacity: 1;
-    visibility: visible;
-    animation: pulse 2s infinite;
+    opacity: 1 !important;
+    visibility: visible !important;
+    animation: pulse 2s infinite !important; 
 }
 
 .back-to-top:hover {
-    background-color: var(--secondary-color);
+    background-color: var(--secondary-color) ;
     color: var(--text-light);
-    animation: none;
-    transform: translateY(-5px);
+    animation: none !important;
+    transform: translateY(-5px) !important;
 }
 
 /* 
@@ -7101,136 +7101,149 @@ Booking confirmation page
     font-size: 0.9rem;
 }
 
-/* Contact Options Button */
+/* Contact Options Button - Isolated and Conflict-Free */
 .contact-options-wrapper {
-  position: fixed;
-  bottom: 30px;
-  left: 30px;
-  z-index: 999;
+  position: fixed !important;
+  bottom: 30px !important;
+  left: 30px !important;
+  z-index: 999 !important;
+  animation: none !important;
+  transform: none !important;
 }
 
 .contact-options-toggle {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #e67e22, #d35400);
-  color: white;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  z-index: 1000;
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  width: 60px !important;
+  height: 60px !important;
+  border-radius: 50% !important;
+  background: linear-gradient(135deg, #e67e22, #d35400) !important;
+  color: white !important;
+  border: none !important;
+  font-size: 24px !important;
+  cursor: pointer !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative !important;
+  z-index: 1000 !important;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  animation: none !important;
+  opacity: 1 !important;
 }
 
 .contact-options-toggle:hover {
-  transform: scale(1.1);
+  transform: scale(1.1) !important;
+  animation: none !important;
 }
 
 .contact-options-toggle:active {
-  transform: scale(0.95);
+  transform: scale(0.95) !important;
+  animation: none !important;
 }
 
 .contact-options-menu {
-  position: absolute;
-  bottom: 75px;
-  left: 0;
-  background: white;
-  border-radius: 12px;
-  width: 180px;
-  padding: 15px;
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
-  opacity: 0;
-  transform: translateY(20px) scale(0.9);
-  pointer-events: none;
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: absolute !important;
+  bottom: 75px !important;
+  left: 0 !important;
+  background: white !important;
+  border-radius: 12px !important;
+  width: 180px !important;
+  padding: 15px !important;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15) !important;
+  opacity: 0 !important;
+  transform: translateY(20px) scale(0.9) !important;
+  pointer-events: none !important;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  animation: none !important;
 }
 
 .contact-options-wrapper:hover .contact-options-menu {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-  pointer-events: all;
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+  pointer-events: all !important;
+  animation: none !important;
 }
 
 .contact-option-title {
-  text-align: center;
-  font-weight: 600;
-  color: #555;
-  margin-bottom: 12px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid #eee;
+  text-align: center !important;
+  font-weight: 600 !important;
+  color: #555 !important;
+  margin-bottom: 12px !important;
+  padding-bottom: 8px !important;
+  border-bottom: 1px solid #eee !important;
+  animation: none !important;
 }
 
 .contact-option {
-  display: flex;
-  align-items: center;
-  padding: 12px 15px;
-  border-radius: 8px;
-  margin-bottom: 8px;
-  color: #555;
-  text-decoration: none;
-  transition: all 0.2s ease;
+  display: flex !important;
+  align-items: center !important;
+  padding: 12px 15px !important;
+  border-radius: 8px !important;
+  margin-bottom: 8px !important;
+  color: #555 !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease !important;
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
 }
 
 .contact-option:last-child {
-  margin-bottom: 0;
+  margin-bottom: 0 !important;
 }
 
 .contact-option i {
-  font-size: 20px;
-  margin-right: 12px;
+  font-size: 20px !important;
+  margin-right: 12px !important;
 }
 
 .contact-option span {
-  font-weight: 500;
+  font-weight: 500 !important;
 }
 
 .contact-option.whatsapp:hover {
-  background-color: rgba(37, 211, 102, 0.1);
-  color: #25d366;
+  background-color: rgba(37, 211, 102, 0.1) !important;
+  color: #25d366 !important;
 }
 
 .contact-option.phone:hover {
-  background-color: rgba(52, 152, 219, 0.1);
-  color: #3498db;
+  background-color: rgba(52, 152, 219, 0.1) !important;
+  color: #3498db !important;
 }
 
 .contact-option.email:hover {
-  background-color: rgba(155, 89, 182, 0.1);
-  color: #9b59b6;
+  background-color: rgba(155, 89, 182, 0.1) !important;
+  color: #9b59b6 !important;
 }
 
 .contact-option.contact-form:hover {
-  background-color: rgba(230, 126, 34, 0.1);
-  color: #e67e22;
+  background-color: rgba(230, 126, 34, 0.1) !important;
+  color: #e67e22 !important;
 }
 
-/* Animation for the options when menu opens */
+/* Remove the problematic slideIn animation */
 .contact-options-wrapper:hover .contact-option {
-  animation: slideIn 0.3s forwards;
-  opacity: 0;
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
 }
 
-.contact-options-wrapper:hover .contact-option:nth-child(2) {
-  animation-delay: 0.05s;
-}
-
-.contact-options-wrapper:hover .contact-option:nth-child(3) {
-  animation-delay: 0.1s;
-}
-
-.contact-options-wrapper:hover .contact-option:nth-child(4) {
-  animation-delay: 0.15s;
-}
-
+.contact-options-wrapper:hover .contact-option:nth-child(2),
+.contact-options-wrapper:hover .contact-option:nth-child(3),
+.contact-options-wrapper:hover .contact-option:nth-child(4),
 .contact-options-wrapper:hover .contact-option:nth-child(5) {
-  animation-delay: 0.2s;
+  animation: none !important;
+  animation-delay: 0s !important;
+  opacity: 1 !important;
+  transform: none !important;
 }
 
+/* Ensure no conflicting keyframes affect this component */
+.contact-options-wrapper *,
+.contact-options-wrapper *::before,
+.contact-options-wrapper *::after {
+  animation: none !important;
+}
 @keyframes slideIn {
   from {
     opacity: 0;
@@ -8502,3 +8515,400 @@ Booking confirmation page
 }
 
 
+/* Progress Bar Styles */
+.progress-container {
+    margin: 40px 0;
+    display: flex;
+    justify-content: center;
+    padding: 0 20px;
+}
+.progress-bar {
+    display: flex;
+    align-items: center;
+    position: relative;
+    max-width: 400px;
+    width: 100%;
+}
+
+.progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    flex: 1;
+}
+
+.step-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #f8f9fa;
+    border: 3px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #666;
+    transition: all 0.3s ease;
+    margin-bottom: 10px;
+}
+
+.step-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #666;
+    text-align: center;
+    transition: color 0.3s ease;
+}
+
+.progress-line {
+    position: absolute;
+    top: 25px;
+    left: 25%;
+    right: 25%;
+    height: 3px;
+    background: #ddd;
+    z-index: 1;
+    transition: background 0.3s ease;
+}
+
+/* Active State */
+.progress-step.active .step-circle {
+    background: #025464;
+    border-color: #025464;
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(2, 84, 100, 0.3);
+}
+
+.progress-step.active .step-label {
+    color: #025464;
+    font-weight: 700;
+}
+
+/* Completed State */
+.progress-step.completed .step-circle {
+    background: #28a745;
+    border-color: #28a745;
+    color: white;
+}
+
+.progress-step.completed .step-label {
+    color: #28a745;
+}
+
+/* Progress Line Active */
+.progress-line.active {
+    background: linear-gradient(to right, #025464 0%, #025464 100%);
+}
+
+/* Moroccan Touch - Add decorative elements */
+.progress-step.active .step-circle::before {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border: 2px solid rgba(2, 84, 100, 0.2);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.2);
+        opacity: 0;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .progress-container {
+        margin: 20px 0;
+        padding: 0 10px;
+    }
+    
+    .step-circle {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+    
+    .step-label {
+        font-size: 12px;
+    }
+    
+    .progress-line {
+        top: 20px;
+        left: 20%;
+        right: 20%;
+        height: 2px;
+    }
+    
+    .progress-step.active .step-circle::before {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .step-circle {
+        width: 35px;
+        height: 35px;
+        font-size: 14px;
+    }
+    
+    .step-label {
+        font-size: 11px;
+    }
+    
+    .progress-line {
+        top: 17px;
+    }
+}
+
+/* Enhanced Moroccan-Style Date Picker */
+.date-input-wrapper {
+    position: relative;
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.enhanced-date-input {
+    width: 100%;
+    padding: 16px 50px 16px 20px;
+    border: 2px solid #e1e5e9;
+    border-radius: 12px;
+    font-size: 16px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    color: #2c3e50;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    letter-spacing: 0.5px;
+}
+
+.enhanced-date-input:hover {
+    border-color: #025464;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(2, 84, 100, 0.15);
+    background: linear-gradient(135deg, #ffffff 0%, #f1f8ff 100%);
+}
+
+.enhanced-date-input:focus {
+    outline: none;
+    border-color: #025464;
+    background: linear-gradient(135deg, #ffffff 0%, #f1f8ff 100%);
+    box-shadow: 0 0 0 4px rgba(2, 84, 100, 0.2), 0 8px 25px rgba(2, 84, 100, 0.15);
+    transform: translateY(-2px);
+}
+
+/* Moroccan-inspired calendar icon */
+.date-input-icon {
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #025464;
+    cursor: pointer;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+.date-input-icon:hover {
+    color: #E57C23;
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* Add decorative elements */
+.date-input-wrapper::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(135deg, #025464, #E57C23, #025464);
+    border-radius: 14px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.enhanced-date-input:focus + .date-input-icon + .date-input-wrapper::before,
+.date-input-wrapper:hover::before {
+    opacity: 0.1;
+}
+
+/* Custom placeholder styling */
+.enhanced-date-input:invalid {
+    color: #95a5a6;
+}
+
+.enhanced-date-input:invalid::before {
+    content: 'Select your travel date';
+    color: #95a5a6;
+}
+
+/* Hide default calendar icon in WebKit browsers */
+.enhanced-date-input::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    width: 50px;
+    height: 100%;
+    cursor: pointer;
+    z-index: 3;
+}
+
+/* Custom date input styling for different states */
+.enhanced-date-input::-webkit-datetime-edit {
+    padding: 0;
+}
+
+.enhanced-date-input::-webkit-datetime-edit-fields-wrapper {
+    padding: 0;
+}
+
+.enhanced-date-input::-webkit-datetime-edit-text {
+    color: #7f8c8d;
+    padding: 0 3px;
+}
+
+.enhanced-date-input::-webkit-datetime-edit-month-field,
+.enhanced-date-input::-webkit-datetime-edit-day-field,
+.enhanced-date-input::-webkit-datetime-edit-year-field {
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+/* Moroccan pattern decoration */
+.date-input-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 6px;
+    height: 6px;
+    background: radial-gradient(circle, #E57C23 1px, transparent 1px);
+    background-size: 3px 3px;
+    background-repeat: repeat;
+    opacity: 0.3;
+    border-radius: 2px;
+    transition: opacity 0.3s ease;
+}
+
+.enhanced-date-input:focus ~ .date-input-wrapper::after,
+.date-input-wrapper:hover::after {
+    opacity: 0.6;
+}
+
+/* Mobile responsive enhancements */
+@media (max-width: 768px) {
+    .enhanced-date-input {
+        padding: 18px 55px 18px 20px;
+        font-size: 16px; /* Prevents zoom on iOS */
+        border-radius: 10px;
+    }
+    
+    .date-input-icon {
+        right: 20px;
+        font-size: 22px;
+    }
+    
+    .enhanced-date-input::-webkit-calendar-picker-indicator {
+        width: 55px;
+    }
+}
+
+@media (max-width: 480px) {
+    .enhanced-date-input {
+        padding: 20px 60px 20px 20px;
+        border-radius: 8px;
+    }
+    
+    .date-input-icon {
+        right: 22px;
+        font-size: 24px;
+    }
+}
+
+/* Add subtle animation when date is selected */
+.enhanced-date-input:valid {
+    background: linear-gradient(135deg, #f8fff8 0%, #f1f8ff 100%);
+    border-color: #27ae60;
+}
+
+.enhanced-date-input:valid + .date-input-icon {
+    color: #27ae60;
+}
+
+/* Loading state for better UX */
+.date-input-wrapper.loading .enhanced-date-input {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    cursor: wait;
+}
+
+.date-input-wrapper.loading .date-input-icon {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: translateY(-50%) rotate(0deg); }
+    to { transform: translateY(-50%) rotate(360deg); }
+}
+
+.custom-pricing-notice {
+    margin-top: 20px;
+    padding: 20px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border: 2px dashed #025464;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.pricing-notice-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    color: #025464;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.pricing-notice-content i {
+    color: #E57C23;
+    font-size: 18px;
+}
+
+.custom-pricing-notice .btn {
+    margin-top: 10px;
+    background: #025464;
+    border-color: #025464;
+}
+
+.custom-pricing-notice .btn:hover {
+    background: #E57C23;
+    border-color: #E57C23;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .pricing-notice-content {
+        font-size: 14px;
+    }
+    
+    .pricing-notice-content i {
+        font-size: 16px;
+    }
+}

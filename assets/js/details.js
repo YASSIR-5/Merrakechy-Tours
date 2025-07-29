@@ -125,6 +125,19 @@ document.addEventListener('DOMContentLoaded', function() {
                     `;
                 });
             }
+            const customPricingMessage = document.getElementById('custom-pricing-message');
+    
+    if (data.showCustomPricing === true) {
+        // Show the custom pricing message
+        if (customPricingMessage) {
+            customPricingMessage.style.display = 'block';
+        }
+    } else {
+        // Hide the custom pricing message
+        if (customPricingMessage) {
+            customPricingMessage.style.display = 'none';
+        }
+    }
             
             document.getElementById('program-itinerary').innerHTML = itineraryHtml;
             

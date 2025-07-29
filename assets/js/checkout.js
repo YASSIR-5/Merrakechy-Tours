@@ -488,3 +488,47 @@ function addDatePickerCSS() {
     document.head.appendChild(style);
     console.log('Date picker CSS added');
 }
+// Add this to checkout.js - Form submission handler
+document.getElementById('checkout-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Generate booking number
+    const bookingNumber = 'MK' + Date.now().toString().slice(-6);
+    
+    // Get form data
+    const formData = new FormData(this);
+    const bookingInfo = {
+        bookingNumber: bookingNumber,
+        programName: document.getElementById('program-name').textContent,
+        category: formData.get('category'),
+        programId: formData.get('program-id'),
+        date: formData.get('date'),
+        adults: parseInt(formData.get('adults')),
+        children: parseInt(formData.get('children')),
+        price: document.getElementById('summary-total').textContent,
+        customerName: formData.get('full-name'),
+        customerEmail: formData.get('email'),
+        customerPhone: formData.get('phone'),
+        specialRequests: formData.get('special-requests') || ''
+    };
+    
+    // Save to localStorage
+    localStorage.setItem('bookingInfo', JSON.stringify(bookingInfo));
+    
+    // Redirect to confirmation
+    window.location.href = 'booking-confirmation.html';
+});
+
+// Add this to checkout.js or in a script tag
+document.addEventListener('DOMContentLoaded', function() {
+    // Set checkout step as active
+    const checkoutStep = document.querySelector('[data-step="1"]');
+    const confirmStep = document.querySelector('[data-step="2"]');
+    
+    if (checkoutStep) {
+        checkoutStep.classList.add('active');
+    }
+    if (confirmStep) {
+        confirmStep.classList.remove('active', 'completed');
+    }
+});

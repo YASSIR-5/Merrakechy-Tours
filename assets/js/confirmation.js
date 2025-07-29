@@ -143,3 +143,44 @@ document.addEventListener('DOMContentLoaded', function() {
        return array;
    }
 });
+// booking-confirmation.js
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Booking confirmation page loaded');
+    
+    // Only initialize elements that exist on this page
+    const elements = {
+        backButton: document.querySelector('.back-button'),
+        printButton: document.querySelector('.print-button')
+    };
+    
+    // Add your booking confirmation specific code here
+    if (elements.backButton) {
+        elements.backButton.addEventListener('click', function() {
+            window.history.back();
+        });
+    }
+    
+    if (elements.printButton) {
+        elements.printButton.addEventListener('click', function() {
+            window.print();
+        });
+    }
+});
+// Add this to your confirmation script
+document.addEventListener('DOMContentLoaded', function() {
+    // Set confirm step as active and checkout as completed
+    const checkoutStep = document.querySelector('[data-step="1"]');
+    const confirmStep = document.querySelector('[data-step="2"]');
+    const progressLine = document.querySelector('.progress-line');
+    
+    if (checkoutStep) {
+        checkoutStep.classList.remove('active');
+        checkoutStep.classList.add('completed');
+    }
+    if (confirmStep) {
+        confirmStep.classList.add('active');
+    }
+    if (progressLine) {
+        progressLine.classList.add('active');
+    }
+});

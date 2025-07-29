@@ -47,6 +47,8 @@ const transportationData = {
         heroImage: "../assets/images/itinerary/car_fleet.webp", // Placeholder
         mainImage: "../assets/images/itinerary/car_fleet.webp", // Placeholder
         price: 40, // Base from
+        showCustomPricing: true ,
+
         duration: "Full day (up to 10 hours)",
         location: "Marrakech and surrounding areas",
         groupSize: "1–16 people depending on vehicle",

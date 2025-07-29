@@ -202,12 +202,13 @@ Enjoy 2 hours of total escape, far beyond an ordinary quad ride: journey through
     "hammam-spa": {
         title: "Hammam & Spa Experience",
         subtitle: "Indulge in a traditional Moroccan bath and relaxing massage treatment",
-        heroImage: "../assets/images/activities/quad.jpg", // Using existing image as placeholder
+        heroImage: "../assets/images/activities/hammam.jpg", // Using existing image as placeholder
         mainImage: "../assets/images/activities/hammam.jpg", // Using existing image as placeholder
+        showCustomPricing: true ,
         galleryImages: [
-            '../assets/images/activities/quad.jpg',
-            '../assets/images/activities/',
-            '../assets/images/activities/hot-air-balloon-3.jpg'
+            '../assets/images/activities/hammam.jpg',
+            '../assets/images/activities/hammam2.jpeg',
+            '../assets/images/activities/hammam3.jpeg',
         ],
         price: 85,
         pricing: {

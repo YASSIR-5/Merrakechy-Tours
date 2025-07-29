@@ -74,6 +74,29 @@
             <div class="page-hero-content">
                 <h1>Complete Your Booking</h1>
                 <p>Just a few steps away from your Moroccan adventure</p>
+                <!-- Add this inside your hero section -->
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <!-- Step 1: Checkout -->
+                        <div class="progress-step active" data-step="1">
+                            <div class="step-circle">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                            <div class="step-label">Checkout</div>
+                        </div>
+
+                        <!-- Progress Line -->
+                        <div class="progress-line"></div>
+
+                        <!-- Step 2: Confirm -->
+                        <div class="progress-step" data-step="2">
+                            <div class="step-circle">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="step-label">Confirm</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -97,8 +120,7 @@
 
                     <form id="checkout-form" action="https://formsubmit.co/aitaliyassir55@gmail.com" method="POST">
                         <!-- Hidden fields for FormSubmit -->
-                        <input type="hidden" name="_next"
-                            value="http://127.0.0.1:5500/Project1/pages/booking-confirmation.html">
+                        <input type="hidden" name="_next" value="http://127.0.0.1:5500/pages/booking-confirmation.html">
                         <input type="hidden" name="_subject" value="New Booking: MerrakechyTour">
                         <input type="hidden" name="_captcha" value="false">
 
@@ -130,8 +152,8 @@
 
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="nationality">Nationality</label>
-                                    <input type="text" id="nationality" name="nationality">
+                                    <label for="nationality">Nationality*</label>
+                                    <input type="text" id="nationality" name="nationality" required>
                                 </div>
 
                                 <div class="form-group">
@@ -166,7 +188,10 @@
                                         <option value="10">10</option>
                                         <option value="11">11</option>
                                         <option value="12">12</option>
+                                        <option value="custom">More than 12 (specify)</option>
                                     </select>
+                                    <input type="number" id="adults-custom" name="adults-custom" min="13" max="100" placeholder="Enter number" style="display: none; margin-top: 10px;">
+
                                 </div>
 
                                 <div class="form-group">
@@ -179,7 +204,9 @@
                                         <option value="4">4</option>
                                         <option value="5">5</option>
                                         <option value="6">6</option>
+                                        <option value="custom">More than 6 (specify)</option>
                                     </select>
+                                    <input type="number" id="children-custom" name="children-custom" min="7" max="100" placeholder="Enter number" style="display: none; margin-top: 10px;">
                                 </div>
                             </div>
 
@@ -193,8 +220,8 @@
                         <div class="checkout-section">
                             <div class="form-group form-checkbox">
                                 <input type="checkbox" id="terms" name="terms" required>
-                                <label for="terms">I agree to the <a href="privacy-policy.html"
-                                        target="_blank">terms and
+                                <label for="terms">I agree to the <a href="privacy-policy.html" target="_blank">terms
+                                        and
                                         conditions</a></label>
                             </div>
 

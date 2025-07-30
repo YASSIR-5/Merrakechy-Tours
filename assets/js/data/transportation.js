@@ -5,8 +5,8 @@ const transportationData = {
     'airport-transfer': {
         title: 'Airport Transfer Service',
         subtitle: 'Comfortable and reliable transfers between Marrakech Menara Airport and your accommodation',
-        heroImage: '../assets/images/itinerary/airport-transfers-1.png', // Use a placeholder image for now
-        mainImage: '../assets/images/itinerary/airport-transfers-1.png', // Use a placeholder image for now
+        heroImage: '../assets/images/itinerary/Aeroport-Marrakech.webp', // Use a placeholder image for now
+        mainImage: '../assets/images/itinerary/Aeroport-Marrakech.webp', // Use a placeholder image for now
         price: 25,
         showCustomPricing: true ,
         duration: 'Approximately 20-30 minutes',
@@ -45,8 +45,8 @@ const transportationData = {
     "private-driver": {
         title: "Private Car with Driver",
         subtitle: "Customize your day trip with flexible vehicle and fuel options",
-        heroImage: "../assets/images/itinerary/car_fleet.webp", // Placeholder
-        mainImage: "../assets/images/itinerary/car_fleet.webp", // Placeholder
+        heroImage: "../assets/images/itinerary/Car_Pic.webp", // Placeholder
+        mainImage: "../assets/images/itinerary/Car_Pic.webp", // Placeholder
         price: 40, // Base from
         showCustomPricing: true ,
         duration: "Full day (up to 10 hours)",
@@ -106,8 +106,8 @@ const transportationData = {
     'intercity-transfer': {
         title: 'City-to-City Transfer Service',
         subtitle: 'Comfortable and direct transportation between Morocco\'s major cities and destinations',
-        heroImage: '../assets/images/itinerary/city-to-city.webp', // Use a placeholder image for now
-        mainImage: '../assets/images/itinerary/city-to-city.webp', // Use a placeholder image for now
+        heroImage: '../assets/images/itinerary/car_fleet.webp', // Use a placeholder image for now
+        mainImage: '../assets/images/itinerary/car_fleet.webp', // Use a placeholder image for now
         price: 40,
         showCustomPricing: true ,
         duration: 'Varies by destination',

@@ -43,7 +43,6 @@ Enjoy 2 hours of total escape, far beyond an ordinary quad ride: journey through
             'Closed shoes',
             'Long pants recommended',
             'Sunscreen',
-            'Water bottle',
         ],
         availability: 'Multiple daily departures',
         additionalInfo: {
@@ -91,7 +90,6 @@ Enjoy 2 hours of total escape, far beyond an ordinary quad ride: journey through
             'Sunscreen and sunglasses',
             'Hat or head covering',
             'Camera',
-            'Water bottle'
         ],
         availability: 'Daily departures at sunrise and 2 hours before sunset',
         additionalInfo: {
@@ -225,17 +223,13 @@ Next comes a purifying treatment with ghassoul clay from the Atlas Mountains, fo
     `,
 
         includes: [
-            "Guided tour of artisan workshops",
             "Hands-on workshop with master artisan",
             "All materials and tools needed",
-            "Your own handcrafted item to take home",
             "Mint tea and Moroccan pastries",
-            "English-speaking guide",
             "All taxes and fees"
         ],
         bring: [
             "Comfortable clothing that you do not mind getting dirty",
-            "Camera",
             "Small bag for your created item"
         ],
         availability: "Daily at 10:00 AM and 2:00 PM",
@@ -398,7 +392,6 @@ Next comes a purifying treatment with ghassoul clay from the Atlas Mountains, fo
             'Comfortable walking shoes',
             'Camera (photography is allowed in most areas)',
             'Sun protection (hat, sunglasses, sunscreen)',
-            'Water bottle',
             'Light clothing suitable for walking',
             'Small backpack for personal items'
         ],

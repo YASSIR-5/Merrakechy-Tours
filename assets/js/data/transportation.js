@@ -89,7 +89,6 @@ const transportationData = {
             "Sunglasses, hat, sunscreen",
             "Camera",
             "Comfortable clothing for your planned activities",
-            "Cash for meals, entrance fees, and extras"
         ],
         availability: "Available daily, advance booking recommended",
         additionalInfo: {

@@ -18,7 +18,7 @@ const activitiesData = {
         },
         price: 30,
         duration: '2 hours',
-        location: 'les palmerai, Marrakech',
+        location: 'les palmeraie, Marrakech',
         rating: 4.9,
         reviews: 95,
         description: `
@@ -58,7 +58,7 @@ Enjoy 2 hours of total escape, far beyond an ordinary quad ride: journey through
     'camel-ride': {
         title: 'Camel Ride in the Palmeraie',
         subtitle: 'Enjoy a traditional camel trek through Marrakech\'s palm grove oasis',
-        heroImage: '.../assets/images/activities/camel.jpeg',
+        heroImage: '../assets/images/activities/camel.jpeg',
         mainImage: '../assets/images/activities/camel.jpeg',
         price: 20,
         pricing: {
@@ -154,18 +154,14 @@ Enjoy 2 hours of total escape, far beyond an ordinary quad ride: journey through
     'cooking-class': {
         title: 'Moroccan Cooking Workshop',
         subtitle: 'Learn to prepare authentic Moroccan dishes with local chefs',
-        heroImage: '../assets/images/activities/quad.jpg',
+        heroImage: '../assets/images/activities/cooking-class.jpg',
         mainImage: '../assets/images/activities/cooking-class.jpg',
         galleryImages: [
-            '../assets/images/activities/quad.jpg',
-            '../assets/images/activities/',
-            '../assets/images/activities/hot-air-balloon-3.jpg'
+            '../assets/images/activities/cooking-class.jpg',
+            '../assets/images/activities/cooking3.webp',
+            '../assets/images/activities/cooking2.webp'
         ],
-        price: 75,
-        pricing: {
-            adult: 45,
-            child: 23
-        },
+        price: 45,
         duration: '4 hours',
         location: 'Marrakech Medina',
         groupSize: '2-12 people',
@@ -182,11 +178,9 @@ Enjoy 2 hours of total escape, far beyond an ordinary quad ride: journey through
             'All ingredients and cooking equipment',
             'Hands-on preparation of multiple dishes',
             'Full meal of your own creation',
-            'Recipe cards to take home',
             'Tea and refreshments throughout'
         ],
         bring: [
-            'Appetite',
             'Camera',
             'Notepad (if you wish to take additional notes)'
         ],
@@ -222,13 +216,12 @@ Enjoy 2 hours of total escape, far beyond an ordinary quad ride: journey through
         reviews: 112,
         description: `
         <h3>Experience Overview</h3>
-        <p>Treat yourself to one of Morocco most cherished traditions - the hammam bath ritual. This centuries-old practice combines deep cleansing, exfoliation, and relaxation in a steam-filled environment, leaving you refreshed and rejuvenated.</p>
-        
-        <p>Your experience begins in a warm steam room where your skin is allowed to soften. Then, a skilled attendant will apply traditional black soap made from olive oil and eucalyptus, followed by a vigorous exfoliation with a special Kessa glove that removes dead skin cells and impurities.</p>
-        
-        <p>After rinsing, you will receive a purifying clay mask treatment using ghassoul, a natural mineral clay from the Atlas Mountains. This is followed by a moisturizing process using pure argan oil, known for its nourishing properties.</p>
-        
-        <p>The experience concludes with a 30-minute relaxing massage using aromatic oils, leaving you in a state of complete relaxation. Throughout the process, you will be treated with the utmost respect for your privacy and comfort.</p>
+        <p>Experience Morocco's traditional hammam ritual, a centuries-old steam bath ceremony that cleanses, exfoliates, and relaxes your body.
+
+The process begins in a steam room where your skin softens before an attendant applies black soap infused with olive oil and eucalyptus. You'll then receive a thorough exfoliation using a traditional Kessa glove to remove dead skin and impurities.
+
+Next comes a purifying treatment with ghassoul clay from the Atlas Mountains, followed by moisturizing argan oil application. The ritual ends with a soothing 30-minute aromatherapy massage, leaving you completely refreshed and rejuvenated while maintaining your privacy throughout. 
+</p>
     `,
 
         includes: [
@@ -346,10 +339,8 @@ Enjoy 2 hours of total escape, far beyond an ordinary quad ride: journey through
             'Comfortable walking shoes (essential)',
             'Sun protection (hat, sunglasses, sunscreen)',
             'Camera for capturing colorful scenes',
-            'Cash for lunch and optional purchases in souks',
             'Light backpack for personal items',
             'Respectful clothing (covering shoulders and knees)',
-            'Water bottle to stay hydrated',
             'Open mind and sense of adventure'
         ],
         availability: 'Daily departures at 9:00 AM, year-round',

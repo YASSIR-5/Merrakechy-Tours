@@ -53,7 +53,7 @@
                 </nav>
 
                 <div class="header-right">
-                    <a href="contact.html" class="btn btn-primary">Book Now</a>
+                             <a href="pages/services.html" class="btn btn-primary">Book Now</a>
 
                     <button class="mobile-menu-toggle">
                         <span></span>
@@ -82,7 +82,7 @@
             <div class="tour-detail-container">
                 <div class="tour-detail-main">
                     <div class="tour-detail-gallery">
-                        <img id="program-image" src="../assets/images/placeholder.jpg" alt="Program Image">
+                        <img id="program-image" src="../assets/images/" alt="Program Image">
                     </div>
 
                     <div class="tour-detail-content">
@@ -240,10 +240,42 @@
         </div>
     </footer>
 
+    <div class="contact-options-wrapper">
+        <button class="contact-options-toggle">
+            <i class="fas fa-comments"></i>
+        </button>
+
+        <div class="contact-options-menu">
+            <div class="contact-option-title">Contact Us</div>
+            <a href="https://wa.me/+212666698732" class="contact-option whatsapp">
+                <i class="fab fa-whatsapp"></i>
+                <span>WhatsApp</span>
+            </a>
+            <a href="tel:+212666698732" class="contact-option phone">
+                <i class="fas fa-phone-alt"></i>
+                <span>Call Us</span>
+            </a>
+            <a href="mailto:aitaliyassir55@gmail.com" class="contact-option email">
+                <i class="fas fa-envelope"></i>
+                <span>Email</span>
+            </a>
+            <a href="pages/contact.html" class="contact-option contact-form">
+                <i class="fas fa-paper-plane"></i>
+                <span>Contact Form</span>
+            </a>
+        </div>
+    </div>
     <!-- Back to Top Button -->
     <a href="#" class="back-to-top" id="backToTop">
         <i class="fas fa-chevron-up"></i>
     </a>
+    <!-- Lightbox Structure -->
+<div class="lightbox-overlay" id="lightbox">
+    <div class="lightbox-content">
+        <button class="lightbox-close" id="lightbox-close">&times;</button>
+        <img class="lightbox-image" id="lightbox-image" src="" alt="">
+    </div>
+</div>
 
     <!-- JavaScript Files -->
     <script src="../assets/js/main.js"></script>
@@ -324,6 +356,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 1000);
 });
 </script>
+
 </body>
 
 </html>

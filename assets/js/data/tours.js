@@ -39,8 +39,6 @@ const toursData = {
             'Warm jacket (desert nights can be cold)',
             'Sun protection (hat, sunglasses, sunscreen)',
             'Camera',
-            'Personal toiletries',
-            'Cash for personal expenses'
         ],
         availability: 'Daily departures, year-round',
         additionalInfo: {
@@ -58,7 +56,7 @@ const toursData = {
         heroImage: '../assets/images/tours/ourika-valley.jpg',
         mainImage: '../assets/images/tours/ourika-valley.jpg',
 
-        price: 17,
+        price: 18,
         duration: '1 day (8 hours)',
         location: 'Ourika Valley, Atlas Mountains',
         groupSize: '2-50 people',
@@ -112,8 +110,8 @@ const toursData = {
         rating: 4.9,
         galleryImages: [
             '../assets/images/tours/imlil-atlas.jpg',
-            '../assets/images/tours/',
-            '../assets/images/tours/',
+            '../assets/images/tours/imlil-atlas1.jfif',
+            '../assets/images/tours/imlil-atlas2.webp',
 
         ],
         reviews: 109,
@@ -137,8 +135,6 @@ const toursData = {
             'Layered clothing (temperatures can vary in the mountains)',
             'Sun protection (hat, sunglasses, sunscreen)',
             'Camera',
-            'Cash for souvenirs or additional refreshments',
-            'Small backpack for personal items'
         ],
         availability: 'Daily departures, year-round',
         additionalInfo: {
@@ -181,16 +177,14 @@ const toursData = {
             'Cultural insights and historical commentary',
             'Navigation through the medina\'s maze-like streets',
             'Local tips and recommendations',
-            'Small group experience for personalized attention'
+
         ],
         bring: [
             'Comfortable walking shoes (essential)',
             'Sun protection (hat, sunglasses, sunscreen)',
             'Camera for capturing colorful scenes',
-            'Cash for lunch and optional purchases in souks',
-            'Light backpack for personal items',
+
             'Respectful clothing (covering shoulders and knees)',
-            'Water bottle to stay hydrated',
             'Open mind and sense of adventure'
         ],
         availability: 'Daily departures at 9:00 AM, year-round',
@@ -304,7 +298,6 @@ const toursData = {
             "Sun protection (hat, sunglasses, sunscreen)",
             "Light jacket or windbreaker (it can be windy on the coast)",
             "Camera",
-            "Cash for lunch and souvenirs",
             "Beach gear if you plan to enjoy the beach (seasonal)"
         ],
         availability: "Daily, year-round",
@@ -362,7 +355,6 @@ const toursData = {
         "Sun protection (hat, glasses, sunscreen)",
         "Scarf or bandana (for dust)",
         "Camera",
-        "Cash for extra drinks and souvenirs"
     ],
     availability: "Daily, year-round",
     additionalInfo: {

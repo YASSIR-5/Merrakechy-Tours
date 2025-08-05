@@ -323,7 +323,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Display single price
             priceBox.innerHTML = `
                 <div class="price-label">Price From</div>
-                <div class="price-value">$${data.price}<small>/person</small></div>
+                <div class="price-value">€${data.price}<small>/person</small></div>
                 ${data.priceUnit ? `<div class="price-unit">${data.priceUnit}</div>` : ""}
             `;
         }
@@ -359,9 +359,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 let priceText = '';
                 if (relatedData.pricing) {
                     const adultPrice = relatedData.pricing.adult;
-                    priceText = `From $${adultPrice}`;
+                    priceText = `From €${adultPrice}`;
                 } else if (relatedData.price) {
-                    priceText = `From $${relatedData.price}`;
+                    priceText = `From €${relatedData.price}`;
                 }
                 
                 const priceDisplay = priceText ? `<span><i class="fas fa-tag"></i> ${priceText}</span>` : '';
@@ -859,4 +859,124 @@ function renderSimpleRouteMap(tourData) {
         </div>
     `;
 }
+
+let lightboxImages = [];
+let currentIndex = 0;
+
+function createSimpleLightbox() {
+    // Remove any existing lightbox
+    const existing = document.getElementById('simple-lightbox');
+    if (existing) existing.remove();
+
+    // Create lightbox HTML
+    const lightboxHTML = `
+        <div id="simple-lightbox" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 999999;">
+            <div id="lightbox-close" style="position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; cursor: pointer;">&times;</div>
+            <div id="lightbox-left" style="position: absolute; top: 50%; left: 20px; font-size: 50px; color: white; cursor: pointer;">&#10094;</div>
+            <div id="lightbox-right" style="position: absolute; top: 50%; right: 20px; font-size: 50px; color: white; cursor: pointer;">&#10095;</div>
+            <div id="lightbox-bg" style="display: flex; justify-content: center; align-items: center; width: 100%; height: 100%; padding: 50px;">
+                <img id="simple-lightbox-img" style="max-width: 100%; max-height: 100%; object-fit: contain;" src="" alt="">
+            </div>
+        </div>
+    `;
+
+    // Add to body
+    document.body.insertAdjacentHTML('beforeend', lightboxHTML);
+
+    // Add interactions
+    document.addEventListener('click', function (e) {
+    if (e.target && e.target.id === 'lightbox-close') {
+        closeLightbox();
+    }
+});
+
+    document.getElementById('lightbox-left').onclick = () => showPrevImage();
+    document.getElementById('lightbox-right').onclick = () => showNextImage();
+
+    // Close when clicking on background (not image)
+    document.getElementById('lightbox-bg').onclick = (e) => {
+        if (e.target.id === 'lightbox-bg') {
+            closeLightbox();
+        }
+    };
+
+    // Escape & arrow keys
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') showPrevImage();
+        if (e.key === 'ArrowRight') showNextImage();
+    });
+
+    // Swipe support
+    addSwipeSupport();
+}
+
+function openSimpleLightbox(imgSrc) {
+    const lightbox = document.getElementById('simple-lightbox');
+    const lightboxImg = document.getElementById('simple-lightbox-img');
+    currentIndex = lightboxImages.findIndex(src => src === imgSrc);
+
+    if (lightbox && lightboxImg) {
+        lightboxImg.src = imgSrc;
+        lightbox.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeLightbox() {
+    const lightbox = document.getElementById('simple-lightbox');
+    if (lightbox) {
+        lightbox.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+}
+
+function showPrevImage() {
+    currentIndex = (currentIndex - 1 + lightboxImages.length) % lightboxImages.length;
+    document.getElementById('simple-lightbox-img').src = lightboxImages[currentIndex];
+}
+
+function showNextImage() {
+    currentIndex = (currentIndex + 1) % lightboxImages.length;
+    document.getElementById('simple-lightbox-img').src = lightboxImages[currentIndex];
+}
+
+function addLightboxClicks() {
+    setTimeout(() => {
+        const images = document.querySelectorAll('#program-image, .tour-detail-gallery img, .slider-slide img');
+        lightboxImages = Array.from(images).map(img => img.src);
+
+        images.forEach(img => {
+            img.style.cursor = 'pointer';
+            img.onclick = function () {
+                openSimpleLightbox(this.src);
+            };
+        });
+    }, 1000);
+}
+
+function addSwipeSupport() {
+    let touchStartX = 0;
+
+    const lightbox = document.getElementById('simple-lightbox');
+
+    lightbox.addEventListener('touchstart', function (e) {
+        touchStartX = e.changedTouches[0].screenX;
+    });
+
+    lightbox.addEventListener('touchend', function (e) {
+        const touchEndX = e.changedTouches[0].screenX;
+        if (touchStartX - touchEndX > 50) {
+            showNextImage();
+        } else if (touchEndX - touchStartX > 50) {
+            showPrevImage();
+        }
+    });
+}
+
+// 🔁 Initialize everything
+setTimeout(() => {
+    createSimpleLightbox();
+    addLightboxClicks();
+}, 2000);
 

@@ -1351,7 +1351,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 <div class="sidebar-box">
                                     <div class="price-box">
                                         <div class="price-label">Price From</div>
-                                        <div class="price-value">$${serviceData.price}<small>/person</small></div>
+                                        <div class="price-value">€${serviceData.price}<small>/person</small></div>
                                     </div>
                                     <a href="#" class="btn btn-primary book-now-btn" data-service="${serviceId}">Book Now</a>
                                     <a href="/pages/contact.html" class="btn btn-outline contact-btn">Ask a Question</a>
@@ -1911,7 +1911,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <div class="sidebar-box">
                     <div class="price-box">
                         <div class="price-label">Price From</div>
-                        <div class="price-value">$${serviceData.price}<small>/person</small></div>
+                        <div class="price-value">€${serviceData.price}<small>/person</small></div>
                     </div>
                     <a href="#" class="btn btn-primary book-now-btn" data-service="${serviceId}">Book Now</a>
                     <a href="/pages/contact.html" class="btn btn-outline contact-btn">Ask a Question</a>
@@ -2154,7 +2154,7 @@ function createTourCard(title, description, price, duration) {
         <div class="tour-content">
           <div class="tour-info">
             <span><i class="fa-regular fa-clock"></i> ${duration}</span>
-            <span><i class="fa-solid fa-tag"></i> From $${price}</span>
+            <span><i class="fa-solid fa-tag"></i> From €${price}</span>
           </div>
           <h3>${title}</h3>
           <p>${description}</p>
@@ -2196,7 +2196,7 @@ function createServiceCard(title, description, price) {
         <h3>${title}</h3>
         <p>${description}</p>
         <div class="service-price">
-          <span>From $${price}</span>
+          <span>From €${price}</span>
         </div>
         <a href="#" class="btn btn-outline">Book Now</a>
       </div>
@@ -2341,7 +2341,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="sidebar-box">
               <div class="price-box">
                 <div class="price-label">Price</div>
-                <div class="price-value">$${serviceData.price || '0'}<small>/day</small></div>
+                <div class="price-value">€${serviceData.price || '0'}<small>/day</small></div>
               </div>
               <a href="#" class="btn btn-primary rent-now-btn" data-service="${serviceId}">Rent Now</a>
               <a href="contact.html" class="btn btn-outline">Ask a Question</a>

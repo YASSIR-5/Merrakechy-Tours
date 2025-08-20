@@ -429,7 +429,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Start automatic slideshow
     function startSlideshow() {
-        slideInterval = setInterval(nextSlide, 2000); // Change slide every 5 seconds
+        slideInterval = setInterval(nextSlide, 3000); // Change slide every 5 seconds
     }
 
     // Event listeners for dots

@@ -7,8 +7,7 @@ const transportationData = {
         subtitle: 'Comfortable and reliable transfers between Marrakech Menara Airport and your accommodation',
         heroImage: '../assets/images/itinerary/Aeroport-Marrakech.webp', // Use a placeholder image for now
         mainImage: '../assets/images/itinerary/Aeroport-Marrakech.webp', // Use a placeholder image for now
-        price: 25,
-        showCustomPricing: true ,
+        price: 15,
         duration: 'Approximately 20-30 minutes',
         location: 'Marrakech',
         groupSize: '1-4 people per standard vehicle',
@@ -16,27 +15,26 @@ const transportationData = {
         reviews: 215,
         description: `
             <h3>Service Overview</h3>
-            <p>Avoid the hassle and uncertainty of finding transportation upon arrival in Marrakech with our reliable airport transfer service. We provide comfortable, air-conditioned vehicles and professional English-speaking drivers who will ensure a smooth and stress-free journey between Marrakech Menara Airport and your accommodation.</p>
+            <p>Avoid the hassle and uncertainty of finding transportation upon arrival in Marrakech with our reliable airport transfer service. We provide comfortable, air-conditioned vehicles .</p>
             <p>Our service includes meet and greet at the airport, with your driver waiting in the arrivals hall holding a sign with your name. For departures, your driver will pick you up from your accommodation at the agreed time, ensuring you reach the airport with plenty of time for your flight.</p>
             <p>All our vehicles are modern, well-maintained, and equipped with air conditioning for your comfort. We offer 24/7 service, so no matter when your flight arrives or departs, we have you covered.</p>
         `,
         includes: [
             'Meet and greet service at the airport (for arrivals)',
             'Private transportation in air-conditioned vehicle',
-            'Professional English-speaking driver',
 
         ],
         bring: [
             'Your flight details (for airport pickup)',
             'Your accommodation address in Marrakech',
-            'A working mobile phone for communication if needed'
+            'A working mobile phone number for communication if needed'
         ],
         availability: '24/7, 365 days a year',
         additionalInfo: {
-            'Vehicle Types': 'Standard sedan, minivan, or minibus depending on group size',
-            'Luggage Allowance': '1 checked bag and 1 carry-on per person (additional luggage may require larger vehicle)',
-            'Waiting Time': 'Up to 1 hour after flight landing at no extra charge',
-            'Cancellation': 'Free up to 24h before'
+            'Vehicle Types': 'Standard sedan, minivan, or minibus',
+            'Waiting Time': 'Up to 2 hour after flight landing at no extra charge',
+            'Cancellation': 'Free up to 24h before',
+            'NOTE' :  ' Pickup/drop-off 10 km+ from Marrakech: €20 per vehicle'
         },
         priceUnit: '/vehicle (up to 4 people)',
         relatedPrograms: ['private-driver', 'intercity-transfer', 'camel-ride']
@@ -82,14 +80,9 @@ const transportationData = {
   `,
         includes: [
             "Private air-conditioned vehicle",
-            "Professional English-speaking driver",
             "Pickup and drop-off at your accommodation",
         ],
-        bring: [
-            "Sunglasses, hat, sunscreen",
-            "Camera",
-            "Comfortable clothing for your planned activities",
-        ],
+        
         availability: "Available daily, advance booking recommended",
         additionalInfo: {
             "Customization": "You can suggest your own itinerary or ask the driver for recommendations",
@@ -122,17 +115,12 @@ const transportationData = {
         `,
         includes: [
             'Private transportation in air-conditioned vehicle',
-            'Professional English-speaking driver',
-            'Pickup from your accommodation at origin city',
-            'Drop-off at your accommodation at destination city',
+            'Pickup and Drop-off from your accommodation at origin city',
             'Fuel and all transportation costs',
             'Short breaks upon request',
         ],
         bring: [
-            'Comfortable clothing for the journey',
-            'Sun protection (hat, sunglasses)',
-            'Snacks for longer journeys',
-            'Entertainment (books, music, etc.)',
+            
         ],
         availability: 'Daily, 24/7, subject to availability',
         additionalInfo: {

@@ -3,7 +3,7 @@
 // Tours data
 const toursData = {
     'zagora-2-days': {
-        title: '2-Day Zagora Desert Tour',
+        title: '2-Days Zagora Desert Tour',
         subtitle: 'Experience the magic of the Zagora Desert with an overnight stay in a Berber camp',
         heroImage: '../assets/images/tours/zagora-desert.jpg.jpeg',
         mainImage: '../assets/images/tours/zagora-desert.jpg.jpeg',
@@ -21,9 +21,9 @@ const toursData = {
         reviews: 145,
         description: `
             <h3>Tour Overview</h3>
-            <p>This 2-day adventure takes you from Marrakech to the magical Zagora Desert, crossing the majestic High Atlas Mountains and exploring the ancient Kasbah of Aït Benhaddou along the way.</p>
+            <p>This 2-days adventure takes you from Marrakech to the magical Zagora Desert, crossing the majestic High Atlas Mountains and exploring the ancient Kasbah of Aït Benhaddou along the way.</p>
             <p>Experience an overnight stay in a traditional Berber desert camp, enjoy camel trekking across golden dunes, and witness the spectacular sunset and sunrise over the desert landscape. The journey provides authentic cultural experiences with opportunities to connect with local Berber people and learn about their way of life.</p>
-            <p>Throughout the tour, you'll be accompanied by an experienced guide who will share insights into the region's rich history, culture, and natural beauty, making this desert adventure both educational and unforgettable.</p>
+          
         `,
         mapImage: '../assets/images/itinerary/zagora.png',
 
@@ -32,7 +32,8 @@ const toursData = {
         ],
         includes: [
             'Transportation in comfortable air-conditioned vehicle',
-            
+            'Hotel pickup and drop-off in Marrakech',
+            'One night stay in the desert camp',
         ],
         bring: [
             'Comfortable clothing and walking shoes',
@@ -56,7 +57,7 @@ const toursData = {
         heroImage: '../assets/images/tours/ourika-valley.jpg',
         mainImage: '../assets/images/tours/ourika-valley.jpg',
 
-        price: 18,
+        price: 20,
         duration: '1 day (8 hours)',
         location: 'Ourika Valley, Atlas Mountains',
         groupSize: '2-50 people',
@@ -106,7 +107,7 @@ const toursData = {
         price: 20,
         duration: '1 day (9 hours)',
         location: 'Imlil, High Atlas Mountains',
-        groupSize: '2-12 people',
+        groupSize: '2-50 people',
         rating: 4.9,
         galleryImages: [
             '../assets/images/tours/imlil-atlas.jpg',
@@ -157,9 +158,9 @@ const toursData = {
             '../assets/images/tours/marrakech3.webp',
         ],
         price: 60,
-        duration: '6-7 hours',
+        duration: '3-4 hours',
         location: 'Marrakech Medina and New City',
-        groupSize: '2-15 people',
+        groupSize: '2-50 people',
         rating: 4.8,
         reviews: 289,
         description: `
@@ -171,21 +172,14 @@ const toursData = {
 
         includes: [
             'Walking tour of Marrakech medina and main attractions',
-            'Entry fees to Bahia Palace and Saadian Tombs',
-            'Visit to Ben Youssef Madrasa',
             'Guided exploration of souks and artisan quarters',
             'Cultural insights and historical commentary',
-            'Navigation through the medina\'s maze-like streets',
-            'Local tips and recommendations',
 
         ],
         bring: [
-            'Comfortable walking shoes (essential)',
             'Sun protection (hat, sunglasses, sunscreen)',
             'Camera for capturing colorful scenes',
-
             'Respectful clothing (covering shoulders and knees)',
-            'Open mind and sense of adventure'
         ],
         availability: 'Daily departures at 9:00 AM, year-round',
         additionalInfo: {
@@ -208,9 +202,9 @@ const toursData = {
         mainImage: "../assets/images/tours/ourika-valley.jpg", // Using existing image as placeholder
 
         price: 20,
-        duration: "10 hours",
+        duration: "8-0 hours",
         location: "Middle Atlas Mountains",
-        groupSize: "4-16 people",
+        groupSize: "4-50 people",
         rating: 4.8,
         galleryImages: [
             '../assets/images/tours/ozod.jpeg',
@@ -263,9 +257,9 @@ const toursData = {
         mainImage: "../assets/images/tours/ourika-valley.jpg",
 
         price: 20,
-        duration: "10 hours",
+        duration: "8-10 hours",
         location: "Atlantic Coast",
-        groupSize: "4-16 people",
+        groupSize: "4-50 people",
         rating: 4.7,
         galleryImages: [
             '../assets/images/tours/essaouira.jpg',
@@ -282,7 +276,7 @@ const toursData = {
         
         <p>Upon arrival in Essaouira, you'll be captivated by the city's distinct character - a unique blend of Portuguese, Berber, and French influences visible in its architecture and culture. The UNESCO-listed medina with its blue and white color scheme, impressive ramparts, and artisan workshops is a photographer's dream.</p>
 
-        <p>Enjoy a guided tour of the main attractions including the historic port where blue fishing boats dock with their daily catch, the bustling fish market, the artisan quarter, and the impressive 18th-century sea fortifications. After lunch, you'll have free time to explore independently - perhaps strolling along the beach, shopping for unique handicrafts, or simply relaxing in a seafront café before returning to Marrakech.</p>
+       
     `,
         mapImage: '../assets/images/itinerary/essaouira.png',
 
@@ -313,14 +307,16 @@ const toursData = {
     },
 
     "agafay-desert": {
-       title: "Agafay Desert Activities",
+       title: "Private trip to Agafay Desert",
     subtitle: "Customize your desert experience with quad biking, camel rides, and dinner under the stars",
     heroImage: "../assets/images/tours/agafay.jpg",
     mainImage: "../assets/images/tours/agafay1.jfif",
-    price: 20, // Base price for transport
-    duration: "Flexible (Half or Full Day)",
+    price: 60, // Base price for transport
+    duration: "Half Day",
+    
     location: "Agafay Desert, near Marrakech",
-    groupSize: "2-12 people",
+    
+    groupSize: "Private",
     rating: 4.8,
     galleryImages: [
         "../assets/images/tours/agafay.jpg",
@@ -337,8 +333,8 @@ const toursData = {
         <h4>Available Activities:</h4>
         <ul>
             <li>🚙 Transportation from/to Marrakech – €60</li>
-            <li>🏍️ Quad Biking Adventure (45min-1h) – €30</li>
-            <li>🐫 Camel Ride Experience (30 min) – €20</li>
+            <li>🏍️ Quad Biking Adventure (1h) – €30</li>
+            <li>🐫 Camel Ride Experience (1h) – €20</li>
             <li>🍽️ Dinner with Traditional Show – €25</li>
         </ul>
 
@@ -377,8 +373,7 @@ const toursData = {
             '../assets/images/tours/ourzazat2.jpeg',
             '../assets/images/tours/ourzazat3.jpeg',
         ],
-        price: 80,
-        duration: '1 days',
+        price: 20,
         location: 'Ouarzazate, Skoura, and Draa Valley',
         groupSize: '2-50 people',
         rating: 4.9,
@@ -386,7 +381,7 @@ const toursData = {
         description: `
         <h3>Tour Overview</h3>
         <p>Explore the iconic city of Ouarzazate, known as the "Hollywood of Morocco", and its surrounding desert treasures on this immersive day adventure. Visit legendary filming locations, UNESCO-listed kasbahs, and palm-filled valleys that reflect centuries of Moroccan history.</p>
-        <p>Discover the cinematic Aït Benhaddou Kasbah, the breathtaking Draa Valley, and the quiet charm of Skoura Oasis. Spend nights in cozy accommodations including a night in a desert camp with local cuisine and traditional music under the stars.</p>
+        <p>Discover the cinematic Aït Benhaddou Kasbah.</p>
         <p>This tour is perfect for culture lovers, photographers, and anyone seeking a deeper look into Morocco’s Saharan gateway.</p>
     `,
         mapImage: '../assets/images/itinerary/ourzazat.png',
@@ -396,7 +391,6 @@ const toursData = {
         includes: [
             'Transportation in a comfortable, air-conditioned 4×4 or minibus.',
             'Pick up and drop-off at your Marrakech accommodation.',
-            'Professional, multilingual driver (English, French, Arabic).',
         ],
         bring: [
             'Warm clothing for desert nights',
@@ -414,7 +408,7 @@ const toursData = {
         relatedPrograms: ['zagora-2-days', 'merzouga-3-days', 'ait-benhaddou']
     },
     'merzouga-3-days': {
-    title: '3-Day Merzouga Desert Tour',
+    title: '3-Days Merzouga Desert Tour',
     subtitle: 'Cross the Atlas, ride camels, and sleep under the Sahara stars',
     heroImage: '../assets/images/tours/marzoga1.jpeg',
     mainImage: '../assets/images/tours/marzoga1.jpeg',
@@ -425,22 +419,22 @@ const toursData = {
     ],
     price: 110,
     duration: '3 days / 2 nights',
-    location: 'Merzouga Desert via Aït Benhaddou & Dades Gorges',
-    groupSize: '2–18 people',
+    location: 'Merzouga Desert',
+    groupSize: '2–50 people',
     rating: 4.9,
     reviews: 267,
     description: `
         <h3>Tour Overview</h3>
-        <p>This 3-day adventure takes you deep into the Moroccan Sahara, passing through the majestic Atlas Mountains and the dramatic Dades Gorges. Discover ancient kasbahs, Berber villages, and the UNESCO site of Aït Benhaddou.</p>
+        <p>This 3-days adventure takes you deep into the Moroccan Sahara, passing through the majestic Atlas Mountains and the dramatic Dades Gorges. Discover ancient kasbahs, Berber villages, and the UNESCO site of Aït Benhaddou.</p>
         <p>On Day 2, ride camels through golden dunes at sunset and arrive at a Berber camp in Merzouga, where you’ll enjoy dinner, music by the fire, and a night under the stars in a desert tent.</p>
         <p>This is the ultimate desert experience for adventurers and cultural explorers.</p>
     `,
     mapImage: '../assets/images/itinerary/merzouga-map.png',
    
     includes: [
-        'Comfortable transport in 4x4 or minibus',
+        '2 nights stay ',
+        'Comfortable transportation',
         'Hotel pickup and drop-off in Marrakech',
-        'Multilingual driver'
     ],
     bring: [
         'Warm clothes for desert night',

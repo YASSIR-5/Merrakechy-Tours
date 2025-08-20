@@ -72,3 +72,4 @@ merrakechy-tours/
     ├── gallery.html
     └── thank-you.html
 ```
+        showCustomPricing: true ,

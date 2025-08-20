@@ -159,27 +159,25 @@ Enjoy 2 hours of total escape, far beyond an ordinary quad ride: journey through
             '../assets/images/activities/cooking3.webp',
             '../assets/images/activities/cooking2.webp'
         ],
-        price: 45,
-        duration: '4 hours',
+        price: 50,
+        duration: '2-3 hours',
         location: 'Marrakech Medina',
-        groupSize: '2-12 people',
+        groupSize: '2-50 people',
         rating: 4.8,
         reviews: 156,
         description: `
             <h3>Tour Overview</h3>
-            <p>Discover the secrets of Moroccan cuisine with our immersive cooking class in Marrakech. This culinary experience begins with a guided visit to a traditional market (souk) where you'll learn about local ingredients and spices that form the foundation of Moroccan cooking.</p>
+            <p>Discover the secrets of Moroccan cuisine with our immersive cooking class in Marrakech. This culinary experience begins with a introduction to Moroccan spices that form the foundation of Moroccan cooking.</p>
             <p>Back at our cooking school, located in a traditional riad, our expert chef will guide you through preparing several authentic Moroccan dishes such as tagine, couscous, salads, and pastries. You'll learn traditional techniques handed down through generations while enjoying a relaxed, hands-on experience.</p>
             <p>After the class, sit down to enjoy the delicious meal you've prepared in the beautiful setting of the riad. You'll receive recipe cards to take home so you can recreate these authentic dishes and impress friends and family with your new culinary skills.</p>
         `,
         includes: [
-            'Market tour with ingredient shopping',
             'All ingredients and cooking equipment',
             'Hands-on preparation of multiple dishes',
             'Full meal of your own creation',
             'Tea and refreshments throughout'
         ],
         bring: [
-            'Camera',
             'Notepad (if you wish to take additional notes)'
         ],
         availability: 'Morning class (9:30am) and afternoon class (3:30pm)',
@@ -196,37 +194,28 @@ Enjoy 2 hours of total escape, far beyond an ordinary quad ride: journey through
         subtitle: "Indulge in a traditional Moroccan bath and relaxing massage treatment",
         heroImage: "../assets/images/activities/hammam.jpg", // Using existing image as placeholder
         mainImage: "../assets/images/activities/hammam.jpg", // Using existing image as placeholder
-        showCustomPricing: true ,
         galleryImages: [
             '../assets/images/activities/hammam.jpg',
             '../assets/images/activities/hammam2.jpeg',
             '../assets/images/activities/hammam3.jpeg',
         ],
-        price: 85,
-        pricing: {
-            adult: 45,
-            child: 23
-        },
+        price: 50,
+        
         duration: "2 hours",
         location: "Marrakech Medina",
-        groupSize: "1-6 people",
+        groupSize: "1-50 people",
         rating: 4.7,
         reviews: 112,
         description: `
         <h3>Experience Overview</h3>
-        <p>Experience Morocco's traditional hammam ritual, a centuries-old steam bath ceremony that cleanses, exfoliates, and relaxes your body.
-
-The process begins in a steam room where your skin softens before an attendant applies black soap infused with olive oil and eucalyptus. You'll then receive a thorough exfoliation using a traditional Kessa glove to remove dead skin and impurities.
-
-Next comes a purifying treatment with ghassoul clay from the Atlas Mountains, followed by moisturizing argan oil application. The ritual ends with a soothing 30-minute aromatherapy massage, leaving you completely refreshed and rejuvenated while maintaining your privacy throughout. 
-</p>
+        <p>Enjoy a refreshing hammam massage in Marrakech with expert therapists. Relax with a steam session, exfoliation, and soothing massage.
+        </p>
     `,
 
         includes: [
-            "Hands-on workshop with master artisan",
-            "All materials and tools needed",
+            "Transportation from your hotel or riad",
+            "Hammam gommage et massage relaxant",
             "Mint tea and Moroccan pastries",
-            "All taxes and fees"
         ],
         bring: [
             "Comfortable clothing that you do not mind getting dirty",
@@ -309,7 +298,7 @@ Next comes a purifying treatment with ghassoul clay from the Atlas Mountains, fo
         price: 45,
         duration: '6-7 hours',
         location: 'Marrakech Medina and New City',
-        groupSize: '2-15 people',
+        groupSize: '2-50 people',
         rating: 4.8,
         reviews: 289,
         description: `
@@ -370,7 +359,7 @@ Next comes a purifying treatment with ghassoul clay from the Atlas Mountains, fo
         ],
         duration: '2-3 hours',
         location: 'Marrakech, Gueliz District',
-        groupSize: '1-15 people',
+        groupSize: '1-50 people',
         rating: 4.6,
         reviews: 189,
         description: `

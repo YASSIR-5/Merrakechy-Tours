@@ -1,4 +1,4 @@
-// Updated checkout.js - Handles Adult/Children Pricing Structure
+// Updated checkout.js - Handles Adult/Children Pricing Structure + Booking Data Storage
 
 document.addEventListener('DOMContentLoaded', function() {
     console.log('=== CHECKOUT DEBUG ===');
@@ -67,54 +67,40 @@ function displayProgramInfo(data, category, id) {
         programImageEl.style.display = 'block';
     }
     
-        // Update hidden form fields with pricing structure
-    document.getElementById("category").value = category;
-    document.getElementById("program-id").value = id;
-
-    // Handle dynamic pricing first
-    if (data.groupPricing) {
-        // For group pricing, we don't set fixed adult/child prices here
-        // The calculation will happen in updateTotalPrice based on the groupPricing tiers
-        document.getElementById("program-price").value = 0; // Placeholder, actual price calculated later
-        let childrenPriceInput = document.getElementById("children-price");
-        if (!childrenPriceInput) {
-            childrenPriceInput = document.createElement("input");
-            childrenPriceInput.type = "hidden";
-            childrenPriceInput.id = "children-price";
-            childrenPriceInput.name = "children-price";
-            document.getElementById("checkout-form").appendChild(childrenPriceInput);
-        }
-        childrenPriceInput.value = 0; // Placeholder
-    } else if (data.pricing) {
+    // Update hidden form fields with pricing structure
+    document.getElementById('category').value = category;
+    document.getElementById('program-id').value = id;
+    
+    // Handle both old and new pricing structures
+    if (data.pricing) {
         // New pricing structure with adult/children prices
-        document.getElementById("program-price").value = data.pricing.adult;
-
+        document.getElementById('program-price').value = data.pricing.adult;
+        
         // Add hidden field for children price
-        let childrenPriceInput = document.getElementById("children-price");
+        let childrenPriceInput = document.getElementById('children-price');
         if (!childrenPriceInput) {
-            childrenPriceInput = document.createElement("input");
-            childrenPriceInput.type = "hidden";
-            childrenPriceInput.id = "children-price";
-            childrenPriceInput.name = "children-price";
-            document.getElementById("checkout-form").appendChild(childrenPriceInput);
+            childrenPriceInput = document.createElement('input');
+            childrenPriceInput.type = 'hidden';
+            childrenPriceInput.id = 'children-price';
+            childrenPriceInput.name = 'children-price';
+            document.getElementById('checkout-form').appendChild(childrenPriceInput);
         }
         childrenPriceInput.value = data.pricing.child;
     } else {
         // Fallback to old pricing structure
-        document.getElementById("program-price").value = data.price || 0;
-
+        document.getElementById('program-price').value = data.price || 0;
+        
         // Calculate children price as 50% of adult price for backward compatibility
-        let childrenPriceInput = document.getElementById("children-price");
+        let childrenPriceInput = document.getElementById('children-price');
         if (!childrenPriceInput) {
-            childrenPriceInput = document.createElement("input");
-            childrenPriceInput.type = "hidden";
-            childrenPriceInput.id = "children-price";
-            childrenPriceInput.name = "children-price";
-            document.getElementById("checkout-form").appendChild(childrenPriceInput);
+            childrenPriceInput = document.createElement('input');
+            childrenPriceInput.type = 'hidden';
+            childrenPriceInput.id = 'children-price';
+            childrenPriceInput.name = 'children-price';
+            document.getElementById('checkout-form').appendChild(childrenPriceInput);
         }
         childrenPriceInput.value = (data.price || 0) * 0.5;
     }
-
     
     // Update booking summary
     const summaryProgram = document.getElementById('summary-program');
@@ -213,8 +199,54 @@ function initializeForm() {
         });
     }
     
+    // Handle form submission - SAVE DATA BEFORE SUBMITTING
+    const form = document.getElementById('checkout-form');
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            console.log('Form submission intercepted');
+            saveBookingData();
+            // Form will submit normally after this
+        });
+    }
+    
     // Initial participant update
     updateParticipants();
+}
+
+function saveBookingData() {
+    console.log('Saving booking data to localStorage');
+    
+    // Generate booking number
+    const bookingNumber = 'MRT-' + Date.now().toString().slice(-6);
+    
+    // Get form data
+    const formData = {
+        bookingNumber: bookingNumber,
+        programName: document.getElementById('program-name').textContent,
+        programId: document.getElementById('program-id').value,
+        category: document.getElementById('category').value,
+        date: document.getElementById('date').value,
+        adults: parseInt(document.getElementById('adults').value) || 2,
+        children: parseInt(document.getElementById('children').value) || 0,
+        customerName: document.getElementById('name').value,
+        customerEmail: document.getElementById('email').value,
+        customerPhone: document.getElementById('phone').value,
+        nationality: document.getElementById('nationality').value || 'Not specified',
+        hotel: document.getElementById('hotel').value || 'Not specified',
+        specialRequests: document.getElementById('special-requests').value || 'None',
+        price: document.getElementById('summary-total').textContent,
+        timestamp: new Date().toISOString()
+    };
+    
+    console.log('Booking data to save:', formData);
+    
+    // Save to localStorage
+    try {
+        localStorage.setItem('bookingInfo', JSON.stringify(formData));
+        console.log('Booking data saved successfully');
+    } catch (error) {
+        console.error('Error saving booking data:', error);
+    }
 }
 
 function updateParticipants() {
@@ -234,64 +266,39 @@ function updateParticipants() {
 }
 
 function updateTotalPrice() {
-    const adultsSelect = document.getElementById("adults");
-    const childrenSelect = document.getElementById("children");
-    const summaryTotal = document.getElementById("summary-total");
-    const category = document.getElementById("category").value;
-    const id = document.getElementById("program-id").value;
-
-    if (adultsSelect && childrenSelect && summaryTotal) {
+    const adultsSelect = document.getElementById('adults');
+    const childrenSelect = document.getElementById('children');
+    const summaryTotal = document.getElementById('summary-total');
+    const adultPriceInput = document.getElementById('program-price');
+    const childPriceInput = document.getElementById('children-price');
+    
+    if (adultsSelect && childrenSelect && summaryTotal && adultPriceInput) {
         const adults = parseInt(adultsSelect.value) || 2;
         const children = parseInt(childrenSelect.value) || 0;
-        const totalPeople = adults + children;
-
-        let totalPrice = 0;
-        let adultPrice = 0;
-        let childPrice = 0;
-
-        // Retrieve program data again to access groupPricing
-        let programData = null;
-        if (category === 'activity' && typeof activitiesData !== 'undefined') {
-            programData = activitiesData[id];
-        } else if (category === 'tour' && typeof toursData !== 'undefined') {
-            programData = toursData[id];
-        }
-
-        if (programData) {
-            if (programData.groupPricing) {
-                if (category === 'activity') {
-                    totalPrice = calculateDynamicPrice(id, totalPeople);
-                } else if (category === 'tour') {
-                    totalPrice = calculateDynamicTourPrice(id, totalPeople);
-                }
-                // For display purposes in breakdown, we can approximate per person price
-                adultPrice = totalPrice / totalPeople; 
-                childPrice = totalPrice / totalPeople; // Assuming same for children in group pricing
-            } else if (programData.pricing) {
-                adultPrice = programData.pricing.adult;
-                childPrice = programData.pricing.child;
-                totalPrice = (adults * adultPrice) + (children * childPrice);
-            } else if (programData.price) {
-                adultPrice = programData.price;
-                childPrice = programData.price * 0.5; // Fallback for old single price
-                totalPrice = (adults * adultPrice) + (children * childPrice);
-            }
-        }
-
+        
+        // Get prices
+        const adultPrice = parseFloat(adultPriceInput.value) || 0;
+        const childPrice = childPriceInput ? parseFloat(childPriceInput.value) || 0 : adultPrice * 0.5;
+        
+        // Calculate totals
+        const adultTotal = adultPrice * adults;
+        const childrenTotal = childPrice * children;
+        const totalPrice = adultTotal + childrenTotal;
+        
         summaryTotal.textContent = totalPrice.toFixed(2);
-
+        
         // Update detailed breakdown if it exists
-        const breakdownEl = document.getElementById("price-breakdown");
+        const breakdownEl = document.getElementById('price-breakdown');
         if (breakdownEl) {
             breakdownEl.innerHTML = `
                 <div class="breakdown-item">
-                    <span>Adults (${adults} × $${adultPrice.toFixed(2)}):</span>
-                    <span>$${(adults * adultPrice).toFixed(2)}</span>
+                    <span>Adults (${adults} × $${adultPrice}):</span>
+                    <span>$${adultTotal.toFixed(2)}</span>
                 </div>
                 ${children > 0 ? `
                 <div class="breakdown-item">
-                    <span>Children (${children} × $${childPrice.toFixed(2)}):</span>
-                    <span>$${(children * childPrice).toFixed(2)}</span>
+                    <span>Children (${children} × $${childPrice}):</span>
+                    <span>$${childrenTotal.toFixed(2)}</span>
                 </div>` : ''}
                 <div class="breakdown-total">
                     <span>Total:</span>
@@ -299,17 +306,18 @@ function updateTotalPrice() {
                 </div>
             `;
         }
-
-        console.log("Price calculation:", {
+        
+        console.log('Price calculation:', {
             adultPrice,
             childPrice,
             adults,
             children,
+            adultTotal,
+            childrenTotal,
             totalPrice
         });
     }
 }
-
 
 // Date picker functions (keeping your existing ones)
 function initializeDatePicker() {
@@ -488,42 +496,3 @@ function addDatePickerCSS() {
     document.head.appendChild(style);
     console.log('Date picker CSS added');
 }
-
-// Add this to your checkout.js
-document.addEventListener('DOMContentLoaded', function() {
-    function updateTotalPriceField() {
-        const totalPriceField = document.getElementById('total-price');
-        const summaryTotal = document.getElementById('summary-total');
-        const programName = document.getElementById('program-name');
-        const programNameField = document.getElementById('program-name-hidden');
-        
-        if (totalPriceField && summaryTotal && summaryTotal.textContent) {
-            totalPriceField.value = '€' + summaryTotal.textContent;
-            console.log('Updated total price field:', totalPriceField.value);
-        }
-        
-        if (programNameField && programName && programName.textContent !== 'Loading...') {
-            programNameField.value = programName.textContent;
-            console.log('Updated program name field:', programNameField.value);
-        }
-    }
-    
-    // Update on page load
-    setTimeout(updateTotalPriceField, 2000);
-    
-    // Update when adults/children change
-    const adultsSelect = document.getElementById('adults');
-    const childrenSelect = document.getElementById('children');
-    
-    if (adultsSelect) {
-        adultsSelect.addEventListener('change', function() {
-            setTimeout(updateTotalPriceField, 100);
-        });
-    }
-    
-    if (childrenSelect) {
-        childrenSelect.addEventListener('change', function() {
-            setTimeout(updateTotalPriceField, 100);
-        });
-    }
-});

@@ -80,7 +80,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Set meta information
         let metaHtml = `
-            <div class="meta-item"><i class="far fa-clock"></i> Duration: ${data.duration}</div>
             <div class="meta-item"><i class="fas fa-map-marker-alt"></i> Location: ${data.location}</div>
         `;
         
@@ -373,7 +372,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         </div>
                         <div class="tour-content">
                             <div class="tour-info">
-                                <span><i class="far fa-clock"></i> ${relatedData.duration}</span>
                                 ${priceDisplay}
                             </div>
                             <h3>${relatedData.title}</h3>

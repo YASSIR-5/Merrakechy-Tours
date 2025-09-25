@@ -758,7 +758,6 @@ document.addEventListener('DOMContentLoaded', function () {
             description: `<p>Experience the magic of the Sahara Desert with our guided camel trek. This immersive desert adventure takes you through rolling golden dunes as the sun paints the landscape in vibrant colors.</p>
                          <p>Led by experienced local guides, you'll learn about desert life and nomadic traditions while enjoying the peaceful rhythm of camel travel - a method of transport used for centuries across the Saharan expanse.</p>
                          <p>This activity is suitable for all ages and provides excellent photo opportunities of Morocco's iconic desert landscapes. After your trek, relax with traditional mint tea while watching the sunset over the dunes.</p>`,
-            duration: '3 hours',
             location: 'Merzouga, Morocco',
             price: 45,
             groupSize: '1-10 people',
@@ -788,7 +787,6 @@ document.addEventListener('DOMContentLoaded', function () {
             description: `<p>Get your adrenaline pumping with our guided quad biking adventure through the unique terrain of the Agafay Desert. Navigate thrilling trails across a lunar-like landscape just outside Marrakech.</p>
                           <p>After a thorough safety briefing and practice session, you'll follow your experienced guide through varied terrain - from rocky paths to small dunes and open plains. Stop at panoramic viewpoints to capture stunning photographs of the Atlas Mountains in the distance.</p>
                           <p>This exciting activity combines adventure with natural beauty, giving you a unique perspective on Morocco's diverse landscapes. No previous quad biking experience is necessary, making it accessible to beginners while still thrilling for experienced riders.</p>`,
-            duration: '2 hours',
             location: 'Agafay Desert, near Marrakech',
             price: 65,
             groupSize: '1-8 people',
@@ -818,7 +816,6 @@ document.addEventListener('DOMContentLoaded', function () {
             description: `<p>Soar above the Atlas Mountains with breathtaking views on a dawn hot air balloon flight. This unforgettable experience begins in the early morning as you watch the balloon inflation before gently rising into the sky.</p>
                          <p>As the sun rises, you'll drift peacefully over traditional Berber villages, mountains, and desert landscapes. Your pilot will point out significant landmarks and share stories about the region while you capture stunning photographs from this unique aerial perspective.</p>
                          <p>After landing, enjoy a traditional Berber breakfast in a local tent, complete with mint tea and freshly baked bread. You'll receive a flight certificate before returning to your accommodation with memories to last a lifetime.</p>`,
-            duration: '4 hours (approx. 1 hour in the air)',
             location: 'Atlas Mountains region, near Marrakech',
             price: 195,
             groupSize: 'Up to 16 people per balloon',

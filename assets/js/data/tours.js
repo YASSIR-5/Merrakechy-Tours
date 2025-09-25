@@ -179,7 +179,6 @@ const toursData = {
         bring: [
             'Sun protection (hat, sunglasses, sunscreen)',
             'Camera for capturing colorful scenes',
-            'Respectful clothing (covering shoulders and knees)',
         ],
         availability: 'Daily departures at 9:00 AM, year-round',
         additionalInfo: {
@@ -322,6 +321,7 @@ const toursData = {
         "../assets/images/tours/agafay.jpg",
         "../assets/images/tours/agafay1.jfif",
         "../assets/images/tours/agafay2.jfif",
+        "../assets/images/tours/agafay4.jpeg"
     ],
     reviews: 122,
     description: `

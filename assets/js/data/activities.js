@@ -81,8 +81,7 @@ Enjoy 2 hours of total escape, far beyond an ordinary quad ride: journey through
         `,
         includes: [
             'Camel ride',
-            'Traditional Moroccan refreshments',
-            'Mint tea break in Berber tent',
+            'Mint tea break',
             'Photo stops at scenic viewpoints'
         ],
         bring: [
@@ -98,7 +97,7 @@ Enjoy 2 hours of total escape, far beyond an ordinary quad ride: journey through
             'Confirmation': 'Immediate',
             'Cancellation': 'Free up to 24h before'
         },
-        relatedPrograms: ['quad-biking', 'hot-air-balloon', 'atlas-mountains']
+        relatedPrograms: ['quad-biking', 'hot-air-balloon',]
     },
 
     'hot-air-balloon': {
@@ -214,7 +213,7 @@ Enjoy 2 hours of total escape, far beyond an ordinary quad ride: journey through
 
         includes: [
             "Transportation from your hotel or riad",
-            "Hammam gommage et massage relaxant",
+            "Hammam, exfoliation, and relaxing massage.",
             "Mint tea and Moroccan pastries",
         ],
         bring: [

@@ -33,6 +33,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     console.log('Found transportation data');
                 }
                 break;
+            case 'rental':
+                if (typeof rentalsData !== 'undefined' && rentalsData[id]) {
+                    programData = rentalsData[id];
+                    console.log('Found rental data');
+                }
+                break;
             case 'destination':
                 if (typeof destinationsData !== 'undefined' && destinationsData[id]) {
                     programData = destinationsData[id];

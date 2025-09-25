@@ -77,6 +77,9 @@ document.addEventListener('DOMContentLoaded', function() {
            case 'transportation':
                dataSource = transportationData;
                break;
+           case 'rental':
+               dataSource = rentalsData;
+               break;
            default:
                console.warn('Unknown category:', category);
                return;

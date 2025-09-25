@@ -29,6 +29,8 @@ function loadProgramData(category, id) {
             programData = toursData[id];
         } else if (category === 'transportation' && typeof transportationData !== 'undefined') {
             programData = transportationData[id];
+        } else if (category === 'rental' && typeof rentalsData !== 'undefined') {
+            programData = rentalsData[id];
         }
         
         if (programData) {

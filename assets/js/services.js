@@ -259,3 +259,117 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+
+// Function to render rental items
+function renderRentals(category, containerId) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    container.innerHTML = ""; // Clear existing content
+
+    for (const rentalId in rentalsData) {
+        const rental = rentalsData[rentalId];
+        // Filter by category
+        if (rental.type !== category) continue;
+
+        const serviceCard = `
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="${rental.mainImage}" alt="${rental.title}">
+                </div>
+                <div class="service-info">
+                    <div class="service-title">
+                        <h3>${rental.title}</h3>
+                        <div class="service-price">From <span>€${rental.price}</span><small>${rental.duration ? '/' + rental.duration.toLowerCase().replace('per ', '') : ''}</small></div>
+                    </div>
+                    <div class="service-meta">
+                        <span><i class="far fa-clock"></i> ${rental.duration}</span>
+                        <span><i class="fas fa-map-marker-alt"></i> ${rental.location}</span>
+                    </div>
+                    <p>${rental.subtitle}</p>
+                    <div class="service-rating">
+                        <div class="stars">
+                            ${generateStars(rental.rating)}
+                        </div>
+                        <span>${rental.rating} (${rental.reviews} reviews)</span>
+                    </div>
+                    <div class="service-actions">
+                        <a href="details.html?category=rental&id=${rentalId}" class="btn btn-outline">View Details</a>
+                        <a href="checkout.html?category=rental&id=${rentalId}" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        `;
+        container.innerHTML += serviceCard;
+    }
+}
+
+// Helper function to generate star ratings
+function generateStars(rating) {
+    let starsHtml = "";
+    const fullStars = Math.floor(rating);
+    const hasHalfStar = rating % 1 !== 0;
+
+    for (let i = 0; i < fullStars; i++) {
+        starsHtml += `<i class="fas fa-star"></i>`;
+    }
+    if (hasHalfStar) {
+        starsHtml += `<i class="fas fa-star-half-alt"></i>`;
+    }
+    // Fill remaining with empty stars if desired, or just leave as is
+    for (let i = 0; i < (5 - Math.ceil(rating)); i++) {
+        starsHtml += `<i class="far fa-star"></i>`;
+    }
+    return starsHtml;
+}
+
+// Modify the DOMContentLoaded listener to include rental rendering
+document.addEventListener("DOMContentLoaded", function() {
+    // ... existing code ...
+
+    // Load rental data and render
+    if (typeof rentalsData !== 'undefined') {
+        renderRentals('all', 'rentals-grid'); // Render all rentals initially
+    } else {
+        console.error('rentalsData is not defined. Make sure rental.js is loaded.');
+    }
+
+    // Handle rental sub-category tabs (Bikes, Cars, Homes)
+    const rentalTabs = document.querySelectorAll(".rental-tabs .tab");
+    const rentalTabContents = document.querySelectorAll(".content-section#rentals .tab-content");
+
+    rentalTabs.forEach(tab => {
+        tab.addEventListener("click", function() {
+            rentalTabs.forEach(t => t.classList.remove("active"));
+            this.classList.add("active");
+
+            const targetTab = this.dataset.tab;
+            rentalTabContents.forEach(content => {
+                if (content.id === `${targetTab}-content`) {
+                    content.classList.add("active");
+                } else {
+                    content.classList.remove("active");
+                }
+            });
+            // Dynamically render content for the selected rental tab
+            if (typeof rentalsData !== 'undefined') {
+                renderRentals(targetTab, `${targetTab}-grid`);
+            } else {
+                console.error('rentalsData is not defined. Make sure rental.js is loaded.');
+            }
+        });
+    });
+
+    // Initial render for the active rental tab (Bikes by default)
+    const initialActiveRentalTab = document.querySelector('.rental-tabs .tab.active');
+    if (initialActiveRentalTab) {
+        const initialCategory = initialActiveRentalTab.dataset.tab;
+        if (typeof rentalsData !== 'undefined') {
+            renderRentals(initialCategory, `${initialCategory}-grid`);
+        } else {
+            console.error('rentalsData is not defined. Make sure rental.js is loaded.');
+        }
+    }
+});
+

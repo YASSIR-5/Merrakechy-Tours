@@ -1,4 +1,4 @@
-// Updated checkout.js - Handles Adult/Children Pricing Structure + Booking Data Storage
+// Updated checkout.js - Handles Adult/Children Pricing Structure
 
 document.addEventListener('DOMContentLoaded', function() {
     console.log('=== CHECKOUT DEBUG ===');
@@ -29,6 +29,8 @@ function loadProgramData(category, id) {
             programData = toursData[id];
         } else if (category === 'transportation' && typeof transportationData !== 'undefined') {
             programData = transportationData[id];
+        } else if (category === 'rental' && typeof rentalsData !== 'undefined') {
+            programData = rentalsData[id];
         }
         
         if (programData) {
@@ -199,54 +201,8 @@ function initializeForm() {
         });
     }
     
-    // Handle form submission - SAVE DATA BEFORE SUBMITTING
-    const form = document.getElementById('checkout-form');
-    if (form) {
-        form.addEventListener('submit', function(e) {
-            console.log('Form submission intercepted');
-            saveBookingData();
-            // Form will submit normally after this
-        });
-    }
-    
     // Initial participant update
     updateParticipants();
-}
-
-function saveBookingData() {
-    console.log('Saving booking data to localStorage');
-    
-    // Generate booking number
-    const bookingNumber = 'MRT-' + Date.now().toString().slice(-6);
-    
-    // Get form data
-    const formData = {
-        bookingNumber: bookingNumber,
-        programName: document.getElementById('program-name').textContent,
-        programId: document.getElementById('program-id').value,
-        category: document.getElementById('category').value,
-        date: document.getElementById('date').value,
-        adults: parseInt(document.getElementById('adults').value) || 2,
-        children: parseInt(document.getElementById('children').value) || 0,
-        customerName: document.getElementById('name').value,
-        customerEmail: document.getElementById('email').value,
-        customerPhone: document.getElementById('phone').value,
-        nationality: document.getElementById('nationality').value || 'Not specified',
-        hotel: document.getElementById('hotel').value || 'Not specified',
-        specialRequests: document.getElementById('special-requests').value || 'None',
-        price: document.getElementById('summary-total').textContent,
-        timestamp: new Date().toISOString()
-    };
-    
-    console.log('Booking data to save:', formData);
-    
-    // Save to localStorage
-    try {
-        localStorage.setItem('bookingInfo', JSON.stringify(formData));
-        console.log('Booking data saved successfully');
-    } catch (error) {
-        console.error('Error saving booking data:', error);
-    }
 }
 
 function updateParticipants() {

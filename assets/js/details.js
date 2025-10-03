@@ -33,6 +33,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     console.log('Found transportation data');
                 }
                 break;
+            case 'rental':
+                if (typeof rentalsData !== 'undefined' && rentalsData[id]) {
+                    programData = rentalsData[id];
+                    console.log('Found rental data');
+                }
+                break;
             case 'destination':
                 if (typeof destinationsData !== 'undefined' && destinationsData[id]) {
                     programData = destinationsData[id];
@@ -80,6 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Set meta information
         let metaHtml = `
+            <div class="meta-item"><i class="far fa-clock"></i> Duration: ${data.duration}</div>
             <div class="meta-item"><i class="fas fa-map-marker-alt"></i> Location: ${data.location}</div>
         `;
         
@@ -124,19 +131,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     `;
                 });
             }
-            const customPricingMessage = document.getElementById('custom-pricing-message');
-    
-    if (data.showCustomPricing === true) {
-        // Show the custom pricing message
-        if (customPricingMessage) {
-            customPricingMessage.style.display = 'block';
-        }
-    } else {
-        // Hide the custom pricing message
-        if (customPricingMessage) {
-            customPricingMessage.style.display = 'none';
-        }
-    }
             
             document.getElementById('program-itinerary').innerHTML = itineraryHtml;
             
@@ -192,44 +186,16 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         // Set price if applicable (not for destinations) - UPDATED FOR ADULT/CHILDREN PRICING
-                   // For bookable items, show the booking button
-                   // Set price if applicable (not for destinations) - UPDATED FOR ADULT/CHILDREN PRICING
-        if (data.price || data.pricing || data.groupPricing) { // <-- ADDED data.groupPricing HERE
+        if (data.price || data.pricing) {
             updatePricingDisplay(data);
             
             // For bookable items, show the booking button
-            document.getElementById("booking-link").href = `checkout.html?category=${category}&id=${id}`;
-
-            // Add event listener for the booking form
-            const bookingForm = document.getElementById("booking-form");
-            if (bookingForm) {
-                bookingForm.addEventListener("submit", function(event) {
-                    event.preventDefault();
-                    const adults = parseInt(document.getElementById("adults").value);
-                    const children = parseInt(document.getElementById("children").value);
-                    const totalPeople = adults + children;
-
-                    let calculatedPrice = 0;
-                    if (category === 'activity' && data.groupPricing) {
-                        calculatedPrice = calculateDynamicPrice(id, totalPeople);
-                    } else if (category === 'tour' && data.groupPricing) {
-                        calculatedPrice = calculateDynamicTourPrice(id, totalPeople);
-                    } else if (data.pricing) {
-                        calculatedPrice = (adults * data.pricing.adult) + (children * data.pricing.child);
-                    } else if (data.price) {
-                        calculatedPrice = data.price * totalPeople;
-                    }
-
-                    document.getElementById("calculated-price").textContent = `Total Price: €${calculatedPrice}`;
-                    // Further logic for booking, e.g., redirect to confirmation page
-                    console.log("Booking submitted for:", data.title, "Total people:", totalPeople, "Calculated Price:", calculatedPrice);
-                });
-            }
+            document.getElementById('booking-link').href = `checkout.html?category=${category}&id=${id}`;
         } else {
-            // Hide booking section if not applicable
-            document.getElementById("booking-section").style.display = "none";
+            // For destinations, hide the price and booking section
+            document.querySelector('.sidebar-box:first-child').style.display = 'none';
         }
-
+        
         // Set availability if applicable
         if (data.availability) {
             document.getElementById('program-availability').textContent = data.availability;
@@ -262,72 +228,44 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelector('.related-tours').style.display = 'none';
         }
     }
-
     
-        // NEW FUNCTION: Update pricing display with adult/children prices and group pricing
+    // NEW FUNCTION: Update pricing display with adult/children prices
     function updatePricingDisplay(data) {
-        const priceBox = document.querySelector(".price-box");
-
+        const priceBox = document.querySelector('.price-box');
+        
         if (!priceBox) return;
-
-        if (data.groupPricing) {
-            // Display group pricing tiers
-            let pricingHtml = `
-                <div class="price-label">Price From</div>
-                <div class="pricing-details group-pricing">
-            `;
-            data.groupPricing.forEach(tier => {
-                const maxText = tier.max === Infinity ? "+" : `-${tier.max}`;
-                pricingHtml += `
-                    <div class="price-item">
-                        <span>${tier.min}${maxText} people:</span>
-                        <span class="price-value">€${tier.pricePerPerson}<small>/person</small></span>
-                    </div>
-                `;
-            });
-            pricingHtml += `</div>`;
-            priceBox.innerHTML = pricingHtml;
-        } else if (data.pricing) {
-            // Get prices
-            const adultPrice = data.pricing.adult;
-            const childPrice = data.pricing.child;
-
-            // Check if we have different prices for adults and children
-            if (data.pricing.adult !== data.pricing.child) {
-                // Show both adult and children prices
-                priceBox.innerHTML = `
-                    <div class="price-label">Price From</div>
-                    <div class="pricing-details">
-                        <div class="price-item">
-                            <span>Adults:</span>
-                            <span class="price-value">€${adultPrice}<small>/person</small></span>
-                        </div>
-                        <div class="price-item">
-                            <span>Children:</span>
-                            <span class="price-value">€${childPrice}<small>/person</small></span>
-                        </div>
-                    </div>
-                    ${data.priceUnit ? `<div class="price-unit">${data.priceUnit}</div>` : ""}
-                `;
-            } else {
-                // Show single price (fallback to old format)
-                const displayPrice = data.price || adultPrice;
-                priceBox.innerHTML = `
-                    <div class="price-label">Price From</div>
-                    <div class="price-value">€${displayPrice}<small>/person</small></div>
-                    ${data.priceUnit ? `<div class="price-unit">${data.priceUnit}</div>` : ""}
-                `;
-            }
-        } else if (data.price) {
-            // Display single price
+        
+        // Get prices
+        const adultPrice = data.pricing ? data.pricing.adult : data.price;
+        const childPrice = data.pricing ? data.pricing.child : (data.price * 0.5);
+        
+        // Check if we have different prices for adults and children
+        if (data.pricing && data.pricing.adult !== data.pricing.child) {
+            // Show both adult and children prices
             priceBox.innerHTML = `
                 <div class="price-label">Price From</div>
-                <div class="price-value">€${data.price}<small>/person</small></div>
-                ${data.priceUnit ? `<div class="price-unit">${data.priceUnit}</div>` : ""}
+                <div class="pricing-details">
+                    <div class="price-item">
+                        <span>Adults:</span>
+                        <span class="price-value">€${adultPrice}<small>/person</small></span>
+                    </div>
+                    <div class="price-item">
+                        <span>Children:</span>
+                        <span class="price-value">€${childPrice}<small>/person</small></span>
+                    </div>
+                </div>
+                ${data.priceUnit ? `<div class="price-unit">${data.priceUnit}</div>` : ''}
+            `;
+        } else {
+            // Show single price (fallback to old format)
+            const displayPrice = data.price || adultPrice;
+            priceBox.innerHTML = `
+                <div class="price-label">Price From</div>
+                <div class="price-value">$${displayPrice}<small>/person</small></div>
+                ${data.priceUnit ? `<div class="price-unit">${data.priceUnit}</div>` : ''}
             `;
         }
     }
-
     
     // Function to load related programs - UPDATED FOR PRICING
     function loadRelatedPrograms(relatedIds, currentCategory) {
@@ -358,9 +296,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 let priceText = '';
                 if (relatedData.pricing) {
                     const adultPrice = relatedData.pricing.adult;
-                    priceText = `From €${adultPrice}`;
+                    priceText = `From $${adultPrice}`;
                 } else if (relatedData.price) {
-                    priceText = `From €${relatedData.price}`;
+                    priceText = `From $${relatedData.price}`;
                 }
                 
                 const priceDisplay = priceText ? `<span><i class="fas fa-tag"></i> ${priceText}</span>` : '';
@@ -372,6 +310,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         </div>
                         <div class="tour-content">
                             <div class="tour-info">
+                                <span><i class="far fa-clock"></i> ${relatedData.duration}</span>
                                 ${priceDisplay}
                             </div>
                             <h3>${relatedData.title}</h3>
@@ -857,124 +796,3 @@ function renderSimpleRouteMap(tourData) {
         </div>
     `;
 }
-
-let lightboxImages = [];
-let currentIndex = 0;
-
-function createSimpleLightbox() {
-    // Remove any existing lightbox
-    const existing = document.getElementById('simple-lightbox');
-    if (existing) existing.remove();
-
-    // Create lightbox HTML
-    const lightboxHTML = `
-        <div id="simple-lightbox" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 999999;">
-            <div id="lightbox-close" style="position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; cursor: pointer;">&times;</div>
-            <div id="lightbox-left" style="position: absolute; top: 50%; left: 20px; font-size: 50px; color: white; cursor: pointer;">&#10094;</div>
-            <div id="lightbox-right" style="position: absolute; top: 50%; right: 20px; font-size: 50px; color: white; cursor: pointer;">&#10095;</div>
-            <div id="lightbox-bg" style="display: flex; justify-content: center; align-items: center; width: 100%; height: 100%; padding: 50px;">
-                <img id="simple-lightbox-img" style="max-width: 100%; max-height: 100%; object-fit: contain;" src="" alt="">
-            </div>
-        </div>
-    `;
-
-    // Add to body
-    document.body.insertAdjacentHTML('beforeend', lightboxHTML);
-
-    // Add interactions
-    document.addEventListener('click', function (e) {
-    if (e.target && e.target.id === 'lightbox-close') {
-        closeLightbox();
-    }
-});
-
-    document.getElementById('lightbox-left').onclick = () => showPrevImage();
-    document.getElementById('lightbox-right').onclick = () => showNextImage();
-
-    // Close when clicking on background (not image)
-    document.getElementById('lightbox-bg').onclick = (e) => {
-        if (e.target.id === 'lightbox-bg') {
-            closeLightbox();
-        }
-    };
-
-    // Escape & arrow keys
-    document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') closeLightbox();
-        if (e.key === 'ArrowLeft') showPrevImage();
-        if (e.key === 'ArrowRight') showNextImage();
-    });
-
-    // Swipe support
-    addSwipeSupport();
-}
-
-function openSimpleLightbox(imgSrc) {
-    const lightbox = document.getElementById('simple-lightbox');
-    const lightboxImg = document.getElementById('simple-lightbox-img');
-    currentIndex = lightboxImages.findIndex(src => src === imgSrc);
-
-    if (lightbox && lightboxImg) {
-        lightboxImg.src = imgSrc;
-        lightbox.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-    }
-}
-
-function closeLightbox() {
-    const lightbox = document.getElementById('simple-lightbox');
-    if (lightbox) {
-        lightbox.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    }
-}
-
-function showPrevImage() {
-    currentIndex = (currentIndex - 1 + lightboxImages.length) % lightboxImages.length;
-    document.getElementById('simple-lightbox-img').src = lightboxImages[currentIndex];
-}
-
-function showNextImage() {
-    currentIndex = (currentIndex + 1) % lightboxImages.length;
-    document.getElementById('simple-lightbox-img').src = lightboxImages[currentIndex];
-}
-
-function addLightboxClicks() {
-    setTimeout(() => {
-        const images = document.querySelectorAll('#program-image, .tour-detail-gallery img, .slider-slide img');
-        lightboxImages = Array.from(images).map(img => img.src);
-
-        images.forEach(img => {
-            img.style.cursor = 'pointer';
-            img.onclick = function () {
-                openSimpleLightbox(this.src);
-            };
-        });
-    }, 1000);
-}
-
-function addSwipeSupport() {
-    let touchStartX = 0;
-
-    const lightbox = document.getElementById('simple-lightbox');
-
-    lightbox.addEventListener('touchstart', function (e) {
-        touchStartX = e.changedTouches[0].screenX;
-    });
-
-    lightbox.addEventListener('touchend', function (e) {
-        const touchEndX = e.changedTouches[0].screenX;
-        if (touchStartX - touchEndX > 50) {
-            showNextImage();
-        } else if (touchEndX - touchStartX > 50) {
-            showPrevImage();
-        }
-    });
-}
-
-// 🔁 Initialize everything
-setTimeout(() => {
-    createSimpleLightbox();
-    addLightboxClicks();
-}, 2000);
-
